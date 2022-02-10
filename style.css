@@ -10,8 +10,8 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 250px;
+    padding-right: 250px;
     min-height: 8vh;
 }
 
@@ -21,7 +21,7 @@ nav{
 }
 
 .logo{
-    color: orange;
+    color: #FF8000;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 20px;
@@ -57,8 +57,8 @@ nav{
 .breadCrumbs{
     display: flex;
     color: #93959f;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 250px;
+    padding-right: 250px;
     height: 30px;
     font-size: 13px;
     /* background-color: #282c3f; */
@@ -69,4 +69,90 @@ nav{
 .breadCrumbs .dark{
     color: #3D4152;
     padding-left: 5px;
+}
+
+.details{
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    min-height: 250px;
+    padding-left: 250px;
+    padding-right: 250px;
+}
+
+.image{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.image img{
+    width: 250px;
+    height: 165px;
+}
+
+.details .name {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: lighter;
+}
+
+.dashbroad{
+    padding: 40px 50px 40px 50px;
+}
+
+.dashbroad .typeOfFood{
+    color: #A0A0A0;
+    padding: 13px 0 0 0;
+    font-size: 16px;
+}
+
+.dashbroad .landmark{
+    color: #A0A0A0;
+    padding: 13px 0 0 0;
+    font-size: 13px;
+}
+
+.otherDetails{
+    padding: 16px 0 0 0;
+    display: flex;
+}
+
+.r1{
+    color: #FFFFFF;
+    padding: 5px 0 8px 0;
+    float: left;
+}
+
+.r2{
+    color: #A0A0A0;
+    float: left;
+    clear: left;
+    font-size: 13px;
+}
+
+.rating{
+    padding-right: 15px;
+}
+
+.time{
+    padding: 0 15px 0 15px;
+}
+
+.cost{
+    padding: 0 15px 0 15px;
+}
+
+.offer{
+    padding: 40px 50px 40px 50px;
+    font-size: 30px;
+}
+
+.list{
+    color: #DEDEDE;
+    padding: 30px 30px 30px 30px;
+}
+
+.list li{
+    list-style: none;
+    font-size: 14px;
+    padding: 5px 0 0 5px;
 }
