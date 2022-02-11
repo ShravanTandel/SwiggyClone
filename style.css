@@ -97,6 +97,7 @@ nav{
 
 .dashbroad{
     padding: 40px 50px 40px 50px;
+    min-width: 500px;
 }
 
 .dashbroad .typeOfFood{
