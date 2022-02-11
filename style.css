@@ -10,8 +10,8 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 200px;
+    padding-right: 200px;
     min-height: 8vh;
 }
 
@@ -57,8 +57,8 @@ nav{
 .breadCrumbs{
     display: flex;
     color: #93959f;
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 200px;
+    padding-right: 200px;
     height: 30px;
     font-size: 13px;
     /* background-color: #282c3f; */
@@ -75,8 +75,8 @@ nav{
     display: flex;
     background-color: rgb(0, 0, 0);
     min-height: 250px;
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .details .image{
@@ -160,8 +160,8 @@ nav{
 
 .menuAndCart{
     display: flex;
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 200px;
+    padding-right: 200px;
     padding-top: 50px;
 }
 
@@ -209,7 +209,7 @@ nav{
     /* float: left; */
     clear: left;
     padding: 10px 0 0 0;
-    color: #3D4152
+    color: #686b78
 }
 
 .listItems hr{
@@ -266,7 +266,7 @@ nav{
     margin-top: 10px;
     width: 100px;
     height: 30px;
-    border-color: rgba(40,44,63,.30);
+    border-color: #d4d5d9;
     background-color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -283,4 +283,114 @@ nav{
 .add:hover{
   box-shadow: 3px 3px rgba(40,44,63,.30);
   /* transform: translateY(-0.25em); */
+}
+
+.cart{
+    padding: 0 0 0 50px;
+}
+
+.cart .cart_name .cart1{
+    color: #3D3C3C;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.cart .cart_name .cart2{
+    clear: left;
+    padding: 10px 0 0 0;
+    color: #686b78
+}
+
+.cart .cart_items .cart_item{
+    display: flex;
+    padding: 35px 0 0 0;
+}
+
+.cart .cart_items .cart_item .cart_vegORnonveg{
+    color: green;
+}
+
+.cart .cart_items .cart_item .dishName{
+    padding: 0 30px 0 5px;
+}
+
+.cart .cart_items .cart_item .price{
+    float: right;
+    padding: 0 0 0 5px;
+}
+
+.cart .cart_items .cart_item .addSub{
+    display: flex;
+    margin: 0 20px 0 10px;
+    border: 1px solid #d4d5d9;
+    width: 70px;
+}
+
+.cart .cart_items .cart_item .addSub .minus
+{
+    padding: 4px 10px 4px 10px;
+    cursor: pointer;
+}
+
+.cart .cart_items .cart_item .addSub .count{
+    padding: 4px 4px 4px 4px;
+}
+
+.cart .cart_items .cart_item .addSub .plus{
+    padding: 4px 4px 10px 10px;
+    cursor: pointer;
+}
+
+.cart .subTotal{
+    display: flex;
+    padding: 30px 0 0 0;
+    /* justify-content: center; */
+}
+
+.cart .subTotal .price{
+    color: #3d4152;
+    padding-left: 150px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.cart .subTotal .sub .s1{
+    color: #3d4152;
+    font-weight: 600;
+}
+
+.cart .subTotal .sub .s2{
+    color: #7e808c;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 2px 0 0 0;
+}
+
+.cart .checkout{
+    padding: 30px 0 0 0;
+}
+
+.cart .checkout .button{
+    height: 50px;
+    background-color: green;
+    outline: 0;
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+    margin-top: 28px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.cart .checkout button:hover{
+    box-shadow: 5px 5px rgba(54,223,29,.50);
+}
+
+.cart .cart_items .cart_item{
+    font-size: 14px;
 }
