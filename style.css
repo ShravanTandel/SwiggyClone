@@ -1,6 +1,6 @@
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0rem;
+    padding: 0rem;
     box-sizing: inherit;
     font-family: 'Lato', sans-serif;
 }
@@ -83,7 +83,7 @@ nav{
 
 .details{
     display: flex;
-    background-color: rgb(0, 0, 0);
+    background-color: #000000;
     min-height: 250rem;
     padding-left: 200rem;
     padding-right: 200rem;
@@ -159,31 +159,31 @@ nav{
 } */
 
 .offer-padding{
-    width: 298px;
-    padding: 74px 0 48px;
+    width: 298rem;
+    padding: 74rem 0 48rem;
     height: 100%;
 }
 
 .offer{
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1rem solid rgba(255, 255, 255, 0.3);
     transform: translateZ(0);
     transition: transform .2s ease-in-out;
-    /* border: 1px solid #bec0c8; */
+    /* border: 1rem solid #bec0c8; */
     position: relative;
 }
 
 .offer .name{
     background-color: #000000;
     color: white;
-    font-size: 20px;
+    font-size: 20rem;
     font-weight: 500;
     display: inline-block;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding-right: 10rem;
+    padding-bottom: 10rem;
     text-transform: uppercase;
     position: absolute;
-    top: -13px;
-    left: -6px;
+    top: -13rem;
+    left: -6rem;
 }
 
 .list{
@@ -198,8 +198,8 @@ nav{
 }
 
 .searchbar-and-checkboxes{
-    max-width: 1200px;
-    min-width: 1200px;
+    max-width: 1200rem;
+    min-width: 1200rem;
     position: relative;
     margin: 0 auto;
 }
@@ -208,32 +208,32 @@ nav{
     display: table;
     color: #3d4152;
     font-weight: 500;
-    height: 40px;
-    font-size: 14px;
+    height: 40rem;
+    font-size: 14rem;
     position: absolute;
-    bottom: 50px;
-    width: 538px;
-    transform: translate3d(0,72px,0);
+    bottom: 50rem;
+    width: 538rem;
+    transform: translate3d(0,72rem,0);
     transition: transform .2s ease-in-out;
     pointer-events: auto;
-    left: 250px;
+    left: 250rem;
 }
 
 .searchbar-and-checkboxes-1 .favourite{
     float: right;
     display: table;
     table-layout: fixed;
-    box-shadow: 0 3px 15px 0 rgb(40 44 63 / 10%);
-    border: 1px solid rgba(0,0,0,.04);
-    height: 40px;
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 10%);
+    border: 1rem solid rgba(0,0,0,.04);
+    height: 40rem;
     background-color: #fff;
-    margin-right: 22px;
+    margin-right: 22rem;
 }
 
 .searchbar-and-checkboxes-1 .favourite .name{
     display: table-cell;
     vertical-align: middle;
-    padding-right: 15px;
+    padding-right: 15rem;
     font-weight: 600;
     text-transform: capitalize;
     transition: color .2s ease-in-out;
@@ -247,15 +247,15 @@ nav{
 .searchbar-and-checkboxes-1 .favourite .checkbox-div{
     display: table-cell;
     vertical-align: top;
-    padding-top: 11px;
+    padding-top: 11rem;
     text-align: right;
-    width: 41px;
+    width: 41rem;
 }
 
 .searchbar-and-checkboxes-1 .favourite .checkbox-div label{
-    margin-right: 10px;
-    width: 16px;
-    height: 16px;
+    margin-right: 10rem;
+    width: 16rem;
+    height: 16rem;
     position: relative;
     display: inline-block;
     cursor: default;
@@ -265,24 +265,24 @@ nav{
     float: right;
     display: table;
     table-layout: fixed;
-    box-shadow: 0 3px 15px 0 rgb(40 44 63 / 10%);
-    border: 1px solid rgba(0,0,0,.04);
-    height: 40px;
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 10%);
+    border: 1rem solid rgba(0,0,0,.04);
+    height: 40rem;
     background-color: #fff;
-    margin-right: 22px;
+    margin-right: 22rem;
 }
 
 .searchbar-and-checkboxes-1 .veg-or-nonveg .checkbox-div{
     display: table-cell;
     vertical-align: top;
-    padding-top: 11px;
+    padding-top: 11rem;
     text-align: right;
-    width: 41px;
+    width: 41rem;
 }
 .searchbar-and-checkboxes-1 .veg-or-nonveg .checkbox-div label{
-    margin-right: 10px;
-    width: 16px;
-    height: 16px;
+    margin-right: 10rem;
+    width: 16rem;
+    height: 16rem;
     position: relative;
     display: inline-block;
     cursor: default;
@@ -291,7 +291,7 @@ nav{
 .searchbar-and-checkboxes-1 .veg-or-nonveg .name{
     display: table-cell;
     vertical-align: middle;
-    padding-right: 15px;
+    padding-right: 15rem;
     text-transform: capitalize;
     font-weight: 600;
     transition: color .2s ease-in-out;
@@ -303,16 +303,16 @@ nav{
 }
 
 /* .searchbar-and-checkboxes-1 .checkbox{
-    padding: 10px 10px 10px 10px;
+    padding: 10rem 10rem 10rem 10rem;
 } */
 
 .searchbar-and-checkboxes-1 .searchbar{
-    width: 240px;
+    width: 240rem;
     display: table;
     table-layout: fixed;
-    box-shadow: 0 3px 15px 0 rgb(40 44 63 / 10%);
-    border: 1px solid rgba(0,0,0,.04);
-    height: 40px;
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 10%);
+    border: 1rem solid rgba(0,0,0,.04);
+    height: 40rem;
     background-color: #fff;
 }
 
@@ -325,20 +325,24 @@ nav{
 
 .searchbar-and-checkboxes-1 .searchbar .searchbar-1 input{
     display: inherit;
-    padding-left: 20px;
+    padding-left: 20rem;
     border: none;
     -webkit-appearance: textfield;
     -webkit-rtl-ordering: logical;
     vertical-align: middle;
     width: 80%;
-    height: 22px;
-    line-height: 22px;
+    height: 22rem;
+    line-height: 22rem;
     font-weight: 600;
     position: relative;
-    top: -1px;
+    top: -1rem;
     caret-color: #fc8019;
     cursor: text;
     background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+}
+
+.searchbar-and-checkboxes-1 .searchbar .searchbar-1 input:focus{
+    outline: none;
 }
 
 .menuAndCart{
@@ -374,10 +378,10 @@ nav{
 /* .menuAndCart .category .sideColor{
     position: absolute;
     display: inline-block;
-    left: 250px;
-    top: 35px;
-    width: 4px;
-    height: 18px;
+    left: 250rem;
+    top: 35rem;
+    width: 4rem;
+    height: 18rem;
     background: #fc8019;
     z-index: 1;
 } */
@@ -570,7 +574,7 @@ nav{
 
 .cart .checkout .button{
     height: 50rem;
-    background-color: green;
+    background-color: rgb(12, 133, 12);
     outline: 0;
     cursor: pointer;
     border: 0;
