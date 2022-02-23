@@ -1,3 +1,4 @@
+//Contains list of side menu
 export const sideMenu = [
     "Recommanded",
     "Whopper Friday (30% OFF)",
