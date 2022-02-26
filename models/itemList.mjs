@@ -276,4 +276,4 @@ const menuItemList = [
 
 // console.log(menuItemList)
 
-export default { menuItemList };
+export { menuItemList };
