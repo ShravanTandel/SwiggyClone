@@ -430,9 +430,13 @@ nav{
     justify-content: flex-end;
 }
 
-.listItems .singleItem .vegORnonveg{
+.listItems .singleItem .veg{
     /* padding: 5rem 0 0 0; */
     color: green;
+}
+
+.listItems .singleItem .nonVeg{
+    color: red;
 }
 
 .listItems .singleItem .foodName{
@@ -507,22 +511,27 @@ nav{
     padding: 35rem 0 0 0;
 }
 
-.cart .cart_items .cart_item .cart_vegORnonveg{
+.cart .cart_items .cart_item .veg{
     color: green;
 }
 
+.cart .cart_items .cart_item .nonVeg{
+    color: red;
+}
+
 .cart .cart_items .cart_item .dishName{
-    padding: 0 30rem 0 5rem;
+    padding: 0 20rem 0 5rem;
 }
 
 .cart .cart_items .cart_item .price{
     float: right;
     padding: 0 0 0 5rem;
+    align-items: center;
 }
 
 .cart .cart_items .cart_item .addSub{
     display: flex;
-    margin: 0 20rem 0 10rem;
+    margin: 0 10rem 0 10rem;
     border: 1rem solid #d4d5d9;
     width: 70rem;
 }
