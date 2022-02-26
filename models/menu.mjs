@@ -1,5 +1,5 @@
 //Contains list of side menu
-export const sideMenu = [
+const sideMenu = [
     "Recommanded",
     "Whopper Friday (30% OFF)",
     "New Kings Collection Burgers",
@@ -11,3 +11,5 @@ export const sideMenu = [
     "Burgers and Wraps",
     "What's New",
 ];
+
+export { sideMenu };
