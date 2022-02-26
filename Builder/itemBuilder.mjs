@@ -47,7 +47,7 @@ var ItemBuilder = function () {
             return this;
         },
         build: function () {
-            return new Item(name, isVeg, isBestseller, price, description, image, category);
+            return new Item(this.name, this.isVeg, this.isBestseller, this.price, this.description, this.image, this.category);
         }
     };
 }
