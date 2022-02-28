@@ -9,6 +9,7 @@ import { menuItemList } from "./models/itemList.mjs"
             isVeg: true,
             price: 298,
             count: 2,
+            pk: 1,
         },
     ]
 
@@ -32,7 +33,18 @@ import { menuItemList } from "./models/itemList.mjs"
             let numberOfitems = itemsInCategory.length;
 
             itemsInCategory.forEach((i) => {
-                childComponent += `<div class="singleItem">
+                console.log(i)
+                let flag = false;
+
+                let itemInsideCart;
+                cart.forEach( (j) => {
+                    if(j.pk == i.pk) {
+                        flag = true;
+                        itemInsideCart = j;
+                        console.log(i.name)
+                    }
+                })
+                childComponent += `<div class="singleItem" pk = "${i.pk}">
                 <div class="left">
                     ${i.isVeg ? "<div class = 'veg'>Veg</div>" : "<div class = 'nonVeg'>Non Veg</div>"}
                     <div class="foodName">
@@ -47,9 +59,15 @@ import { menuItemList } from "./models/itemList.mjs"
                 </div>
                 <div class="right">
                     <div class="image">
-                        <img src=${i.image} alt="">
+                            <img src=${i.image} alt="">
+                        <div class = "button">
+                         ${
+                             flag ? `<div class = "addSub"><span class = "minus">-</span><span class = "count">${itemInsideCart.count}</span><span class = "plus">+</span></div>`
+                             :
+                             `<div class = "add">ADD</div>`
+                         }
+                        </div>
                     </div>
-                    <button class="add">Add</button>
                 </div>
             </div>
             <div class="line"></div>`

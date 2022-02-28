@@ -423,12 +423,14 @@ nav{
 }
 
 .listItems .singleItem .left{
+    width: 480rem;
+    padding-right: 20rem;
     justify-content: flex-start;
 }
 
 .listItems .singleItem .right{
     justify-content: flex-end;
-}
+} 
 
 .listItems .singleItem .veg{
     /* padding: 5rem 0 0 0; */
@@ -455,26 +457,62 @@ nav{
 }
 
 .listItems .singleItem .right{
-    padding: 0 0 0 175rem;
+    /* padding: 0 0 0 175rem; */
     justify-content: flex-end;
 }
 
 .listItems .singleItem .image img{
-    width: 100rem;
-    height: 84rem;
+    width: 120rem;
+    height: 100rem;
     border-radius: 10rem;
+    float: right;
 }
 
-.listItems .singleItem .right button{
+.listItems .singleItem .right .button{
     color: #60b246;
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
     width: 100rem;
-    height: 30rem;
-    border-color: #d4d5d9;
-    background-color: white;
-    border-radius: 5rem;
-    cursor: pointer;
+    height: 34rem;
+    transform: translate(10rem, 75rem);
     /* box-shadow: 3rem 3rem rgba(40,44,63,.30); */
+}
+
+.listItems .singleItem .right .button .add{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    border: 1rem solid #d4d5d9;
+    border-radius: 5rem;
+    background-color: white;
+    text-align: center;
+    line-height: 30rem;
+    font-size: 14rem;
+}
+
+.listItems .singleItem .right .button .addSub{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* cursor: pointer; */
+    border: 1rem solid #d4d5d9;
+    border-radius: 5rem;
+    background-color: white;
+    text-align: center;
+    line-height: 30rem;
+    font-size: 14rem;
+}
+
+.listItems .singleItem .right .button .addSub .minus{
+    padding: 0rem 20rem 0rem 0rem;
+    cursor: pointer;
+    /* width: 40rem; */
+}
+
+.listItems .singleItem .right .button .addSub .plus{
+    padding: 0rem 0rem 0rem 20rem;
+    cursor: pointer;
+    /* width: 40rem; */
 }
 
 .line{
