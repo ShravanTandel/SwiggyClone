@@ -64,6 +64,11 @@ nav{
     font-size: 16rem;
 }
 
+.nav-link li a .cartCount {
+    color: orange;
+    text-align: center;
+}
+
 .breadCrumbs{
     display: flex;
     color: #93959f;
@@ -504,13 +509,12 @@ nav{
 }
 
 .listItems .singleItem .right .button .addSub .minus{
-    padding: 0rem 20rem 0rem 0rem;
+    padding: 0rem 20rem 0rem 20rem;
     cursor: pointer;
-    /* width: 40rem; */
 }
 
 .listItems .singleItem .right .button .addSub .plus{
-    padding: 0rem 0rem 0rem 20rem;
+    padding: 0rem 20rem 0rem 20rem;
     cursor: pointer;
     /* width: 40rem; */
 }
@@ -522,9 +526,13 @@ nav{
     margin: 20rem 0;
 }
 
-.add:hover{
-  box-shadow: 3rem 3rem rgba(40,44,63,.30);
+.listItems .singleItem .right .button .add:hover{
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
   /* transform: translateY(-0.25em); */
+}
+
+.listItems .singleItem .right .button .addSub:hover{
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
 }
 
 .cart{
@@ -544,6 +552,11 @@ nav{
     font-size: 16rem;
 }
 
+.cart .cart_items {
+    max-height: 225rem;
+    overflow-y: scroll;
+}
+
 .cart .cart_items .cart_item{
     display: flex;
     padding: 35rem 0 0 0;
@@ -551,14 +564,17 @@ nav{
 
 .cart .cart_items .cart_item .veg{
     color: green;
+    width: 25rem;
 }
 
 .cart .cart_items .cart_item .nonVeg{
     color: red;
+    width: 25rem;
 }
 
 .cart .cart_items .cart_item .dishName{
     padding: 0 20rem 0 5rem;
+    max-width: 100rem;
 }
 
 .cart .cart_items .cart_item .price{
@@ -572,6 +588,7 @@ nav{
     margin: 0 10rem 0 10rem;
     border: 1rem solid #d4d5d9;
     width: 70rem;
+    height: 30rem;
 }
 
 .cart .cart_items .cart_item .addSub .minus
@@ -598,7 +615,9 @@ nav{
 
 .cart .subTotal .price{
     color: #3d4152;
-    padding-left: 150rem;
+    /* padding-left: 150rem; */
+    width: 45%;
+    text-align: right;
     font-size: 16rem;
     font-weight: 600;
 }
@@ -642,6 +661,17 @@ nav{
 
 .cart .cart_items .cart_item{
     font-size: 14rem;
+}
+
+.cart .cart_name .cart3 {
+    color: #7e808c;
+    font-size: 30rem;
+}
+
+.cart .cartEmptyImage img{
+    padding: 20rem;
+    width: 275rem;
+    height: 150rem;
 }
 
 @media(max-width: 998px){
