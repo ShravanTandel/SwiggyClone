@@ -54,13 +54,24 @@ import { menuItemList } from "./models/itemList.mjs"
         })
     }
 
-    function renderItems(itemRenderDiv) {
+    function renderItems(itemRenderDiv, vegOnly) {
         itemRenderDiv.innerHTML = "";
         sideMenu.forEach((menuItem, index) => {
-            // This variable stores the items in particular category
-            const itemsInCategory = menuItemList.filter((item) => {
-                return item.category == menuItem;
-            })
+            // // This variable stores the items in particular category
+            let itemsInCategory;
+            if(vegOnly == false) {
+                    itemsInCategory = menuItemList.filter((item) => {
+                    return item.category == menuItem;
+                
+                })
+            }
+
+            else {
+                    itemsInCategory = menuItemList.filter((item) => {
+                    return item.category == menuItem && item.isVeg == true;
+                
+                })
+            }
 
             // This variable is child component for storing items of same category
             let childComponent = "";
@@ -275,6 +286,18 @@ import { menuItemList } from "./models/itemList.mjs"
         render();
     }
 
+    function renderVegOnly(e) {
+        const itemRenderDiv = document.querySelector(".items")
+        const checked = e.path[0].checked;
+        if(checked == true) {
+            renderItems(itemRenderDiv, true);
+        }
+
+        else {
+            renderItems(itemRenderDiv, false);
+        }
+    }
+
     // ths function is to initialise the variables and functions
     function init() {
 
@@ -321,6 +344,12 @@ import { menuItemList } from "./models/itemList.mjs"
                 increaseCountInCartItem(e);
             })
         }
+
+        const vegOrNonvegCheckbox = document.querySelector(".searchbar-and-checkboxes .searchbar-and-checkboxes-1 .veg-or-nonveg .checkbox-div input");
+
+        vegOrNonvegCheckbox.addEventListener("click", (e) => {
+            renderVegOnly(e);
+        })
     }
 
     function render() {
@@ -343,7 +372,7 @@ import { menuItemList } from "./models/itemList.mjs"
         const itemRenderDiv = document.querySelector(".items")
 
         // function for rendering items
-        renderItems(itemRenderDiv);
+        renderItems(itemRenderDiv, false);
 
         // selecting div where we are rendering all the cart items
         const cartRenderDiv = document.querySelector(".menuAndCart .cart");
