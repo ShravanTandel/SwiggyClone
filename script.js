@@ -56,6 +56,7 @@ import { menuItemList } from "./models/itemList.mjs"
         })
     }
 
+    // function to render the items here it also checks for veg only if true it renders veg only if false it renders all
     function renderItems(itemRenderDiv, vegOnly) {
         itemRenderDiv.innerHTML = "";
         itemRenderDiv.innerHTML = `<div class="searchedResults"></div>`;
@@ -81,7 +82,6 @@ import { menuItemList } from "./models/itemList.mjs"
             let numberOfitems = itemsInCategory.length;
 
             itemsInCategory.forEach((i) => {
-                // console.log(i)
                 let flag = false;
 
                 let itemInsideCart;
@@ -89,7 +89,6 @@ import { menuItemList } from "./models/itemList.mjs"
                     if (j.pk == i.pk) {
                         flag = true;
                         itemInsideCart = j;
-                        // console.log(i.name)
                     }
                 })
                 childComponent += `<div class="singleItem" pk = "${i.pk}">
@@ -134,6 +133,7 @@ import { menuItemList } from "./models/itemList.mjs"
         })
     }
 
+    // function to render cart items
     function renderCartItems(cartRenderDiv) {
         cartRenderDiv.innerHTML = "";
         let cartItems = cart.length;
@@ -201,6 +201,7 @@ import { menuItemList } from "./models/itemList.mjs"
         }
     }
 
+    // function to render nav bar
     function renderNavbar(navbarElement) {
         navbarElement.innerHTML = `<div class="rightSide">
                                         <div class="logo">
@@ -242,26 +243,22 @@ import { menuItemList } from "./models/itemList.mjs"
             count: 1,
             pk: itemPk,
         }
-        // console.log(e)
         let updatedCart = changeCartState(cart, actions.ADD, cartItem);
         cart = updatedCart;
-        // console.log("-------------")
-        // console.log(cart)
         render();
     }
 
+    // function to decrease the count of the items added to cart in items
     function decreaseCountInItems(e) {
         const itemPk = e.path[5].attributes[1].value;
-
-        // console.log(itemPk)
 
         let updatedCart = changeCartState(cart, actions.DECREASE_COUNT, itemPk)
 
         cart = updatedCart;
-        // console.log(cart);
         render();
     }
 
+    // function to decrease the count of the items added to cart in cart
     function decreaseCountInCartItem(e) {
         const itemPk = e.path[2].attributes[1].value;
 
@@ -271,16 +268,17 @@ import { menuItemList } from "./models/itemList.mjs"
         render();
     }
 
+    // function to increase the count of the items added to cart in items
     function increaseCountInItems(e) {
         const itemPk = e.path[5].attributes[1].value;
 
         let updatedCart = changeCartState(cart, actions.INCREASE_COUNT, itemPk);
 
         cart = updatedCart;
-        // console.log(e);
         render();
     }
 
+    // function to increase the count of the items added to cart in cart
     function increaseCountInCartItem(e) {
         const itemPk = e.path[2].attributes[1].value;
 
@@ -290,16 +288,15 @@ import { menuItemList } from "./models/itemList.mjs"
         render();
     }
 
+    // function to render the searched result
     function renderSearchResult(searchInput) {
         let searchedResultDiv = document.querySelector(".menuAndCart .items .searchedResults");
-        // console.log(searchedResultDiv);
         searchedResultDiv.innerHTML = "";
 
         // Here we will render the search result if the search input is out empty
         if (searchInput.length != 0) {
             searchedResultDiv.innerHTML = `<div class = "searchResult-name">Search Result</div>`;
 
-            // console.log(e.path[0].value);
 
             // This variable is to count the number of components inside the search result which will help to display empty in search result if value is 0
             let componentsInsideSearchResult = 0;
@@ -325,7 +322,6 @@ import { menuItemList } from "./models/itemList.mjs"
                 let numberOfitems = itemsInCategory.length;
 
                 itemsInCategory.forEach((i) => {
-                    // console.log(i)
                     let flag = false;
 
                     let itemInsideCart;
@@ -333,7 +329,6 @@ import { menuItemList } from "./models/itemList.mjs"
                         if (j.pk == i.pk) {
                             flag = true;
                             itemInsideCart = j;
-                            // console.log(i.name)
                         }
                     })
                     childComponent += `<div class="singleItem" pk = "${i.pk}">
@@ -382,12 +377,12 @@ import { menuItemList } from "./models/itemList.mjs"
             if(componentsInsideSearchResult == 0) {
                 searchedResultDiv.innerHTML += `<div class = "searchResultEmpty">Search Result Empty</div>`
             }
-            // console.log(searchedResultDiv);
             searchedResultDiv.innerHTML += `<div class="line"></div>`;
         }
         initOnSearch();
     }
 
+    // function to render the veg only items
     function renderVegOnly(e) {
         const itemRenderDiv = document.querySelector(".items");
         const searchBarInput = document.querySelector(".searchbar-and-checkboxes .searchbar-and-checkboxes-1 .searchbar input");
@@ -409,6 +404,7 @@ import { menuItemList } from "./models/itemList.mjs"
         }
     }
 
+    // function to initialise the event listeners to buttons in search result
     function initOnSearch() {
         // selecting all the add buttons in item
         const addButton = document.querySelectorAll(".searchedResults .singleItem .right .buttonSearch .add");
@@ -437,10 +433,16 @@ import { menuItemList } from "./models/itemList.mjs"
                 increaseCountInItems(e);
             })
         }
-
-        // console.log("2");
     }
 
+    // function to add the cart itmes to local storage and empty the cart
+    function addTheCartItemsToLocalStorage() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        cart = [];
+        render();
+    }
+
+    // function to initialise the event listeners to buttons in items
     function initForButtonsInItems() {
         // selecting all the add buttons in item
         const addButton = document.querySelectorAll(".singleItem .right .button .add");
@@ -504,7 +506,13 @@ import { menuItemList } from "./models/itemList.mjs"
             renderSearchResult(searchBarInput.value);
         })
 
-        // console.log("1");
+        if(cart.length != 0) {
+            const checkoutButton = document.querySelector(".checkout button");
+
+            checkoutButton.addEventListener("click", () => {
+                addTheCartItemsToLocalStorage();
+        })
+        }
     }
 
     function render() {
@@ -547,5 +555,8 @@ import { menuItemList } from "./models/itemList.mjs"
         init();
     }
 
-    render();
+    window.onload = () => {
+        localStorage.removeItem("cart");
+        render();
+    }
 })();
