@@ -19,25 +19,27 @@ import { menuItemList } from "./models/itemList.mjs"
         },
     ]
 
+    let filterVegOnly = false;
+
     // reducer function to change the state of cart
     function changeCartState(state, action, payload) {
         switch (action) {
-            case actions.ADD :
+            case actions.ADD:
                 return [...state, payload];
-            case actions.INCREASE_COUNT :
+            case actions.INCREASE_COUNT:
                 var updatedCart = state;
-                for(var i = 0; i < updatedCart.length; i ++) {
-                    if(updatedCart[i].pk == payload) {
-                        updatedCart[i].count ++;
+                for (var i = 0; i < updatedCart.length; i++) {
+                    if (updatedCart[i].pk == payload) {
+                        updatedCart[i].count++;
                         break;
                     }
                 }
                 return updatedCart;
-            case actions.DECREASE_COUNT :
+            case actions.DECREASE_COUNT:
                 var updatedCart = state;
-                for(let i = 0; i < updatedCart.length; i ++) {
-                    if(updatedCart[i].pk == payload) {
-                        updatedCart[i].count --;
+                for (let i = 0; i < updatedCart.length; i++) {
+                    if (updatedCart[i].pk == payload) {
+                        updatedCart[i].count--;
                         break;
                     }
                 }
@@ -56,20 +58,21 @@ import { menuItemList } from "./models/itemList.mjs"
 
     function renderItems(itemRenderDiv, vegOnly) {
         itemRenderDiv.innerHTML = "";
+        itemRenderDiv.innerHTML = `<div class="searchedResults"></div>`;
         sideMenu.forEach((menuItem, index) => {
             // // This variable stores the items in particular category
             let itemsInCategory;
-            if(vegOnly == false) {
-                    itemsInCategory = menuItemList.filter((item) => {
+            if (vegOnly == false) {
+                itemsInCategory = menuItemList.filter((item) => {
                     return item.category == menuItem;
-                
+
                 })
             }
 
             else {
-                    itemsInCategory = menuItemList.filter((item) => {
+                itemsInCategory = menuItemList.filter((item) => {
                     return item.category == menuItem && item.isVeg == true;
-                
+
                 })
             }
 
@@ -82,51 +85,52 @@ import { menuItemList } from "./models/itemList.mjs"
                 let flag = false;
 
                 let itemInsideCart;
-                cart.forEach( (j) => {
-                    if(j.pk == i.pk) {
+                cart.forEach((j) => {
+                    if (j.pk == i.pk) {
                         flag = true;
                         itemInsideCart = j;
                         // console.log(i.name)
                     }
                 })
                 childComponent += `<div class="singleItem" pk = "${i.pk}">
-                <div class="left">
-                    ${i.isVeg ? "<div class = 'veg'>Veg</div>" : "<div class = 'nonVeg'>Non Veg</div>"}
-                    <div class="foodName">
-                        ${i.name}
-                    </div>
-                    <div class="foodPrice">
-                        <span>₹</span> <span class = "price">${i.price}</span>
-                    </div>
-                    <div class="combo">
-                        ${i.description}
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="image">
-                            <img src=${i.image} alt="">
-                        <div class = "button">
-                         ${
-                             flag ? `<div class = "addSub"><span class = "minus">-</span><span class = "count">${itemInsideCart.count}</span><span class = "plus">+</span></div>`
-                             :
-                             `<div class = "add">ADD</div>`
-                         }
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="line"></div>`
+                                        <div class="left">
+                                            ${i.isVeg ? "<div class = 'veg'>Veg</div>" : "<div class = 'nonVeg'>Non Veg</div>"}
+                                            <div class="foodName">
+                                                ${i.name}
+                                            </div>
+                                            <div class="foodPrice">
+                                                <span>₹</span> <span class = "price">${i.price}</span>
+                                            </div>
+                                            <div class="combo">
+                                                ${i.description}
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="image">
+                                                    <img src=${i.image} alt="">
+                                                <div class = "button">
+                                                ${flag ? `<div class = "addSub"><span class = "minus">-</span><span class = "count">${itemInsideCart.count}</span><span class = "plus">+</span></div>`
+                                                :
+                                                `<div class = "add">ADD</div>`
+                                            }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>`
             })
 
-            itemRenderDiv.innerHTML += `<div id="${index + 1}" class="item">
-            <div class="name">
-                <span class="n">${menuItem}</span><br>
-                <span class="i">${numberOfitems} items</span>
-            </div>
-            <div class="listItems">
-                ${childComponent
-                }
-            </div>`
+            if (childComponent != 0) {
+                itemRenderDiv.innerHTML += `<div id="${index + 1}" class="item">
+                                                <div class="name">
+                                                    <span class="n">${menuItem}</span><br>
+                                                    <span class="i">${numberOfitems} items</span>
+                                                </div>
+                                                <div class="listItems">
+                                                    ${childComponent
+                                                        }
+                                                </div>`
+            }
         })
     }
 
@@ -140,89 +144,89 @@ import { menuItemList } from "./models/itemList.mjs"
 
         let cartItem = "";
 
-        if(cartItems == 0) {
+        if (cartItems == 0) {
             cartRenderDiv.innerHTML = `<div class = "cart_name">
-                <span class = "cart3">Cart Empty</span>
-            </div>
-            <div class = "cartEmptyImage">
-                <img src = "./images/cartEmpty.png"><>
-            </div>`
+                                            <span class = "cart3">Cart Empty</span>
+                                        </div>
+                                        <div class = "cartEmptyImage">
+                                            <img src = "./images/cartEmpty.png"><>
+                                        </div>`
         }
 
         else {
-            cart.forEach( (i) => {
+            cart.forEach((i) => {
                 cartItem += `<div class="cart_item" pk = ${i.pk}>
-                <div class="cart_vegORnonveg">
-                    ${ i.isVeg ? "<div class = 'veg'>Veg</div>" : "<div class = 'nonVeg'>Non Veg</div>"}
-                </div>
-                <div class="dishName">
-                    ${i.name}
-                </div>
-                <div class="addSub">
-                    <div class="minus">
-                        -
-                    </div>
-                    <div class="count">
-                        ${i.count}
-                    </div>
-                    <div class="plus">
-                        +
-                    </div>
-                </div>
-                <div class="price">
-                    ₹${i.price}
-                </div>
-            </div>`
+                                <div class="cart_vegORnonveg">
+                                    ${i.isVeg ? "<div class = 'veg'>Veg</div>" : "<div class = 'nonVeg'>Non Veg</div>"}
+                                </div>
+                                <div class="dishName">
+                                    ${i.name}
+                                </div>
+                                <div class="addSub">
+                                    <div class="minus">
+                                        -
+                                    </div>
+                                    <div class="count">
+                                        ${i.count}
+                                    </div>
+                                    <div class="plus">
+                                        +
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    ₹${i.price}
+                                </div>
+                            </div>`
             })
-    
+
             cartRenderDiv.innerHTML = `<div class="cart_name">
-            <span class="cart1">Cart</span><br>
-            <span class="cart2">${cartItems} Item</span>
-        </div>
-        <div class="cart_items">
-            ${cartItem}
-        </div>
-        <div class="subTotal">
-            <div class="sub">
-                <span class="s1">SubTotal</span><br>
-                <span class="s2">Extra charges may apply</span>
-            </div>
-            <div class="price">
-                ₹${subTotal}
-            </div>
-        </div>
-        <div class="checkout">
-            <button class="button">Checkout</button>
-        </div>`
+                                            <span class="cart1">Cart</span><br>
+                                            <span class="cart2">${cartItems} Item</span>
+                                        </div>
+                                        <div class="cart_items">
+                                            ${cartItem}
+                                        </div>
+                                        <div class="subTotal">
+                                            <div class="sub">
+                                                <span class="s1">SubTotal</span><br>
+                                                <span class="s2">Extra charges may apply</span>
+                                            </div>
+                                            <div class="price">
+                                                ₹${subTotal}
+                                            </div>
+                                        </div>
+                                        <div class="checkout">
+                                            <button class="button">Checkout</button>
+                                        </div>`
         }
     }
 
     function renderNavbar(navbarElement) {
         navbarElement.innerHTML = `<div class="rightSide">
-        <div class="logo">
-            <h4>Swiggy</h4>
-        </div>
-        <div class="location">
-            Bangalore
-        </div>
-    </div>
-    <ul class="nav-link">
-        <li>
-            <a href="#"><span></span>Search</a>
-        </li>
-        <li>
-            <a href="#"><span></span>Offers</a>
-        </li>
-        <li>
-            <a href="#"><span></span>Help</a>
-        </li>
-        <li>
-            <a href="#"><span></span>Sign In</a>
-        </li>
-        <li>
-            <a href="#"><span class = "cartCount">${cart.length}</span> Cart</a>
-        </li>
-    </ul>`
+                                        <div class="logo">
+                                            <h4>Swiggy</h4>
+                                        </div>
+                                        <div class="location">
+                                            Bangalore
+                                        </div>
+                                    </div>
+                                    <ul class="nav-link">
+                                        <li>
+                                            <a href="#"><span></span>Search</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span></span>Offers</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span></span>Help</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span></span>Sign In</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class = "cartCount">${cart.length}</span> Cart</a>
+                                        </li>
+                                    </ul>`
     }
 
     // this function will add the item to the cart
@@ -238,7 +242,7 @@ import { menuItemList } from "./models/itemList.mjs"
             count: 1,
             pk: itemPk,
         }
-        console.log(e)
+        // console.log(e)
         let updatedCart = changeCartState(cart, actions.ADD, cartItem);
         cart = updatedCart;
         // console.log("-------------")
@@ -273,7 +277,7 @@ import { menuItemList } from "./models/itemList.mjs"
         let updatedCart = changeCartState(cart, actions.INCREASE_COUNT, itemPk);
 
         cart = updatedCart;
-        console.log(e);
+        // console.log(e);
         render();
     }
 
@@ -286,26 +290,163 @@ import { menuItemList } from "./models/itemList.mjs"
         render();
     }
 
+    function renderSearchResult(searchInput) {
+        let searchedResultDiv = document.querySelector(".menuAndCart .items .searchedResults");
+        // console.log(searchedResultDiv);
+        searchedResultDiv.innerHTML = "";
+
+        // Here we will render the search result if the search input is out empty
+        if (searchInput.length != 0) {
+            searchedResultDiv.innerHTML = `<div class = "searchResult-name">Search Result</div>`;
+
+            // console.log(e.path[0].value);
+
+            // This variable is to count the number of components inside the search result which will help to display empty in search result if value is 0
+            let componentsInsideSearchResult = 0;
+            sideMenu.forEach((menuItem, index) => {
+                // // This variable stores the items in particular category
+                let itemsInCategory;
+                if (filterVegOnly == false) {
+                    itemsInCategory = menuItemList.filter((item) => {
+                        return item.category == menuItem && (item.name.toUpperCase().indexOf(searchInput.toUpperCase()) > -1);
+
+                    })
+                }
+
+                else {
+                    itemsInCategory = menuItemList.filter((item) => {
+                        return item.category == menuItem && item.isVeg == true && (item.name.toUpperCase().indexOf(searchInput.toUpperCase()) > -1);
+
+                    })
+                }
+
+                // This variable is child component for storing items of same category
+                let childComponent = "";
+                let numberOfitems = itemsInCategory.length;
+
+                itemsInCategory.forEach((i) => {
+                    // console.log(i)
+                    let flag = false;
+
+                    let itemInsideCart;
+                    cart.forEach((j) => {
+                        if (j.pk == i.pk) {
+                            flag = true;
+                            itemInsideCart = j;
+                            // console.log(i.name)
+                        }
+                    })
+                    childComponent += `<div class="singleItem" pk = "${i.pk}">
+                                            <div class="left">
+                                                    ${i.isVeg ? "<div class = 'veg'>Veg</div>" : "<div class = 'nonVeg'>Non Veg</div>"}
+                                                <div class="foodName">
+                                                    ${i.name}
+                                                </div>
+                                                <div class="foodPrice">
+                                                    <span>₹</span> <span class = "price">${i.price}</span>
+                                                </div>
+                                                <div class="combo">
+                                                    ${i.description}
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <div class="image">
+                                                        <img src=${i.image} alt="">
+                                                    <div class = "buttonSearch">
+                                                    ${flag ? `<div class = "addSub"><span class = "minus">-</span><span class = "count">${itemInsideCart.count}</span><span class = "plus">+</span></div>`
+                                                        :
+                                                        `<div class = "add">ADD</div>`
+                                                    }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>`
+                    })
+
+                if (childComponent != 0) {
+                    componentsInsideSearchResult ++;
+                    searchedResultDiv.innerHTML += `<div class="item">
+                                                        <div class="name">
+                                                            <span class="n">${menuItem}</span><br>
+                                                            <span class="i">${numberOfitems} items</span>
+                                                        </div>
+                                                        <div class="listItems">
+                                                            ${childComponent
+                                                                    }
+                                                        </div>`
+                }
+            })
+
+            // if the search result is empty we will display empty message
+            if(componentsInsideSearchResult == 0) {
+                searchedResultDiv.innerHTML += `<div class = "searchResultEmpty">Search Result Empty</div>`
+            }
+            // console.log(searchedResultDiv);
+            searchedResultDiv.innerHTML += `<div class="line"></div>`;
+        }
+        initOnSearch();
+    }
+
     function renderVegOnly(e) {
-        const itemRenderDiv = document.querySelector(".items")
+        const itemRenderDiv = document.querySelector(".items");
+        const searchBarInput = document.querySelector(".searchbar-and-checkboxes .searchbar-and-checkboxes-1 .searchbar input");
         const checked = e.path[0].checked;
-        if(checked == true) {
-            renderItems(itemRenderDiv, true);
+        if (checked == true) {
+            filterVegOnly = true;
+            renderItems(itemRenderDiv, filterVegOnly);
+            renderSearchResult(searchBarInput.value);
+            initForButtonsInItems();
+            initOnSearch();
         }
 
         else {
-            renderItems(itemRenderDiv, false);
+            filterVegOnly = false;
+            renderItems(itemRenderDiv, filterVegOnly);
+            renderSearchResult(searchBarInput.value);
+            initForButtonsInItems();
+            initOnSearch();
         }
     }
 
-    // ths function is to initialise the variables and functions
-    function init() {
+    function initOnSearch() {
+        // selecting all the add buttons in item
+        const addButton = document.querySelectorAll(".searchedResults .singleItem .right .buttonSearch .add");
 
+        // giving each add button a event listener
+        for (var i = 0; i < addButton.length; i++) {
+            addButton[i].addEventListener("click", (e) => {
+                addToCart(e)
+            });
+        }
+
+        // selecting minus button of items in the rendered items
+        const minusButtonInItems = document.querySelectorAll(".searchedResults .singleItem .right .image .buttonSearch .addSub .minus");
+
+        // giving each minus button of items in rendered items event listener
+        for (var i = 0; i < minusButtonInItems.length; i++) {
+            minusButtonInItems[i].addEventListener("click", (e) => {
+                decreaseCountInItems(e)
+            })
+        }
+
+        const plusButtonInItems = document.querySelectorAll(".searchedResults .singleItem .right .image .buttonSearch .addSub .plus");
+
+        for (var i = 0; i < plusButtonInItems.length; i++) {
+            plusButtonInItems[i].addEventListener("click", (e) => {
+                increaseCountInItems(e);
+            })
+        }
+
+        // console.log("2");
+    }
+
+    function initForButtonsInItems() {
         // selecting all the add buttons in item
         const addButton = document.querySelectorAll(".singleItem .right .button .add");
 
         // giving each add button a event listener
-        for(var i = 0; i < addButton.length; i ++) {
+        for (var i = 0; i < addButton.length; i++) {
             addButton[i].addEventListener("click", (e) => {
                 addToCart(e)
             });
@@ -315,7 +456,7 @@ import { menuItemList } from "./models/itemList.mjs"
         const minusButtonInItems = document.querySelectorAll(".singleItem .right .image .button .addSub .minus");
 
         // giving each minus button of items in rendered items event listener
-        for(var i = 0; i < minusButtonInItems.length; i ++) {
+        for (var i = 0; i < minusButtonInItems.length; i++) {
             minusButtonInItems[i].addEventListener("click", (e) => {
                 decreaseCountInItems(e)
             })
@@ -323,15 +464,21 @@ import { menuItemList } from "./models/itemList.mjs"
 
         const plusButtonInItems = document.querySelectorAll(".singleItem .right .image .button .addSub .plus");
 
-        for(var i = 0; i < plusButtonInItems.length; i ++) {
+        for (var i = 0; i < plusButtonInItems.length; i++) {
             plusButtonInItems[i].addEventListener("click", (e) => {
                 increaseCountInItems(e);
             })
         }
+    }
+
+    // ths function is to initialise the variables and functions
+    function init() {
+
+        initForButtonsInItems();
 
         const minusButtonInCartItems = document.querySelectorAll(".cart_item .addSub .minus");
 
-        for(var i = 0; i < minusButtonInCartItems.length; i ++) {
+        for (var i = 0; i < minusButtonInCartItems.length; i++) {
             minusButtonInCartItems[i].addEventListener("click", (e) => {
                 decreaseCountInCartItem(e);
             })
@@ -339,7 +486,7 @@ import { menuItemList } from "./models/itemList.mjs"
 
         const plusButtonInCartItems = document.querySelectorAll(".cart_item .addSub .plus");
 
-        for(var i = 0; i < plusButtonInCartItems.length; i ++) {
+        for (var i = 0; i < plusButtonInCartItems.length; i++) {
             plusButtonInCartItems[i].addEventListener("click", (e) => {
                 increaseCountInCartItem(e);
             })
@@ -350,14 +497,22 @@ import { menuItemList } from "./models/itemList.mjs"
         vegOrNonvegCheckbox.addEventListener("click", (e) => {
             renderVegOnly(e);
         })
+
+        const searchBarInput = document.querySelector(".searchbar-and-checkboxes .searchbar-and-checkboxes-1 .searchbar input");
+
+        searchBarInput.addEventListener("input", () => {
+            renderSearchResult(searchBarInput.value);
+        })
+
+        // console.log("1");
     }
 
     function render() {
         const body = document.querySelector("body");
         // body.innerHTML = ""
 
-        for(let i = 0; i < cart.length; i ++) {
-            if(cart[i].count == 0) {
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].count == 0) {
                 cart.splice(i, 1);
             }
         }
@@ -372,7 +527,7 @@ import { menuItemList } from "./models/itemList.mjs"
         const itemRenderDiv = document.querySelector(".items")
 
         // function for rendering items
-        renderItems(itemRenderDiv, false);
+        renderItems(itemRenderDiv, filterVegOnly);
 
         // selecting div where we are rendering all the cart items
         const cartRenderDiv = document.querySelector(".menuAndCart .cart");
@@ -385,9 +540,12 @@ import { menuItemList } from "./models/itemList.mjs"
         // function for rendering navbar
         renderNavbar(navbarElement);
 
+        const searchBarInput = document.querySelector(".searchbar-and-checkboxes .searchbar-and-checkboxes-1 .searchbar input");
+
+        renderSearchResult(searchBarInput.value);
+
         init();
     }
-
 
     render();
 })();
