@@ -1,0 +1,83 @@
+/* .listItems .singleItem .right .button{
+    color: #60b246;
+    width: 100rem;
+    height: 34rem;
+    transform: translate(10rem, 75rem);
+}
+
+.listItems .singleItem .right .buttonSearch{
+    color: #60b246;
+    width: 100rem;
+    height: 34rem;
+    transform: translate(10rem, 75rem);
+}
+
+.listItems .singleItem .right .button .add{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    border: 1rem solid #d4d5d9;
+    border-radius: 5rem;
+    background-color: white;
+    text-align: center;
+    line-height: 30rem;
+    font-size: 14rem;
+}
+
+.listItems .singleItem .right .buttonSearch .add{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    border: 1rem solid #d4d5d9;
+    border-radius: 5rem;
+    background-color: white;
+    text-align: center;
+    line-height: 30rem;
+    font-size: 14rem;
+}
+
+.listItems .singleItem .right .button .addSub{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1rem solid #d4d5d9;
+    border-radius: 5rem;
+    background-color: white;
+    text-align: center;
+    line-height: 30rem;
+    font-size: 14rem;
+}
+
+.listItems .singleItem .right .buttonSearch .addSub{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1rem solid #d4d5d9;
+    border-radius: 5rem;
+    background-color: white;
+    text-align: center;
+    line-height: 30rem;
+    font-size: 14rem;
+}
+
+.listItems .singleItem .right .button .addSub .minus{
+    padding: 0rem 20rem 0rem 20rem;
+    cursor: pointer;
+}
+
+.listItems .singleItem .right .buttonSearch .addSub .minus{
+    padding: 0rem 20rem 0rem 20rem;
+    cursor: pointer;
+}
+
+.listItems .singleItem .right .button .addSub .plus{
+    padding: 0rem 20rem 0rem 20rem;
+    cursor: pointer;
+}
+
+.listItems .singleItem .right .buttonSearch .addSub .plus{
+    padding: 0rem 20rem 0rem 20rem;
+    cursor: pointer;
+} */

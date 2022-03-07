@@ -1,0 +1,16 @@
+.breadCrumbs{
+    display: flex;
+    color: #93959f;
+    padding-left: 200rem;
+    padding-right: 200rem;
+    height: 30rem;
+    font-size: 13rem;
+    /* background-color: #282c3f; */
+    background-color: #F5F5F5;
+    align-items: center;
+}
+
+.breadCrumbs .dark{
+    color: #3D4152;
+    padding-left: 5rem;
+}
