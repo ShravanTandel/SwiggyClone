@@ -1,0 +1,53 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 200rem;
+    padding-right: 200rem;
+    min-height: 8vh;
+}
+
+.rightSide{
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.logo{
+    color: #FF8000;
+    text-transform: uppercase;
+    letter-spacing: 5rem;
+    font-size: 20rem;
+}
+
+.location{
+    color: #3D4152;
+    padding-left: 16rem;
+    font-size: 16rem;
+}
+
+.nav-link{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.nav-link li a:hover{
+    color: orange;
+}
+
+.nav-link li{
+    list-style: none;
+}
+
+.nav-link li a{
+    color: #3D4152;
+    text-decoration: none;
+    letter-spacing: 2rem;
+    /* font-weight: bold; */
+    font-size: 16rem;
+}
+
+.nav-link li a .cartCount {
+    color: orange;
+    text-align: center;
+}

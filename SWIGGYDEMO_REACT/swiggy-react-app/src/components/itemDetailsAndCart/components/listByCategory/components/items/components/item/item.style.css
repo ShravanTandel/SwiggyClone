@@ -1,0 +1,49 @@
+/* .listItems .singleItem{
+    display: flex;
+    padding: 35rem 0 35rem 0;
+    font-size: 16rem;
+}
+
+.listItems .singleItem .left{
+    width: 480rem;
+    padding-right: 20rem;
+    justify-content: flex-start;
+}
+
+.listItems .singleItem .right{
+    justify-content: flex-end;
+} 
+
+.listItems .singleItem .veg{
+    color: green;
+}
+
+.listItems .singleItem .nonVeg{
+    color: red;
+}
+
+.listItems .singleItem .foodName{
+    padding: 10rem 0 0 0;
+    color: #282c3f;
+}
+
+.listItems .singleItem .foodPrice{
+    padding: 10rem 0 0 0;
+    color: #282c3f;
+}
+
+.listItems .singleItem .combo{
+    padding: 10rem 0 0 0;
+    color: rgba(40,44,63,.45);
+}
+
+.listItems .singleItem .right{
+    justify-content: flex-end;
+}
+
+.listItems .singleItem .image img{
+    width: 120rem;
+    height: 100rem;
+    border-radius: 10rem;
+    float: right;
+} */
