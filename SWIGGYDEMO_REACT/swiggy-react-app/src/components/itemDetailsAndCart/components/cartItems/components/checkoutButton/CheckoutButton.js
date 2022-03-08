@@ -1,10 +1,12 @@
+import './checkoutButton.style.css';
+
 import React from "react";
 
-function CheckoutButton () {
+function CheckoutButton ({data}) {
     return (
         <>
             <div className="checkout">
-                    <button className="button">Checkout</button>
+                    <button className="button">{data}</button>
             </div>
         </>
     );

@@ -1,3 +1,3 @@
-import CheckoutButtonControlled from "./CheckoutButtonControlled";
+import CheckoutButtonContainer from "./CheckoutButtonContainer";
 
-export default CheckoutButtonControlled;
+export default CheckoutButtonContainer;

@@ -19,6 +19,7 @@ function Item(
 }
 
 var ItemBuilder = function () {
+<<<<<<< HEAD
     let name = '';
     let isVeg = false;
     let isBestseller = false;
@@ -28,7 +29,19 @@ var ItemBuilder = function () {
     let category = '';
     let pk = 0;
 
+=======
+>>>>>>> Added css style to each components
     return {
+        constructor () {
+            this.name = "";
+            this.isVeg = false;
+            this.isBestseller = false;
+            this.price = 0;
+            this.description = "";
+            this.image = "";
+            this.category = "";
+            this.pk = 0;
+        },
         setName: function (name) {
             this.name = name;
             return this;

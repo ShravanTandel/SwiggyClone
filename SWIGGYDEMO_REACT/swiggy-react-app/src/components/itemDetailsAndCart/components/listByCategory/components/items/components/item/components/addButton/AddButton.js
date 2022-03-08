@@ -1,9 +1,11 @@
+import './addButton.style.css';
+
 import React from "react";
 
-function AddButton () {
+function AddButton ({data}) {
     return (
         <>
-            <div className="add">ADD</div>
+            <div className="add">{data}</div>
         </>
     );
 };

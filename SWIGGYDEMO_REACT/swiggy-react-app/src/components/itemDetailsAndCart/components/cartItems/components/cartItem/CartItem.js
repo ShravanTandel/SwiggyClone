@@ -1,4 +1,7 @@
+import './cartItem.style.css';
+
 import React from "react";
+import ActionButtonContainer from "./components/actionButton/ActionButtonContainer";
 
 function CartItem ({cartItem}) {
     return (
@@ -10,17 +13,7 @@ function CartItem ({cartItem}) {
                 <div className="dishName">
                     {cartItem.name}
                 </div>
-                <div className="addSub">
-                    <div className="minus">
-                        -
-                    </div>
-                    <div className="count">
-                        {cartItem.count}
-                    </div>
-                    <div className="plus">
-                        +
-                    </div>
-                </div>
+                <ActionButtonContainer count={cartItem.count}/>
                 <div className="price">
                     ₹ {cartItem.price}
                 </div>

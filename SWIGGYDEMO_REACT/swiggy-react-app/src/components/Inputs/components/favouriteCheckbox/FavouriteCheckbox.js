@@ -1,3 +1,5 @@
+import './favouriteCheckbox.style.css';
+
 import React from "react";
 
 function FavouriteCheckbox () {

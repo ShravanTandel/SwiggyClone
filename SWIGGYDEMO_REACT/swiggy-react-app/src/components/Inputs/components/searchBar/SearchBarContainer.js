@@ -1,10 +1,10 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 
-function SearchBarControlled () {
+function SearchBarContainer () {
     return (
         <SearchBar />
     );
 };
 
-export default SearchBarControlled;
+export default SearchBarContainer;

@@ -1,10 +1,10 @@
 import React from "react";
 import FavouriteCheckbox from "./FavouriteCheckbox";
 
-function FavouriteCheckboxControlled () {
+function FavouriteCheckboxContainer () {
     return (
         <FavouriteCheckbox />
     );
 };
 
-export default FavouriteCheckboxControlled;
+export default FavouriteCheckboxContainer;

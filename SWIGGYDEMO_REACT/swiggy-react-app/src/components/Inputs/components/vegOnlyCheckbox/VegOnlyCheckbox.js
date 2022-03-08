@@ -1,3 +1,5 @@
+import './vegOnlyCheckbox.style.css';
+
 import React from "react";
 
 function VegOnlyCheckbox () {
