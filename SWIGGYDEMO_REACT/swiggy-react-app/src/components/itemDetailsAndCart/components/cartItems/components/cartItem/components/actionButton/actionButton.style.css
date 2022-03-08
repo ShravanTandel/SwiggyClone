@@ -1,0 +1,22 @@
+.addSub{
+    display: flex;
+    margin: 0 10rem 0 10rem;
+    border: 1rem solid #d4d5d9;
+    width: 70rem;
+    height: 30rem;
+}
+
+.addSub .minus
+{
+    padding: 4rem 10rem 4rem 10rem;
+    cursor: pointer;
+}
+
+.addSub .count{
+    padding: 4rem 4rem 4rem 4rem;
+}
+
+.addSub .plus{
+    padding: 4rem 4rem 10rem 10rem;
+    cursor: pointer;
+}

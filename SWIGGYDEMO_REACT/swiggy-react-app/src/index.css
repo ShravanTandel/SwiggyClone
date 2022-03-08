@@ -13,3 +13,28 @@ body{
   overflow-x: scroll;
   overflow-y: scroll;
 }
+
+@media(max-width: 998px){
+  html{
+      font-size: 5%;
+  }
+
+  body{
+      overflow-x: auto;
+      overflow-y: auto;
+  }
+
+  .dashbroad{
+      min-width: 400rem;
+  }
+}
+
+@media(max-width: 400px){
+  html{
+      font-size: 4%;
+  }
+
+  .dashbroad{
+      min-width: 200rem;
+  }
+}

@@ -1,5 +1,7 @@
+import './item.style.css';
+
 import React from "react";
-import AddButtonControlled from "./components/addButton";
+import AddButtonContainer from "./components/addButton/index";
 
 function Item ({item}) {
     return (
@@ -25,7 +27,7 @@ function Item ({item}) {
                         :
                         `<div className = "add">ADD</div>`
                     } */}
-                            <AddButtonControlled />
+                            <AddButtonContainer />
                         </div>
                     </div>
                 </div>

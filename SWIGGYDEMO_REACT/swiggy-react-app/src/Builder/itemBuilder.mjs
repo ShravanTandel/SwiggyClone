@@ -10,16 +10,17 @@ function Item(name, isVeg, isBestseller, price, description, image, category, pk
 }
 
 var ItemBuilder = function () {
-    let name = "";
-    let isVeg = false;
-    let isBestseller = false;
-    let price = 0;
-    let description = "";
-    let image = "";
-    let category = "";
-    let pk = 0;
-
     return {
+        constructor () {
+            this.name = "";
+            this.isVeg = false;
+            this.isBestseller = false;
+            this.price = 0;
+            this.description = "";
+            this.image = "";
+            this.category = "";
+            this.pk = 0;
+        },
         setName: function (name) {
             this.name = name;
             return this;
