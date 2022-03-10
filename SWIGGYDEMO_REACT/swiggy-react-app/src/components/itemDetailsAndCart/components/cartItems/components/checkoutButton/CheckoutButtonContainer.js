@@ -3,9 +3,7 @@ import CheckoutButton from "./CheckoutButton";
 
 function CheckoutButtonContainer () {
     return (
-        <>
-            <CheckoutButton data="CHECKOUT"/>
-        </>
+        <CheckoutButton data="CHECKOUT"/>
     );
 };
 

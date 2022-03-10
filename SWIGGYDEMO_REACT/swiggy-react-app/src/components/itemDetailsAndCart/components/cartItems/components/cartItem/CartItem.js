@@ -3,7 +3,7 @@ import './cartItem.style.css';
 import React from "react";
 import ActionButtonContainer from "./components/actionButton/ActionButtonContainer";
 
-function CartItem ({cartItem}) {
+function CartItem ({cartItem, onClickPlus, onClickMinus}) {
     return (
         <>
             <div className="cart_item" pk = {cartItem.pk}>
@@ -13,7 +13,7 @@ function CartItem ({cartItem}) {
                 <div className="dishName">
                     {cartItem.name}
                 </div>
-                <ActionButtonContainer count={cartItem.count}/>
+                <ActionButtonContainer count={cartItem.count} onClickPlus={onClickPlus} pk={cartItem.pk} onClickMinus={onClickMinus}/>
                 <div className="price">
                     ₹ {cartItem.price}
                 </div>

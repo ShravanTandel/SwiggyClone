@@ -52,13 +52,13 @@
     font-size: 14rem;
 }
 
-.cart .cart_name .cart3 {
+.cart_name .cart3 {
     color: #7e808c;
     font-size: 30rem;
 }
 
-.cart .cartEmptyImage img{
-    padding: 20rem;
+.cartEmptyImage img{
+    padding: 20rem 0rem 0rem 0rem;
     width: 275rem;
-    height: 150rem;
+    height: 200rem;
 }

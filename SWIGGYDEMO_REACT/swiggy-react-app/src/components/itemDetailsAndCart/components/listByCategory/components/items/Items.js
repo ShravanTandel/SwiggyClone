@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "./components/item";
 
-function Items ({data}) {
+function Items ({data, cartItems, onClickADD, onClickPlus, onClickMinus}) {
 
     // const 
     return (
@@ -9,7 +9,7 @@ function Items ({data}) {
             {
                 data.map( (d) => {
                     return (
-                            <Item key={d.pk} item={d}/>
+                            <Item key={d.pk} item={d} cartItems={cartItems} onClickADD={(onClickADD)} onClickPlus={onClickPlus} onClickMinus={onClickMinus}/>
                     );
                 })
             }

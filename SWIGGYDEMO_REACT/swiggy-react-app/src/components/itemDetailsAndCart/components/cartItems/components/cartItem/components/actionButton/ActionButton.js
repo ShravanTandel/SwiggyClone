@@ -2,17 +2,17 @@ import './actionButton.style.css';
 
 import React from "react";
 
-function ActionButton ({count}) {
+function ActionButton ({count, onClickPlus, onClickMinus}) {
     return (
         <>
-            <div className="addSub">
-                <div className="minus">
+            <div className="addSubCart">
+                <div className="minus" onClick={onClickMinus}>
                     -
                 </div>
                 <div className="count">
                     {count}
                 </div>
-                <div className="plus">
+                <div className="plus" onClick = {onClickPlus}>
                     +
                 </div>
             </div>

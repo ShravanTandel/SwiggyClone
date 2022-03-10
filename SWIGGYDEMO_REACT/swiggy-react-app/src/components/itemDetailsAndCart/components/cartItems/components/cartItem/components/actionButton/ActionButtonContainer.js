@@ -1,9 +1,17 @@
 import React from "react";
 import ActionButton from "./ActionButton";
 
-function ActionButtonContainer ({count}) {
+function ActionButtonContainer ({count, onClickPlus, pk, onClickMinus}) {
+
+    function increaseOnPlus (pk) {
+        onClickPlus(pk);
+    }
+
+    function decreaseOnMinus (pk) {
+        onClickMinus(pk);
+    }
     return (
-        <ActionButton count={count}/>
+        <ActionButton count={count} onClickPlus={() => increaseOnPlus(pk)} onClickMinus={() => decreaseOnMinus(pk)}/>
     );
 };
 

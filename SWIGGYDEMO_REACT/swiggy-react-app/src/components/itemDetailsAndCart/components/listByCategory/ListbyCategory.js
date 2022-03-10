@@ -3,13 +3,13 @@ import './listByCategory.style.css';
 import React from "react";
 import Items from "./components/items";
 
-function ListByCategory ({data, category}) {
+function ListByCategory ({data, category, cartItems, onClickADD, onClickPlus, onClickMinus}) {
     let arrayOfItemsOrderedByCategory = [];
 
     category.forEach( (i, index) => {
         let arrayOfItems = [];
         arrayOfItems = data.filter( (d) => {
-            return d.category == i;
+            return d.category === i;
         } )
         arrayOfItemsOrderedByCategory[index] = arrayOfItems;
     })
@@ -25,7 +25,7 @@ function ListByCategory ({data, category}) {
                                         <span className="i">{arrayOfItemsOrderedByCategory[index].length} items</span>
                                     </div>
                                     <div className="listItems">
-                                        <Items data={arrayOfItemsOrderedByCategory[index]}/>
+                                        <Items data={arrayOfItemsOrderedByCategory[index]} cartItems={cartItems} onClickADD={onClickADD} onClickPlus={onClickPlus} onClickMinus={onClickMinus}/>
                                     </div>
                                 </div>
                         );

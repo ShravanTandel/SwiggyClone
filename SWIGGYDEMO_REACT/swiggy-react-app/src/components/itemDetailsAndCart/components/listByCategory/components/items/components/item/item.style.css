@@ -48,6 +48,13 @@
     float: right;
 }
 
+.listItems .singleItem .right .button{
+    color: #60b246;
+    width: 100rem;
+    height: 34rem;
+    transform: translate(10rem, 75rem);
+}
+
 .singleItem .right .buttonSearch{
     color: #60b246;
     width: 100rem;
