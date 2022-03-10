@@ -2,11 +2,23 @@ import './item.style.css';
 
 import React from "react";
 import AddButtonContainer from "./components/addButton/index";
+import ActionButtonForItemsContainer from './components/actionButtonForItems/ActionButtonForItemsContainer';
 
-function Item ({item}) {
+function Item ({item, cartItems, onClickADD, onClickPlus, onClickMinus}) {
+
+    let flag = false;
+    let count = 0;
+
+    for (var i=0; i<cartItems.length; i++) {
+        if (cartItems[i].pk === item.pk) {
+            flag = true;
+            count = cartItems[i].count;
+            break;
+        }
+    }
     return (
         <>
-            <div className="singleItem" pk = {item.pk}>
+            <div className="singleItem" key = {item.pk}>
                 <div className="left">
                     {item.isVeg ? <div className = 'veg'>Veg</div> : <div className = 'nonVeg'>Non Veg</div>}
                     <div className="foodName">
@@ -23,11 +35,11 @@ function Item ({item}) {
                     <div className="image">
                             <img src={item.image} alt="" />
                         <div className = "button">
-                        {/* {flag ? `<div className = "addSub"><span className = "minus">-</span><span className = "count">${itemInsideCart.count}</span><span className = "plus">+</span></div>`
+                        {flag ? 
+                        <ActionButtonForItemsContainer pk={item.pk} count={count} onClickPlus={onClickPlus} onClickMinus={onClickMinus}/>
                         :
-                        `<div className = "add">ADD</div>`
-                    } */}
-                            <AddButtonContainer />
+                        <AddButtonContainer pk={item.pk} onClickADD={onClickADD} />
+                    }
                         </div>
                     </div>
                 </div>

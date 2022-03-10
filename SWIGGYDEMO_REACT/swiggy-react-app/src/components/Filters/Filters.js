@@ -5,7 +5,7 @@ import FavouriteCheckboxContainer from './components/favouriteCheckbox/Favourite
 import VegOnlyCheckboxContainer from './components/vegOnlyCheckbox/VegOnlyCheckboxContainer';
 import SearchBarContainer from './components/searchBar/SearchBarContainer';
 
-function Inputs () {
+function Filters () {
     return (
         <>
             <div className="searchbar-and-checkboxes">
@@ -19,4 +19,4 @@ function Inputs () {
     );
 };
 
-export default Inputs;
+export default Filters;

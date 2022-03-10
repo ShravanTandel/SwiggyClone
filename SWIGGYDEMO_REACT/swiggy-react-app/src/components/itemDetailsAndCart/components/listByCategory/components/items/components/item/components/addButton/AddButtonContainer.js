@@ -1,9 +1,12 @@
 import React from "react";
 import AddButton from "./AddButton";
 
-function AddButtonContainer () {
+function AddButtonContainer ({pk, onClickADD}) {
+    function addToCart (pk) {
+        onClickADD(pk);
+    }
     return (
-        <AddButton data="ADD"/>
+        <AddButton data="ADD" onClickADD={() => addToCart(pk)}/>
     );
 };
 

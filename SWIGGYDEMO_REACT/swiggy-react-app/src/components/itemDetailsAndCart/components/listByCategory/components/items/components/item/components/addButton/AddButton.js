@@ -2,10 +2,10 @@ import './addButton.style.css';
 
 import React from "react";
 
-function AddButton ({data}) {
+function AddButton ({data, onClickADD}) {
     return (
         <>
-            <div className="add">{data}</div>
+            <div className="add" onClick={onClickADD}>{data}</div>
         </>
     );
 };
