@@ -1,9 +1,9 @@
 import React from "react";
 import CheckoutButton from "./CheckoutButton";
 
-function CheckoutButtonContainer () {
+function CheckoutButtonContainer ({onCheckout}) {
     return (
-        <CheckoutButton data="CHECKOUT"/>
+        <CheckoutButton data="CHECKOUT" onCheckout={() => onCheckout()}/>
     );
 };
 

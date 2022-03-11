@@ -4,7 +4,7 @@ import React from "react";
 import CartItem from "./components/cartItem/CartItem";
 import CheckoutButtonControlled from './components/checkoutButton';
 
-function CartItems ({cartItems, onClickPlus, onClickMinus}) {
+function CartItems ({cartItems, onClickPlus, onClickMinus, onCheckout}) {
     let subTotal = 0;
     cartItems.forEach( (i) => {
         subTotal += ( i.count * i.price );
@@ -53,7 +53,7 @@ function CartItems ({cartItems, onClickPlus, onClickMinus}) {
                             ₹ {subTotal}
                         </div>
                     </div>
-                    <CheckoutButtonControlled />
+                    <CheckoutButtonControlled onCheckout={onCheckout}/>
                 </div>
 
             }

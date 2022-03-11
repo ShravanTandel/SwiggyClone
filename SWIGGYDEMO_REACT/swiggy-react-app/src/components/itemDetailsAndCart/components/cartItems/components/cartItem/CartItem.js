@@ -15,7 +15,7 @@ function CartItem ({cartItem, onClickPlus, onClickMinus}) {
                 </div>
                 <ActionButtonContainer count={cartItem.count} onClickPlus={onClickPlus} pk={cartItem.pk} onClickMinus={onClickMinus}/>
                 <div className="price">
-                    ₹ {cartItem.price}
+                    ₹ {cartItem.price * cartItem.count}
                 </div>
             </div>
         </>
