@@ -21,6 +21,13 @@
     font-size: 16rem;
 }
 
+.searchResult-name {
+    color: orange;
+    font-weight: bold;
+    font-size: 30rem;
+    padding: 0rem 0rem 10rem 0rem;
+}
+
 .searchResultEmpty {
     color: #7e808c;
     font-size: 20rem;

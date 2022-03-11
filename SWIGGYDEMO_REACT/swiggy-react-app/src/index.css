@@ -14,6 +14,10 @@ body{
   overflow-y: scroll;
 }
 
+hr {
+  margin: 10rem 0rem 10rem 0rem;
+}
+
 @media(max-width: 998px){
   html{
       font-size: 5%;

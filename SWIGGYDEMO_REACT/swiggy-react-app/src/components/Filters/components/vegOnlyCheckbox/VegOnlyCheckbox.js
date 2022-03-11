@@ -2,13 +2,13 @@ import './vegOnlyCheckbox.style.css';
 
 import React from "react";
 
-function VegOnlyCheckbox () {
+function VegOnlyCheckbox ({isVeg, onCheckboxClick}) {
     return (
         <>
             <div className="veg-or-nonveg">
                 <div className="checkbox-div">
                     <label>
-                        <input type="checkbox" className="checkbox" />
+                        <input type="checkbox" className="checkbox" value={isVeg} onClick={ () => onCheckboxClick()}/>
                     </label>
                 </div>
                 <span className="name">
