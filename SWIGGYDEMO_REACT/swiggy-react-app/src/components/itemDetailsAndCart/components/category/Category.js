@@ -2,8 +2,6 @@ import './category.style.css';
 
 import React from 'react';
 
-// import { sideMenu } from '../../../models/menu.mjs';
-
 function Category ({content}) {
     return (
         <>
@@ -11,7 +9,7 @@ function Category ({content}) {
                 {
                     content.map( (side, index) => {
                         return (
-                            <li key={index}><a href="#${index + 1}">{side}</a></li>
+                            <li key={index}><a href={`#${index + 1}`}>{side}</a></li>
                         );
                     })
                 }

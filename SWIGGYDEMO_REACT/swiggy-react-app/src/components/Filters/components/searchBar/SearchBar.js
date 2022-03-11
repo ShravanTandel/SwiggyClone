@@ -2,13 +2,13 @@ import './searchBar.style.css';
 
 import React from "react";
 
-function SearchBar () {
+function SearchBar ({searchInputText, onChange}) {
     return (
         <>
             <div className="searchbar">
                     <div className="searchbar-1">
                         <label>
-                            <input type="text" placeholder="Search for dishes....." />
+                            <input type="text" value={searchInputText} onChange={(e) => onChange(e)} placeholder="Search for dishes....." />
                         </label>
                     </div>
             </div>

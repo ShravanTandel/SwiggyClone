@@ -6,9 +6,11 @@ import Category from './components/category/index';
 import ListByCategory from './components/listByCategory/ListbyCategory';
 import CartItems from './components/cartItems/CartItems';
 
-function ItemDetailsAndCart ({sideMenu, menuItemList, cart,}) {
+function ItemDetailsAndCart ({sideMenu, menuItemList, isVeg, searchInputText}) {
 
     const [ cartItems, setCartItems ] = useState([]);
+
+    const [ sideMenuList, setSideMenuList ] = useState([...sideMenu]);
 
     function addCartItem (pkOfItem) {
         let item = {};
@@ -61,10 +63,16 @@ function ItemDetailsAndCart ({sideMenu, menuItemList, cart,}) {
         setCartItems([...items]);
     }
 
+    function updateSideMenuList (arr) {
+        setSideMenuList([...arr]);
+        console.log("Hi")
+        console.log(sideMenuList);
+    }
+
     return (
         <>
             <div className="menuAndCart">
-                <Category content={sideMenu}/>
+                <Category content={sideMenuList}/>
                 <ListByCategory 
                     data={menuItemList} 
                     category={sideMenu}
@@ -72,6 +80,9 @@ function ItemDetailsAndCart ({sideMenu, menuItemList, cart,}) {
                     onClickADD={addCartItem}
                     onClickPlus={increaseCartItemCount} 
                     onClickMinus={decreaseCartItemCount}
+                    isVeg={isVeg}
+                    searchInputText={searchInputText}
+                    onFilter={updateSideMenuList}
             />
                 <CartItems cartItems={cartItems} onClickPlus={increaseCartItemCount} onClickMinus={decreaseCartItemCount}/>
             </div>
