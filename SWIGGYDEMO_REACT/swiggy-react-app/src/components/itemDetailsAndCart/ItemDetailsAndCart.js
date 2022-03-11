@@ -65,8 +65,37 @@ function ItemDetailsAndCart ({sideMenu, menuItemList, isVeg, searchInputText}) {
 
     function updateSideMenuList (arr) {
         setSideMenuList([...arr]);
-        console.log("Hi")
-        console.log(sideMenuList);
+    }
+
+    function checkout () {
+
+        let localCartItems = localStorage.getItem("cart");
+
+        if (localCartItems === null) {
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+        }
+
+        else {
+            localCartItems = JSON.parse(localCartItems);
+            for (var i=0; i<cartItems.length; i++) {
+                let flag = false;
+                for (var j=0; j<localCartItems.length; j++) {
+                    if (localCartItems[j].pk === cartItems[i].pk) {
+                        localCartItems[j].count += cartItems[i].count;
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    localCartItems.push(cartItems[i]);
+                }
+            }
+            localStorage.setItem("cart", JSON.stringify(localCartItems));
+        }
+
+        localCartItems = localStorage.getItem("cart");
+        console.log(localCartItems);
+        setCartItems([]);
     }
 
     return (
@@ -84,7 +113,7 @@ function ItemDetailsAndCart ({sideMenu, menuItemList, isVeg, searchInputText}) {
                     searchInputText={searchInputText}
                     onFilter={updateSideMenuList}
             />
-                <CartItems cartItems={cartItems} onClickPlus={increaseCartItemCount} onClickMinus={decreaseCartItemCount}/>
+                <CartItems cartItems={cartItems} onClickPlus={increaseCartItemCount} onClickMinus={decreaseCartItemCount} onCheckout={checkout}/>
             </div>
         </>
     );
