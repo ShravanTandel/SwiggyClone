@@ -1,3 +1,3 @@
-import CheckoutButtonContainer from "./CheckoutButtonContainer";
+import CheckoutButton from "./CheckoutButton";
 
-export default CheckoutButtonContainer;
+export default CheckoutButton;

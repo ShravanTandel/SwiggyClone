@@ -1,8 +1,8 @@
 import './item.style.css';
 
 import React from "react";
-import AddButtonContainer from "./components/addButton/index";
-import ActionButtonForItemsContainer from './components/actionButtonForItems/ActionButtonForItemsContainer';
+import AddButton from './components/addButton/AddButton';
+import ActionButtonForItems from './components/actionButtonForItems/ActionButtonForItems';
 
 function Item ({item, cartItems, onClickADD, onClickPlus, onClickMinus}) {
 
@@ -36,9 +36,9 @@ function Item ({item, cartItems, onClickADD, onClickPlus, onClickMinus}) {
                             <img src={item.image} alt="" />
                         <div className = "button">
                         {flag ? 
-                        <ActionButtonForItemsContainer pk={item.pk} count={count} onClickPlus={onClickPlus} onClickMinus={onClickMinus}/>
+                        <ActionButtonForItems pk={item.pk} count={count} onClickPlus={onClickPlus} onClickMinus={onClickMinus}/>
                         :
-                        <AddButtonContainer pk={item.pk} onClickADD={onClickADD} />
+                        <AddButton data="ADD" pk={item.pk} onClickADD={onClickADD} />
                     }
                         </div>
                     </div>

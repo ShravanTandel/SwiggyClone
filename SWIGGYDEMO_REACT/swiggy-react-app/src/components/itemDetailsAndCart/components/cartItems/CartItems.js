@@ -2,7 +2,7 @@ import './cartItems.style.css';
 
 import React from "react";
 import CartItem from "./components/cartItem/CartItem";
-import CheckoutButtonControlled from './components/checkoutButton';
+import CheckoutButton from './components/checkoutButton/index';
 
 function CartItems ({cartItems, onClickPlus, onClickMinus, onCheckout}) {
     let subTotal = 0;
@@ -53,7 +53,7 @@ function CartItems ({cartItems, onClickPlus, onClickMinus, onCheckout}) {
                             ₹ {subTotal}
                         </div>
                     </div>
-                    <CheckoutButtonControlled onCheckout={onCheckout}/>
+                    <CheckoutButton data="CHECKOUT" onCheckout={onCheckout}/>
                 </div>
 
             }
