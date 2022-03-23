@@ -1,4 +1,4 @@
-function Item(name, isVeg, isBestseller, price, description, image, category) {
+function Item(name, isVeg, isBestseller, price, description, image, category, pk) {
         this.name = name;
         this.isVeg = isVeg;
         this.isBestseller = isBestseller;
@@ -6,6 +6,7 @@ function Item(name, isVeg, isBestseller, price, description, image, category) {
         this.description = description;
         this.image = image;
         this.category = category;
+        this.pk = pk
 }
 
 var ItemBuilder = function () {
@@ -16,6 +17,7 @@ var ItemBuilder = function () {
     let description = "";
     let image = "";
     let category = "";
+    let pk = 0;
 
     return {
         setName: function (name) {
@@ -46,8 +48,12 @@ var ItemBuilder = function () {
             this.category = category;
             return this;
         },
+        setPk: function (pk) {
+            this.pk = pk;
+            return this;
+        },
         build: function () {
-            return new Item(this.name, this.isVeg, this.isBestseller, this.price, this.description, this.image, this.category);
+            return new Item(this.name, this.isVeg, this.isBestseller, this.price, this.description, this.image, this.category, this.pk);
         }
     };
 }
