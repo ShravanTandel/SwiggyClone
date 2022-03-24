@@ -1,64 +1,57 @@
 import './cartItems.style.css';
 
-import React from "react";
-import CartItem from "./components/cartItem/CartItem";
+import React from 'react';
+import CartItem from './components/cartItem/CartItem';
 import CheckoutButton from './components/checkoutButton/index';
+import { useSelector } from 'react-redux';
 
-function CartItems ({cartItems, onClickPlus, onClickMinus, onCheckout}) {
-    let subTotal = 0;
-    cartItems.forEach( (i) => {
-        subTotal += ( i.count * i.price );
-    })
+function CartItems() {
+    const cartItems = useSelector((state) => state.cartItems);
 
-    let numberOfItemsInCart = cartItems.length;
+    const subTotal = cartItems.reduce((prev, curr) => {
+        return prev + curr.count * curr.price;
+    }, 0);
+
+    const numberOfItemsInCart = cartItems.length;
 
     return (
         <>
-
-            {
-                numberOfItemsInCart === 0 
-
-                ? 
+            {numberOfItemsInCart === 0 ? (
                 <div>
-                    <div className = "cart_name">
-                        <span className = "cart3">Cart Empty</span>
+                    <div className="cart_name">
+                        <span className="cart3">Cart Empty</span>
                     </div>
-                    <div className = "cartEmptyImage">
-                        <img src = "./images/cartEmpty.png" alt='.....'/>
-                    </div> 
+                    <div className="cartEmptyImage">
+                        <img src="./images/cartEmpty.png" alt="....." />
+                    </div>
                 </div>
-
-            :
-
+            ) : (
                 <div className="cart">
                     <div className="cart_name">
-                        <span className="cart1">Cart</span><br />
-                        <span className="cart2">{numberOfItemsInCart} Item</span>
+                        <span className="cart1">Cart</span>
+                        <br />
+                        <span className="cart2">
+                            {numberOfItemsInCart} Item
+                        </span>
                     </div>
                     <div className="cart_items">
-                        {
-                            cartItems.map( (data) => {
-                                return (
-                                    <CartItem cartItem = {data} key = {data.pk} onClickPlus={onClickPlus} onClickMinus={onClickMinus}/>
-                                );
-                            })
-                        }
+                        {cartItems.map((data) => {
+                            return <CartItem cartItem={data} key={data.pk} />;
+                        })}
                     </div>
                     <div className="subTotal">
                         <div className="sub">
-                            <span className="s1">SubTotal</span><br />
+                            <span className="s1">SubTotal</span>
+                            <br />
                             <span className="s2">Extra charges may apply</span>
                         </div>
-                        <div className="price">
-                            ₹ {subTotal}
-                        </div>
+                        <div className="price">₹ {subTotal}</div>
                     </div>
-                    <CheckoutButton data="CHECKOUT" onCheckout={onCheckout}/>
+                    <CheckoutButton data="CHECKOUT" />
                 </div>
-
-            }
+            )}
         </>
     );
-};
+}
 
 export default CartItems;

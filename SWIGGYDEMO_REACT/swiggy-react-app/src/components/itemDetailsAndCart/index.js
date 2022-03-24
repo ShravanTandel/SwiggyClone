@@ -1,3 +1,3 @@
-import ItemDetailsAndCart from "./ItemDetailsAndCart";
+import ItemDetailsAndCart from './ItemDetailsAndCart';
 
 export default ItemDetailsAndCart;

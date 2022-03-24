@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Item from "./components/item";
 
 function Items ({data, cartItems, onClickADD, onClickPlus, onClickMinus}) {
+
+    const CartItems = useSelector(state => state.cartItems)
 
     // const 
     return (
@@ -9,7 +12,7 @@ function Items ({data, cartItems, onClickADD, onClickPlus, onClickMinus}) {
             {
                 data.map( (d) => {
                     return (
-                            <Item key={d.pk} item={d} cartItems={cartItems} onClickADD={(onClickADD)} onClickPlus={onClickPlus} onClickMinus={onClickMinus}/>
+                            <Item key={d.pk} item={d} cartItems={CartItems} onClickADD={(onClickADD)} onClickPlus={onClickPlus} onClickMinus={onClickMinus}/>
                     );
                 })
             }

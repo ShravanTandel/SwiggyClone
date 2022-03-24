@@ -1,11 +1,11 @@
-.searchbar-and-checkboxes{
+.searchbar-and-checkboxes {
     max-width: 1200rem;
     min-width: 1200rem;
     position: relative;
     margin: 0 auto;
 }
 
-.searchbar-and-checkboxes-1{
+.searchbar-and-checkboxes-1 {
     display: table;
     color: #3d4152;
     font-weight: 500;
@@ -14,15 +14,11 @@
     position: absolute;
     bottom: 50rem;
     width: 538rem;
-    transform: translate3d(0,72rem,0);
-    transition: transform .2s ease-in-out;
+    transform: translate3d(0, 72rem, 0);
+    transition: transform 0.2s ease-in-out;
     pointer-events: auto;
     left: 250rem;
 }
-
-/* .searchbar-and-checkboxes-1 .checkbox{
-    padding: 10rem 10rem 10rem 10rem;
-} */
 
 .searchResult-name {
     color: orange;

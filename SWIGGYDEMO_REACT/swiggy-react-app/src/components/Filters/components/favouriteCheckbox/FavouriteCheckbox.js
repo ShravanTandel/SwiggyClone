@@ -1,22 +1,18 @@
 import './favouriteCheckbox.style.css';
 
-import React from "react";
+import React from 'react';
 
-function FavouriteCheckbox () {
+function FavouriteCheckbox() {
     return (
-        <>
-            <div className="favourite">
-                <div className="checkbox-div">
-                    <label>
-                        <input type="checkbox" className="checkbox" />
-                    </label>
-                </div>
-                <span className="name">
-                    Favourite
-                </span>
+        <div className="favourite">
+            <div className="checkbox-div">
+                <label>
+                    <input type="checkbox" className="checkbox" />
+                </label>
             </div>
-        </>
+            <span className="name">Favourite</span>
+        </div>
     );
-};
+}
 
 export default FavouriteCheckbox;

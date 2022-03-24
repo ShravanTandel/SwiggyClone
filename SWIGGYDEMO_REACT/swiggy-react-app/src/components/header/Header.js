@@ -2,7 +2,7 @@ import './header.style.css';
 
 import React from 'react';
 
-function Header () {
+function Header() {
     return (
         <>
             <nav>
@@ -10,31 +10,38 @@ function Header () {
                     <div className="logo">
                         <h4>Swiggy</h4>
                     </div>
-                    <div className="location">
-                        Bangalore
-                    </div>
+                    <div className="location">Bangalore</div>
                 </div>
                 <ul className="nav-link">
                     <li>
-                        <a href="#"><span></span>Search</a>
+                        <a href="#1">
+                            <span></span>Search
+                        </a>
                     </li>
                     <li>
-                        <a href="#"><span></span>Offers</a>
+                        <a href="#2">
+                            <span></span>Offers
+                        </a>
                     </li>
                     <li>
-                        <a href="#"><span></span>Help</a>
+                        <a href="#3">
+                            <span></span>Help
+                        </a>
                     </li>
                     <li>
-                        <a href="#"><span></span>Sign In</a>
+                        <a href="#4">
+                            <span></span>Sign In
+                        </a>
                     </li>
                     <li>
-                        {/* <a href="#"><span className = "cartCount">${cart.length}</span> Cart</a> */}
-                        <a href="#"><span className = "cartCount"></span> Cart</a>
+                        <a href="#5">
+                            <span className="cartCount"></span> Cart
+                        </a>
                     </li>
                 </ul>
             </nav>
         </>
     );
-};
+}
 
 export default Header;

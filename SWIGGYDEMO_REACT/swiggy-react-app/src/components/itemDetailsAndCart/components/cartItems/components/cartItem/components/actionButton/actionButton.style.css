@@ -1,4 +1,4 @@
-.addSubCart{
+.addSubCart {
     display: flex;
     margin: 0 10rem 0 10rem;
     border: 1rem solid #d4d5d9;
@@ -6,17 +6,16 @@
     height: 30rem;
 }
 
-.addSubCart .minus
-{
+.addSubCart .minus {
     padding: 4rem 10rem 4rem 10rem;
     cursor: pointer;
 }
 
-.addSubCart .count{
+.addSubCart .count {
     padding: 4rem 4rem 4rem 4rem;
 }
 
-.addSubCart .plus{
+.addSubCart .plus {
     padding: 4rem 4rem 10rem 10rem;
     cursor: pointer;
 }

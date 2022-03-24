@@ -1,4 +1,4 @@
-.details{
+.details {
     display: flex;
     background-color: #000000;
     min-height: 250rem;
@@ -6,90 +6,84 @@
     padding-right: 200rem;
 }
 
-.details .image{
+.details .image {
     padding-top: 40rem;
     padding-bottom: 40rem;
 }
 
-.image img{
+.image img {
     width: 250rem;
     height: 165rem;
 }
 
 .details .name {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 32rem;
     font-weight: lighter;
 }
 
-.dashbroad{
+.dashbroad {
     padding: 40rem 50rem 40rem 50rem;
     min-width: 600rem;
 }
 
-.dashbroad .typeOfFood{
-    color: #A0A0A0;
+.dashbroad .typeOfFood {
+    color: #a0a0a0;
     padding: 13rem 0 0 0;
     font-size: 16rem;
 }
 
-.dashbroad .landmark{
-    color: #A0A0A0;
+.dashbroad .landmark {
+    color: #a0a0a0;
     padding: 13rem 0 0 0;
     font-size: 13rem;
 }
 
-.otherDetails{
+.otherDetails {
     padding: 16rem 0 0 0;
     display: flex;
 }
 
-.r1{
-    color: #FFFFFF;
+.r1 {
+    color: #ffffff;
     padding: 5rem 0 8rem 0;
     float: left;
     font-size: 16rem;
 }
 
-.r2{
-    color: #A0A0A0;
+.r2 {
+    color: #a0a0a0;
     float: left;
     clear: left;
     font-size: 13rem;
 }
 
-.rating{
+.rating {
     padding-right: 15rem;
 }
 
-.time{
+.time {
     padding: 0 15rem 0 15rem;
 }
 
-.cost{
+.cost {
     padding: 0 15rem 0 15rem;
 }
 
-/* .offer{
-    padding: 40rem 50rem 40rem 50rem;
-    font-size: 30rem;
-} */
-
-.offer-padding{
+.offer-padding {
     width: 298rem;
     padding: 74rem 0 48rem;
     height: 100%;
 }
 
-.offer{
+.offer {
     border: 1rem solid rgba(255, 255, 255, 0.3);
     transform: translateZ(0);
-    transition: transform .2s ease-in-out;
-    /* border: 1rem solid #bec0c8; */
+    transition: transform 0.2s ease-in-out;
     position: relative;
 }
 
-.offer .name{
+.offer .name {
     background-color: #000000;
     color: white;
     font-size: 20rem;
@@ -103,12 +97,12 @@
     left: -6rem;
 }
 
-.list{
-    color: #DEDEDE;
+.list {
+    color: #dedede;
     padding: 30rem 30rem 30rem 30rem;
 }
 
-.list li{
+.list li {
     list-style: none;
     font-size: 14rem;
     padding: 5rem 0 0 5rem;

@@ -1,8 +1,8 @@
-.checkout{
+.checkout {
     padding: 30rem 0 0 0;
 }
 
-.checkout .button{
+.checkout .button {
     height: 50rem;
     background-color: rgb(12, 133, 12);
     outline: 0;
@@ -19,6 +19,6 @@
     width: 100%;
 }
 
-.checkout button:hover{
-    box-shadow: 5rem 5rem rgba(54,223,29,.50);
+.checkout button:hover {
+    box-shadow: 5rem 5rem rgba(54, 223, 29, 0.5);
 }
