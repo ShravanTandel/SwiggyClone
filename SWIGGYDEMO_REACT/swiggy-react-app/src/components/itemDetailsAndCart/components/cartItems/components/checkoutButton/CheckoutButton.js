@@ -5,10 +5,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { onCheckout } from '../../../../../../actions/cartActionsCreators';
 
-function CheckoutButton(props) {
+function CheckoutButton({ data, onCheckout }) {
     return (
-        <div className="checkout" onClick={() => props.onCheckout()}>
-            <button className="button">{props.data}</button>
+        <div className="checkout" onClick={() => onCheckout()}>
+            <button className="button">{data}</button>
         </div>
     );
 }

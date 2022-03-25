@@ -19,15 +19,22 @@ const groupBy = (key, items) =>
         }
     }, {});
 
-function ListByCategory(props) {
-    const { items, categoryList } = props.itemsWithCategory;
-    const { searchItems, searchCategoryList } = props.searchItemsWithCategory;
+function ListByCategory({
+    itemsWithCategory,
+    searchItemsWithCategory,
+    isVeg,
+    searchInputText,
+    updateSearchItemsWithCategoryList,
+    updateItemsWithCategoryList,
+}) {
+    const { items, categoryList } = itemsWithCategory;
+    const { searchItems, searchCategoryList } = searchItemsWithCategory;
 
     function updateItemsAndCategoryList() {
         let itemsDetails = groupBy('category', menuItemList);
         let categoryListForOriginalItems = sideMenu;
 
-        if (props.isVeg === true) {
+        if (isVeg === true) {
             const updatedItems = {};
             const categoryList = [];
             categoryListForOriginalItems.forEach((cat) => {
@@ -41,11 +48,10 @@ function ListByCategory(props) {
                 }
             });
             itemsDetails = updatedItems;
-            console.log(categoryList);
             categoryListForOriginalItems = categoryList;
         }
 
-        if (props.searchInputText.length !== 0) {
+        if (searchInputText.length !== 0) {
             const updatedSearchItems = {};
             const searchCategoryList = [];
             categoryListForOriginalItems.forEach((cat) => {
@@ -53,7 +59,7 @@ function ListByCategory(props) {
                     return (
                         item.name
                             .toUpperCase()
-                            .indexOf(props.searchInputText.toUpperCase()) > -1
+                            .indexOf(searchInputText.toUpperCase()) > -1
                     );
                 });
                 if (updatedSearchItems[cat].length === 0) {
@@ -62,25 +68,22 @@ function ListByCategory(props) {
                     searchCategoryList.push(cat);
                 }
             });
-            props.updateSearchItemsWithCategoryList(
+            updateSearchItemsWithCategoryList(
                 updatedSearchItems,
                 searchCategoryList
             );
         }
-        props.updateItemsWithCategoryList(
-            itemsDetails,
-            categoryListForOriginalItems
-        );
+        updateItemsWithCategoryList(itemsDetails, categoryListForOriginalItems);
     }
 
     useEffect(() => {
         updateItemsAndCategoryList();
-    }, [props.isVeg, props.searchInputText]);
+    }, [isVeg, searchInputText]);
 
     return (
         <>
             <div className="items">
-                {props.searchInputText.length === 0 ? (
+                {searchInputText.length === 0 ? (
                     ''
                 ) : (
                     <>

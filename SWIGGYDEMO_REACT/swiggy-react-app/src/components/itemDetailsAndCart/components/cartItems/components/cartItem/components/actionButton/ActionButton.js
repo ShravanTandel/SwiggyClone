@@ -9,20 +9,14 @@ import {
     decrementOnMinus,
 } from '../../../../../../../../actions/cartActionsCreators';
 
-function ActionButton(props) {
+function ActionButton({ pk, count, incrementOnPlus, decrementOnMinus }) {
     return (
         <div className="addSubCart">
-            <div
-                className="minus"
-                onClick={() => props.decrementOnMinus(props.pk)}
-            >
+            <div className="minus" onClick={() => decrementOnMinus(pk)}>
                 -
             </div>
-            <div className="count">{props.count}</div>
-            <div
-                className="plus"
-                onClick={() => props.incrementOnPlus(props.pk)}
-            >
+            <div className="count">{count}</div>
+            <div className="plus" onClick={() => incrementOnPlus(pk)}>
                 +
             </div>
         </div>

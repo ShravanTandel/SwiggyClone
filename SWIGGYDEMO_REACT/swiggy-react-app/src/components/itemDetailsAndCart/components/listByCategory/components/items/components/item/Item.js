@@ -5,6 +5,7 @@ import AddButton from './components/addButton/AddButton';
 import ActionButtonForItems from './components/actionButtonForItems/ActionButtonForItems';
 
 function Item({ item, cartItems }) {
+    // checking if the particular item is inside cart or not if yes will get the count
     let flag = false;
     let count = 0;
 

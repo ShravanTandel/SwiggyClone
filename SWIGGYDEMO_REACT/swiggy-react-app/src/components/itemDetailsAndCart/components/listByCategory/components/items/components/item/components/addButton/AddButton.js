@@ -5,10 +5,10 @@ import React from 'react';
 import { addCartItem } from '../../../../../../../../../../actions/cartActionsCreators';
 import { connect } from 'react-redux';
 
-function AddButton(props) {
+function AddButton({ addItemsToCart, data, pk }) {
     return (
-        <div className="add" onClick={() => props.addItemsToCart(props.pk)}>
-            {props.data}
+        <div className="add" onClick={() => addItemsToCart(pk)}>
+            {data}
         </div>
     );
 }

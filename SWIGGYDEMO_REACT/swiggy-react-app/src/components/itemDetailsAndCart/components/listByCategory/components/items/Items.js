@@ -2,12 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Item from './components/item';
 
-function Items(props) {
-    const cartItems = props.cartItems;
-
+function Items({ cartItems, data }) {
     return (
         <>
-            {props.data.map((d) => {
+            {data.map((d) => {
                 return <Item key={d.pk} item={d} cartItems={cartItems} />;
             })}
         </>

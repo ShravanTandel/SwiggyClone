@@ -5,9 +5,7 @@ import CartItem from './components/cartItem/CartItem';
 import CheckoutButton from './components/checkoutButton/index';
 import { connect } from 'react-redux';
 
-function CartItems(props) {
-    const cartItems = props.cartItems;
-
+function CartItems({ cartItems }) {
     const subTotal = cartItems.reduce((prev, curr) => {
         return prev + curr.count * curr.price;
     }, 0);

@@ -1,10 +1,9 @@
 import './category.style.css';
 
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
-function Category() {
-    const { categoryList } = useSelector((state) => state.itemsWithCategory);
+function Category({ categoryList }) {
     return (
         <div className="category">
             {categoryList.map((side, index) => {
@@ -18,4 +17,10 @@ function Category() {
     );
 }
 
-export default Category;
+const mapStateToProps = (state) => {
+    return {
+        categoryList: state.itemsWithCategory.categoryList,
+    };
+};
+
+export default connect(mapStateToProps)(Category);

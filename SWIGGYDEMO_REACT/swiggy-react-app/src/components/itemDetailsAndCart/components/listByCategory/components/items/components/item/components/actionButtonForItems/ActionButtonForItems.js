@@ -5,23 +5,28 @@ import {
     incrementOnPlus,
 } from '../../../../../../../../../../actions/cartActionsCreators';
 
-function ActionButtonForItems(props) {
+function ActionButtonForItems({
+    decrementOnMinus,
+    incrementOnPlus,
+    pk,
+    count,
+}) {
     return (
         <>
             <div className="addSub">
                 <span
                     className="minus"
                     onClick={() => {
-                        props.decrementOnMinus(props.pk);
+                        decrementOnMinus(pk);
                     }}
                 >
                     -
                 </span>
-                <span className="count">{props.count}</span>
+                <span className="count">{count}</span>
                 <span
                     className="plus"
                     onClick={() => {
-                        props.incrementOnPlus(props.pk);
+                        incrementOnPlus(pk);
                     }}
                 >
                     +
