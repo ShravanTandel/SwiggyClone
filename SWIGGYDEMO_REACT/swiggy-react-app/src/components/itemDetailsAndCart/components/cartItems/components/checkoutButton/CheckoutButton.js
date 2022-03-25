@@ -2,16 +2,23 @@ import './checkoutButton.style.css';
 
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { onCheckout } from '../../../../../../actions/cartActionsCreators';
 
-function CheckoutButton({ data }) {
-    const dispatch = useDispatch();
+function CheckoutButton(props) {
     return (
-        <div className="checkout" onClick={() => dispatch(onCheckout())}>
-            <button className="button">{data}</button>
+        <div className="checkout" onClick={() => props.onCheckout()}>
+            <button className="button">{props.data}</button>
         </div>
     );
 }
 
-export default CheckoutButton;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onCheckout: () => {
+            dispatch(onCheckout());
+        },
+    };
+};
+
+export default connect(null, mapDispatchToProps)(CheckoutButton);

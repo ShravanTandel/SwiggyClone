@@ -2,7 +2,7 @@ import './listByCategory.style.css';
 
 import React, { useEffect } from 'react';
 import Items from './components/items';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import updateSearchItemsWithCategoryList from '../../../../actions/searchItemsWithCategoryActionCreator';
 import updateItemsWithCategoryList from '../../../../actions/itemsWithCategoryActionCreator';
 import { menuItemList } from '../../../../models/itemList';
@@ -19,21 +19,15 @@ const groupBy = (key, items) =>
         }
     }, {});
 
-function ListByCategory({ isVeg, searchInputText }) {
-    const { items, categoryList } = useSelector(
-        (state) => state.itemsWithCategory
-    );
-    const { searchItems, searchCategoryList } = useSelector(
-        (state) => state.searchItemsWithCategory
-    );
-
-    const dispatch = useDispatch();
+function ListByCategory(props) {
+    const { items, categoryList } = props.itemsWithCategory;
+    const { searchItems, searchCategoryList } = props.searchItemsWithCategory;
 
     function updateItemsAndCategoryList() {
         let itemsDetails = groupBy('category', menuItemList);
         let categoryListForOriginalItems = sideMenu;
 
-        if (isVeg === true) {
+        if (props.isVeg === true) {
             const updatedItems = {};
             const categoryList = [];
             categoryListForOriginalItems.forEach((cat) => {
@@ -51,7 +45,7 @@ function ListByCategory({ isVeg, searchInputText }) {
             categoryListForOriginalItems = categoryList;
         }
 
-        if (searchInputText.length !== 0) {
+        if (props.searchInputText.length !== 0) {
             const updatedSearchItems = {};
             const searchCategoryList = [];
             categoryListForOriginalItems.forEach((cat) => {
@@ -59,7 +53,7 @@ function ListByCategory({ isVeg, searchInputText }) {
                     return (
                         item.name
                             .toUpperCase()
-                            .indexOf(searchInputText.toUpperCase()) > -1
+                            .indexOf(props.searchInputText.toUpperCase()) > -1
                     );
                 });
                 if (updatedSearchItems[cat].length === 0) {
@@ -68,29 +62,25 @@ function ListByCategory({ isVeg, searchInputText }) {
                     searchCategoryList.push(cat);
                 }
             });
-            dispatch(
-                updateSearchItemsWithCategoryList(
-                    updatedSearchItems,
-                    searchCategoryList
-                )
+            props.updateSearchItemsWithCategoryList(
+                updatedSearchItems,
+                searchCategoryList
             );
         }
-        dispatch(
-            updateItemsWithCategoryList(
-                itemsDetails,
-                categoryListForOriginalItems
-            )
+        props.updateItemsWithCategoryList(
+            itemsDetails,
+            categoryListForOriginalItems
         );
     }
 
     useEffect(() => {
         updateItemsAndCategoryList();
-    }, [isVeg, searchInputText]);
+    }, [props.isVeg, props.searchInputText]);
 
     return (
         <>
             <div className="items">
-                {searchInputText.length === 0 ? (
+                {props.searchInputText.length === 0 ? (
                     ''
                 ) : (
                     <>
@@ -151,4 +141,36 @@ function ListByCategory({ isVeg, searchInputText }) {
     );
 }
 
-export default ListByCategory;
+const mapStateToProps = (state) => {
+    return {
+        itemsWithCategory: state.itemsWithCategory,
+        searchItemsWithCategory: state.searchItemsWithCategory,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateItemsWithCategoryList: (
+            itemsDetails,
+            categoryListForOriginalItems
+        ) =>
+            dispatch(
+                updateItemsWithCategoryList(
+                    itemsDetails,
+                    categoryListForOriginalItems
+                )
+            ),
+        updateSearchItemsWithCategoryList: (
+            updatedSearchItems,
+            searchCategoryList
+        ) =>
+            dispatch(
+                updateSearchItemsWithCategoryList(
+                    updatedSearchItems,
+                    searchCategoryList
+                )
+            ),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListByCategory);

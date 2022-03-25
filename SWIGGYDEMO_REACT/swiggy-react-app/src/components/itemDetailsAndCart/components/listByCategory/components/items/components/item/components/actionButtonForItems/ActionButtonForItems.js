@@ -1,28 +1,27 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import {
     decrementOnMinus,
     incrementOnPlus,
 } from '../../../../../../../../../../actions/cartActionsCreators';
 
-function ActionButtonForItems({ pk, count }) {
-    const dispatch = useDispatch();
+function ActionButtonForItems(props) {
     return (
         <>
             <div className="addSub">
                 <span
                     className="minus"
                     onClick={() => {
-                        dispatch(decrementOnMinus(pk));
+                        props.decrementOnMinus(props.pk);
                     }}
                 >
                     -
                 </span>
-                <span className="count">{count}</span>
+                <span className="count">{props.count}</span>
                 <span
                     className="plus"
                     onClick={() => {
-                        dispatch(incrementOnPlus(pk));
+                        props.incrementOnPlus(props.pk);
                     }}
                 >
                     +
@@ -32,4 +31,15 @@ function ActionButtonForItems({ pk, count }) {
     );
 }
 
-export default ActionButtonForItems;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        incrementOnPlus: (pk) => {
+            dispatch(incrementOnPlus(pk));
+        },
+        decrementOnMinus: (pk) => {
+            dispatch(decrementOnMinus(pk));
+        },
+    };
+};
+
+export default connect(null, mapDispatchToProps)(ActionButtonForItems);

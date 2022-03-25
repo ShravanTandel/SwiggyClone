@@ -3,10 +3,10 @@ import './cartItems.style.css';
 import React from 'react';
 import CartItem from './components/cartItem/CartItem';
 import CheckoutButton from './components/checkoutButton/index';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
-function CartItems() {
-    const cartItems = useSelector((state) => state.cartItems);
+function CartItems(props) {
+    const cartItems = props.cartItems;
 
     const subTotal = cartItems.reduce((prev, curr) => {
         return prev + curr.count * curr.price;
@@ -54,4 +54,10 @@ function CartItems() {
     );
 }
 
-export default CartItems;
+const mapStateToProps = (state) => {
+    return {
+        cartItems: state.cartItems,
+    };
+};
+
+export default connect(mapStateToProps)(CartItems);
