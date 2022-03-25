@@ -1,6 +1,6 @@
 import './listByCategory.style.css';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Items from './components/items';
 import { connect } from 'react-redux';
 import updateSearchItemsWithCategoryList from '../../../../actions/searchItemsWithCategoryActionCreator';
@@ -8,9 +8,9 @@ import updateItemsWithCategoryList from '../../../../actions/itemsWithCategoryAc
 import { menuItemList } from '../../../../models/itemList';
 import { sideMenu } from '../../../../models/menu';
 
-const groupBy = (key, items) =>
+const groupBy = (items) =>
     items.reduce((cache, item) => {
-        const property = item[key];
+        const property = item['category'];
 
         if (property in cache) {
             return { ...cache, [property]: cache[property].concat(item) };
@@ -30,10 +30,12 @@ function ListByCategory({
     const { items, categoryList } = itemsWithCategory;
     const { searchItems, searchCategoryList } = searchItemsWithCategory;
 
-    function updateItemsAndCategoryList() {
-        let itemsDetails = groupBy('category', menuItemList);
-        let categoryListForOriginalItems = sideMenu;
+    let itemsDetails = useMemo(() => {
+        return groupBy(menuItemList);
+    }, [menuItemList]);
+    let categoryListForOriginalItems = sideMenu;
 
+    function updateItemsAndCategoryList() {
         if (isVeg === true) {
             const updatedItems = {};
             const categoryList = [];
