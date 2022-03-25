@@ -3,8 +3,8 @@ import './category.style.css';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-function Category({ content }) {
-    const categoryList = useSelector((state) => state.categoryList);
+function Category() {
+    const { categoryList } = useSelector((state) => state.itemsWithCategory);
     return (
         <div className="category">
             {categoryList.map((side, index) => {

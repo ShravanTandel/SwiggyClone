@@ -6,9 +6,6 @@ import BreadCrumb from './components/breadCrumb/index';
 import RestaurantDetails from './components/restaurantDetails/index';
 import ItemDetailsAndCart from './components/itemDetailsAndCart/index';
 
-import { sideMenu } from './models/menu.js';
-import { menuItemList } from './models/itemList.js';
-
 import Filters from './components/Filters/Filters';
 import { useState } from 'react';
 
@@ -37,8 +34,6 @@ function App() {
                 onChange={updateInputText}
             />
             <ItemDetailsAndCart
-                sideMenu={sideMenu}
-                menuItemList={menuItemList}
                 isVeg={isVeg}
                 searchInputText={searchInputText}
             />

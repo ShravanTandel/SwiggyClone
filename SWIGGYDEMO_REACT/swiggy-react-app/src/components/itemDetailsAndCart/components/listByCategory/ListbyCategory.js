@@ -1,229 +1,152 @@
 import './listByCategory.style.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Items from './components/items';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import updateSearchItemsWithCategoryList from '../../../../actions/searchItemsWithCategoryActionCreator';
+import updateItemsWithCategoryList from '../../../../actions/itemsWithCategoryActionCreator';
+import { menuItemList } from '../../../../models/itemList';
+import { sideMenu } from '../../../../models/menu';
 
-function ListByCategory({
-    data,
-    category,
-    cartItems,
-    onClickADD,
-    onClickPlus,
-    onClickMinus,
-    isVeg,
-    searchInputText,
-    onFilter,
-}) {
-    const items = useSelector((state) => state.items);
-    const reducerCategory = useSelector((state) => state.categoryList);
+const groupBy = (key, items) =>
+    items.reduce((cache, item) => {
+        const property = item[key];
 
-    // const i = reducerCategory.map((c, o) => {
-    //     console.log(items[c]);
-    //     return '1';
-    // });
-
-    const [searchResultItems, setSearchResultItems] = useState([]);
-
-    const [categoryListForSearch, setCategoryListForSearch] = useState([
-        category,
-    ]);
-
-    const [categoryListForFilter, setCategoryListForFilter] = useState([
-        category,
-    ]);
-
-    let arrayOfItemsOrderedByCategory = [];
-
-    category.forEach((i, index) => {
-        let arrayOfItems = [];
-        arrayOfItems = data.filter((d) => {
-            return d.category === i;
-        });
-        arrayOfItemsOrderedByCategory[index] = arrayOfItems;
-    });
-
-    const [itemsOrderedByCategory, setItemsOrderedByCategory] = useState([
-        ...arrayOfItemsOrderedByCategory,
-    ]);
-
-    function updateItems() {
-        let arrayOfSearchedItems = [];
-        let arrayOfVegOnlyItems = [];
-
-        let searchCat = [];
-        let filterCat = [];
-
-        if (isVeg) {
-            category.forEach((i) => {
-                let arrayOfItems = [];
-                arrayOfItems = data.filter((d) => {
-                    return (
-                        d.category === i &&
-                        d.name
-                            .toUpperCase()
-                            .indexOf(searchInputText.toUpperCase()) > -1 &&
-                        d.isVeg === true
-                    );
-                });
-                if (arrayOfItems.length !== 0) {
-                    arrayOfSearchedItems.push(arrayOfItems);
-                    searchCat.push(i);
-                }
-            });
-
-            category.forEach((i) => {
-                let arrayOfItems = [];
-                arrayOfItems = data.filter((d) => {
-                    return d.category === i && d.isVeg;
-                });
-                if (arrayOfItems.length !== 0) {
-                    arrayOfVegOnlyItems.push(arrayOfItems);
-                    filterCat.push(i);
-                }
-            });
+        if (property in cache) {
+            return { ...cache, [property]: cache[property].concat(item) };
         } else {
-            category.forEach((i) => {
-                let arrayOfItems = [];
-                arrayOfItems = data.filter((d) => {
+            return { ...cache, [property]: [item] };
+        }
+    }, {});
+
+function ListByCategory({ isVeg, searchInputText }) {
+    const { items, categoryList } = useSelector(
+        (state) => state.itemsWithCategory
+    );
+    const { searchItems, searchCategoryList } = useSelector(
+        (state) => state.searchItemsWithCategory
+    );
+
+    const dispatch = useDispatch();
+
+    function updateItemsAndCategoryList() {
+        let itemsDetails = groupBy('category', menuItemList);
+        let categoryListForOriginalItems = sideMenu;
+
+        if (isVeg === true) {
+            const updatedItems = {};
+            const categoryList = [];
+            categoryListForOriginalItems.forEach((cat) => {
+                updatedItems[cat] = itemsDetails[cat].filter((item) => {
+                    return item.isVeg === true;
+                });
+                if (updatedItems[cat].length === 0) {
+                    delete updatedItems[cat];
+                } else {
+                    categoryList.push(cat);
+                }
+            });
+            itemsDetails = updatedItems;
+            console.log(categoryList);
+            categoryListForOriginalItems = categoryList;
+        }
+
+        if (searchInputText.length !== 0) {
+            const updatedSearchItems = {};
+            const searchCategoryList = [];
+            categoryListForOriginalItems.forEach((cat) => {
+                updatedSearchItems[cat] = itemsDetails[cat].filter((item) => {
                     return (
-                        d.category === i &&
-                        d.name
+                        item.name
                             .toUpperCase()
                             .indexOf(searchInputText.toUpperCase()) > -1
                     );
                 });
-                if (arrayOfItems.length !== 0) {
-                    arrayOfSearchedItems.push(arrayOfItems);
-                    searchCat.push(i);
+                if (updatedSearchItems[cat].length === 0) {
+                    delete updatedSearchItems[cat];
+                } else {
+                    searchCategoryList.push(cat);
                 }
             });
-
-            category.forEach((i) => {
-                let arrayOfItems = [];
-                arrayOfItems = data.filter((d) => {
-                    return d.category === i;
-                });
-                if (arrayOfItems.length !== 0) {
-                    arrayOfVegOnlyItems.push(arrayOfItems);
-                    filterCat.push(i);
-                }
-            });
+            dispatch(
+                updateSearchItemsWithCategoryList(
+                    updatedSearchItems,
+                    searchCategoryList
+                )
+            );
         }
-        setSearchResultItems([...arrayOfSearchedItems]);
-        setItemsOrderedByCategory([...arrayOfVegOnlyItems]);
-
-        setCategoryListForSearch([...searchCat]);
-        setCategoryListForFilter([...filterCat]);
-
-        onFilter(filterCat);
+        dispatch(
+            updateItemsWithCategoryList(
+                itemsDetails,
+                categoryListForOriginalItems
+            )
+        );
     }
 
     useEffect(() => {
-        updateItems();
+        updateItemsAndCategoryList();
     }, [isVeg, searchInputText]);
 
     return (
         <>
-            {searchInputText.length === 0 ? (
-                <div className="items">
-                    {reducerCategory.map((currentCategory, index) => {
-                        return (
-                            <div id={index + 1} key={index} className="item">
-                                <div className="name">
-                                    <span className="n">{currentCategory}</span>
-                                    <br />
-                                    <span className="i">
-                                        {items[reducerCategory[index]].length}
-                                        items
-                                    </span>
-                                </div>
-                                <div className="listItems">
-                                    <Items
-                                        data={items[currentCategory]}
-                                        cartItems={cartItems}
-                                        onClickADD={onClickADD}
-                                        onClickPlus={onClickPlus}
-                                        onClickMinus={onClickMinus}
-                                    />
-                                </div>
+            <div className="items">
+                {searchInputText.length === 0 ? (
+                    ''
+                ) : (
+                    <>
+                        <div className="searchResult-name">Search Result</div>
+                        {Object.keys(searchItems).length !== 0 ? (
+                            searchCategoryList.map((currentCategory, index) => {
+                                return (
+                                    <div key={index} className="item">
+                                        <div className="name">
+                                            <span className="n">
+                                                {currentCategory}
+                                            </span>
+                                            <br />
+                                            <span className="i">
+                                                {
+                                                    searchItems[currentCategory]
+                                                        .length
+                                                }{' '}
+                                                items
+                                            </span>
+                                        </div>
+                                        <div className="listItems">
+                                            <Items
+                                                data={
+                                                    searchItems[currentCategory]
+                                                }
+                                            />
+                                        </div>
+                                    </div>
+                                );
+                            })
+                        ) : (
+                            <div className="searchResultEmpty">
+                                Search Result Empty
                             </div>
-                        );
-                    })}
-                </div>
-            ) : (
-                <div className="items">
-                    <div className="searchResult-name">Search Result</div>
-                    {searchResultItems.length !== 0 ? (
-                        categoryListForSearch.map((currentCategory, index) => {
-                            return (
-                                <div key={index} className="item">
-                                    <div className="name">
-                                        <span className="n">
-                                            {currentCategory}
-                                        </span>
-                                        <br />
-                                        <span className="i">
-                                            {searchResultItems[index].length}{' '}
-                                            items
-                                        </span>
-                                    </div>
-                                    <div className="listItems">
-                                        <Items
-                                            data={searchResultItems[index]}
-                                            cartItems={cartItems}
-                                            onClickADD={onClickADD}
-                                            onClickPlus={onClickPlus}
-                                            onClickMinus={onClickMinus}
-                                        />
-                                    </div>
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <div className="searchResultEmpty">
-                            Search Result Empty
+                        )}
+                        <hr />
+                    </>
+                )}
+                {categoryList.map((currentCategory, index) => {
+                    return (
+                        <div id={index + 1} key={index} className="item">
+                            <div className="name">
+                                <span className="n">{currentCategory}</span>
+                                <br />
+                                <span className="i">
+                                    {items[categoryList[index]].length} items
+                                </span>
+                            </div>
+                            <div className="listItems">
+                                <Items data={items[currentCategory]} />
+                            </div>
                         </div>
-                    )}
-                    <hr />
-
-                    {categoryListForFilter.map((currentCategory, index) => {
-                        if (itemsOrderedByCategory[index].length !== 0) {
-                            return (
-                                <div
-                                    id={index + 1}
-                                    key={index}
-                                    className="item"
-                                >
-                                    <div className="name">
-                                        <span className="n">
-                                            {currentCategory}
-                                        </span>
-                                        <br />
-                                        <span className="i">
-                                            {
-                                                itemsOrderedByCategory[index]
-                                                    .length
-                                            }{' '}
-                                            items
-                                        </span>
-                                    </div>
-                                    <div className="listItems">
-                                        <Items
-                                            data={itemsOrderedByCategory[index]}
-                                            cartItems={cartItems}
-                                            onClickADD={onClickADD}
-                                            onClickPlus={onClickPlus}
-                                            onClickMinus={onClickMinus}
-                                        />
-                                    </div>
-                                </div>
-                            );
-                        }
-                        return null;
-                    })}
-                </div>
-            )}
+                    );
+                })}
+            </div>
         </>
     );
 }
