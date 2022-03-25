@@ -1,4 +1,5 @@
 import { menuItemList } from '../models/itemList.js';
+import { produce } from 'immer';
 
 function getItem(items, id) {
     let item = {};
@@ -27,7 +28,10 @@ function cartReducer(state = initialState, action) {
     switch (action.type) {
         case 'cart/itemAdded': {
             const cartItem = getItem(menuItemList, action.payload);
-            return [...state, cartItem];
+            const newState = produce(state, (draft) => {
+                draft.push(cartItem);
+            });
+            return newState;
         }
 
         case 'cart/itemIncremented': {
