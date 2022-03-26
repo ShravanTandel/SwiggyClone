@@ -49,3 +49,47 @@ nav {
     color: orange;
     text-align: center;
 }
+
+.toggleButton {
+    position: relative;
+    width: 50rem;
+    height: 25rem;
+    border-radius: 12.5rem;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.greenToggle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25rem;
+    width: 25rem;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 12.5rem;
+    transition: transform 0.2s;
+}
+
+.greenToggle {
+    background-color: #60b246;
+}
+
+.redToggle {
+    background-color: #f5424e;
+}
+
+.redToggle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25rem;
+    width: 25rem;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 12.5rem;
+    transition: transform 0.2s;
+    transform: translateX(25rem);
+}

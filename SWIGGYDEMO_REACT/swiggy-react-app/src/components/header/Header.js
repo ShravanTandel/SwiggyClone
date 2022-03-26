@@ -1,8 +1,10 @@
 import './header.style.css';
 
-import React from 'react';
+import React, { useContext } from 'react';
+import { ButtonColor } from '../../App';
 
-function Header() {
+function Header({ onClick }) {
+    const color = useContext(ButtonColor);
     return (
         <>
             <nav>
@@ -37,6 +39,12 @@ function Header() {
                         <a href="#5">
                             <span className="cartCount"></span> Cart
                         </a>
+                    </li>
+                    <li>
+                        <div
+                            className={`toggleButton ${color}Toggle`}
+                            onClick={() => onClick(color)}
+                        ></div>
                     </li>
                 </ul>
             </nav>
