@@ -5,11 +5,12 @@ import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { onCheckout } from '../../../../../../actions/cartActionsCreators';
 import { ButtonColor } from '../../../../../../App';
+import { bindActionCreators } from 'redux';
 
 function CheckoutButton({ data, onCheckout }) {
     const color = useContext(ButtonColor);
     return (
-        <div className="checkout" onClick={() => onCheckout()}>
+        <div className="checkout" onClick={onCheckout}>
             <button className={`button ${color}`}>{data}</button>
         </div>
     );
@@ -17,9 +18,7 @@ function CheckoutButton({ data, onCheckout }) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onCheckout: () => {
-            dispatch(onCheckout());
-        },
+        onCheckout: bindActionCreators(onCheckout, dispatch),
     };
 };
 

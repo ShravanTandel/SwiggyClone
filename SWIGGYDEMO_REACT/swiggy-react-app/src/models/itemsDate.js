@@ -7,7 +7,7 @@ const itemData = [
         description: '2 Veg Whopper',
         image: 'Whopper Fridays- Veg Doubles',
         category: 'Recommanded',
-        pk: 1,
+        primaryKey: 1,
     },
 
     {
@@ -18,7 +18,7 @@ const itemData = [
         description: 'Veg Whopper + King Fries + Pepsi',
         image: 'Whopper Fridays - Veg meal',
         category: 'Recommanded',
-        pk: 2,
+        primaryKey: 2,
     },
 
     {
@@ -29,7 +29,7 @@ const itemData = [
         description: '1 Veg Whopper + 1 Chicken Whopper',
         image: 'Whopper Fridays- Mixed Doubles(Veg + Chicken)',
         category: 'Recommanded',
-        pk: 3,
+        primaryKey: 3,
     },
 
     {
@@ -40,7 +40,7 @@ const itemData = [
         description: 'Veg Whopper + King Fries + Shake',
         image: 'Whopper Fridays - Veg Shake meal',
         category: 'Whopper Friday (30% OFF)',
-        pk: 4,
+        primaryKey: 4,
     },
 
     {
@@ -51,7 +51,7 @@ const itemData = [
         description: 'Chicken Whopper + King Fries + Shake',
         image: 'Whopper Fridays - Chicken Shake meal',
         category: 'Whopper Friday (30% OFF)',
-        pk: 5,
+        primaryKey: 5,
     },
 
     {
@@ -62,7 +62,7 @@ const itemData = [
         description: '2Veg Whopper + 1King Fries +2 Pepsi',
         image: 'Whopper Fridays- Feast for 2(Veg)',
         category: 'Whopper Friday (30% OFF)',
-        pk: 6,
+        primaryKey: 6,
     },
 
     {
@@ -74,7 +74,7 @@ const itemData = [
             "Desiness Alert! Flame grilled Tandoori Chicken, mint sauce with fresh onion with our unique corn dust buns. An indulgent treat from our King's Collection!",
         image: 'Chicken Tandoor Grill Burger',
         category: 'New Kings Collection Burgers',
-        pk: 7,
+        primaryKey: 7,
     },
 
     {
@@ -86,7 +86,7 @@ const itemData = [
             "Cheese oozing spicy veg patty, veggies and creamy sauce. An indulgent treat from our King's Collection!",
         image: 'Cheese Melt Down Burger',
         category: 'New Kings Collection Burgers',
-        pk: 8,
+        primaryKey: 8,
     },
 
     {
@@ -98,7 +98,7 @@ const itemData = [
             "Too Hot to Handle. Our Spicy & Crunchy Chicken Patty topped with crispy lettuce, juicy tomatoes and creamy sauce with our unique corn dust buns. An indulgent treat from our King's Collection!",
         image: 'Fiery Chicken Burger',
         category: 'New Kings Collection Burgers',
-        pk: 9,
+        primaryKey: 9,
     },
 
     {
@@ -109,7 +109,7 @@ const itemData = [
         description: '2 Veg Whopper + 1Cheese Meltdown',
         image: '2 Veg Whopper + 1Cheese Meltdown',
         category: 'Flavours of Love Combs',
-        pk: 10,
+        primaryKey: 10,
     },
 
     {
@@ -120,7 +120,7 @@ const itemData = [
         description: '2 Cheese Meltdown + 1Classic Veg',
         image: '2 Cheese Meltdown + 1Classic Veg',
         category: 'Flavours of Love Combs',
-        pk: 11,
+        primaryKey: 11,
     },
 
     {
@@ -131,7 +131,7 @@ const itemData = [
         description: '2 Chicken Whopper +1Fiery Chicken',
         image: '2 Chicken Whopper +1Fiery Chicken',
         category: 'Flavours of Love Combs',
-        pk: 12,
+        primaryKey: 12,
     },
 
     {
@@ -143,7 +143,7 @@ const itemData = [
             'Save Rs 35 |Make room for our fully loaded Whopper with a juicy, flame-grilled Mutton Patty, tangy pickles, fresh veggies, mayo and ketchup served in fresh 5" buns. Comes with Fries (M, + Pepsi (M,',
         image: 'Mutton Whopper - Combo',
         category: 'Home Delight Combs',
-        pk: 13,
+        primaryKey: 13,
     },
 
     {
@@ -155,7 +155,7 @@ const itemData = [
             'Save Rs 35 |Our best-selling burger with crispy chicken patty, fresh onion and our signature sauce. Comes with Fries (M, + Pepsi (M,',
         image: 'Mutton Twisted Whopper Combo',
         category: 'Home Delight Combs',
-        pk: 14,
+        primaryKey: 14,
     },
 
     {
@@ -167,7 +167,7 @@ const itemData = [
             'Save Rs 35 |Our best-selling burger with crispy chicken patty, fresh onion and our signature sauce. Comes with Fries (M, + Pepsi (M,',
         image: 'Crispy Chicken Combo',
         category: 'Home Delight Combs',
-        pk: 15,
+        primaryKey: 15,
     },
 
     {
@@ -178,7 +178,7 @@ const itemData = [
         description: '2 Veg Whopper',
         image: 'Whopper Fridays- Veg Doubles',
         category: 'Friends and Family Combo',
-        pk: 16,
+        primaryKey: 16,
     },
 
     {
@@ -189,7 +189,7 @@ const itemData = [
         description: 'Veg Whopper + King Fries + Pepsi',
         image: 'Whopper Fridays - Veg meal',
         category: 'Friends and Family Combo',
-        pk: 17,
+        primaryKey: 17,
     },
 
     {
@@ -200,7 +200,7 @@ const itemData = [
         description: '1 Veg Whopper + 1 Chicken Whopper',
         image: 'Whopper Fridays- Mixed Doubles(Veg + Chicken)',
         category: 'Friends and Family Combo',
-        pk: 18,
+        primaryKey: 18,
     },
 
     {
@@ -211,7 +211,7 @@ const itemData = [
         description: 'Veg Whopper + King Fries + Shake',
         image: 'Whopper Fridays - Veg Shake meal',
         category: 'Whopper',
-        pk: 19,
+        primaryKey: 19,
     },
 
     {
@@ -222,7 +222,7 @@ const itemData = [
         description: 'Chicken Whopper + King Fries + Shake',
         image: ['Whopper Fridays - Chicken Shake meal'],
         category: 'Whopper',
-        pk: 20,
+        primaryKey: 20,
     },
 
     {
@@ -233,7 +233,7 @@ const itemData = [
         description: '2Veg Whopper + 1King Fries +2 Pepsi',
         image: 'Whopper Fridays- Feast for 2(Veg)',
         category: 'Whopper',
-        pk: 21,
+        primaryKey: 21,
     },
 
     {
@@ -245,7 +245,7 @@ const itemData = [
             "Desiness Alert! Flame grilled Tandoori Chicken, mint sauce with fresh onion with our unique corn dust buns. An indulgent treat from our King's Collection!",
         image: 'Chicken Tandoor Grill Burger',
         category: 'Meal Combos',
-        pk: 22,
+        primaryKey: 22,
     },
 
     {
@@ -257,7 +257,7 @@ const itemData = [
             "Cheese oozing spicy veg patty, veggies and creamy sauce. An indulgent treat from our King's Collection!",
         image: 'Cheese Melt Down Burger',
         category: 'Meal Combos',
-        pk: 23,
+        primaryKey: 23,
     },
 
     {
@@ -269,7 +269,7 @@ const itemData = [
             "Too Hot to Handle. Our Spicy & Crunchy Chicken Patty topped with crispy lettuce, juicy tomatoes and creamy sauce with our unique corn dust buns. An indulgent treat from our King's Collection!",
         image: 'Fiery Chicken Burger',
         category: 'Meal Combos',
-        pk: 24,
+        primaryKey: 24,
     },
 
     {
@@ -280,7 +280,7 @@ const itemData = [
         description: '2 Veg Whopper + 1Cheese Meltdown',
         image: '2 Veg Whopper + 1Cheese Meltdown',
         category: 'Burgers and Wraps',
-        pk: 25,
+        primaryKey: 25,
     },
 
     {
@@ -291,7 +291,7 @@ const itemData = [
         description: '2 Cheese Meltdown + 1Classic Veg',
         image: '2 Cheese Meltdown + 1Classic Veg',
         category: 'Burgers and Wraps',
-        pk: 26,
+        primaryKey: 26,
     },
 
     {
@@ -302,7 +302,7 @@ const itemData = [
         description: '2 Chicken Whopper +1Fiery Chicken',
         image: '2 Chicken Whopper +1Fiery Chicken',
         category: 'Burgers and Wraps',
-        pk: 27,
+        primaryKey: 27,
     },
 
     {
@@ -314,7 +314,7 @@ const itemData = [
             'Save Rs 35 |Make room for our fully loaded Whopper with a juicy, flame-grilled Mutton Patty, tangy pickles, fresh veggies, mayo and ketchup served in fresh 5" buns. Comes with Fries (M, + Pepsi (M,',
         image: 'Mutton Whopper - Combo',
         category: "What's New",
-        pk: 28,
+        primaryKey: 28,
     },
 
     {
@@ -326,7 +326,7 @@ const itemData = [
             'Save Rs 35 |Our best-selling burger with crispy chicken patty, fresh onion and our signature sauce. Comes with Fries (M, + Pepsi (M,',
         image: 'Mutton Twisted Whopper Combo',
         category: "What's New",
-        pk: 29,
+        primaryKey: 29,
     },
 
     {
@@ -338,7 +338,7 @@ const itemData = [
             'Save Rs 35 |Our best-selling burger with crispy chicken patty, fresh onion and our signature sauce. Comes with Fries (M, + Pepsi (M,',
         image: 'Crispy Chicken Combo',
         category: "What's New",
-        pk: 30,
+        primaryKey: 30,
     },
 ];
 

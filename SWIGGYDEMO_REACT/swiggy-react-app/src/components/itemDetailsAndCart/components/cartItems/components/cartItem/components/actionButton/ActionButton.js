@@ -3,20 +3,26 @@ import './actionButton.style.css';
 import React from 'react';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import {
     incrementOnPlus,
     decrementOnMinus,
 } from '../../../../../../../../actions/cartActionsCreators';
 
-function ActionButton({ pk, count, incrementOnPlus, decrementOnMinus }) {
+function ActionButton({
+    primaryKey,
+    count,
+    incrementOnPlus,
+    decrementOnMinus,
+}) {
     return (
         <div className="addSubCart">
-            <div className="minus" onClick={() => decrementOnMinus(pk)}>
+            <div className="minus" onClick={() => decrementOnMinus(primaryKey)}>
                 -
             </div>
             <div className="count">{count}</div>
-            <div className="plus" onClick={() => incrementOnPlus(pk)}>
+            <div className="plus" onClick={() => incrementOnPlus(primaryKey)}>
                 +
             </div>
         </div>
@@ -25,12 +31,8 @@ function ActionButton({ pk, count, incrementOnPlus, decrementOnMinus }) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        incrementOnPlus: (pk) => {
-            dispatch(incrementOnPlus(pk));
-        },
-        decrementOnMinus: (pk) => {
-            dispatch(decrementOnMinus(pk));
-        },
+        incrementOnPlus: bindActionCreators(incrementOnPlus, dispatch),
+        decrementOnMinus: bindActionCreators(decrementOnMinus, dispatch),
     };
 };
 

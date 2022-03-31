@@ -5,9 +5,9 @@ import Item from './components/item';
 function Items({ cartItems, data }) {
     return (
         <>
-            {data.map((d) => {
-                return <Item key={d.pk} item={d} cartItems={cartItems} />;
-            })}
+            {data.map((d) => (
+                <Item key={d.primaryKey} item={d} cartItems={cartItems} />
+            ))}
         </>
     );
 }

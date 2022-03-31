@@ -2,21 +2,16 @@ import { menuItemList } from '../models/itemList.js';
 import { produce } from 'immer';
 
 function getItem(items, id) {
-    let item = {};
-
-    for (var i = 0; i < items.length; i++) {
-        if (items[i].pk === id) {
-            item = items[i];
-            break;
-        }
-    }
+    const item = items.find((i) => {
+        return i.primaryKey === id;
+    });
 
     const cartItem = {
         name: item.name,
         count: 1,
         price: item.price,
         isVeg: item.isVeg,
-        pk: item.pk,
+        primaryKey: item.primaryKey,
     };
 
     return cartItem;
@@ -36,7 +31,7 @@ function cartReducer(state = initialState, action) {
 
         case 'cart/itemIncremented': {
             const cartItems = state.map((item) => {
-                if (item.pk === action.payload) {
+                if (item.primaryKey === action.payload) {
                     return { ...item, count: item.count + 1 };
                 }
                 return item;
@@ -49,7 +44,7 @@ function cartReducer(state = initialState, action) {
             const updatedCartItems = [];
 
             for (let i = 0; i < state.length; i++) {
-                if (state[i].pk === action.payload) {
+                if (state[i].primaryKey === action.payload) {
                     const count = state[i].count - 1;
 
                     if (count > 0) {
@@ -66,26 +61,32 @@ function cartReducer(state = initialState, action) {
         }
 
         case 'cart/checkedout': {
-            let localCartItems = localStorage.getItem('cart');
+            const localCartItems = localStorage.getItem('cart');
 
             if (localCartItems === null) {
                 localStorage.setItem('cart', JSON.stringify(state));
             } else {
-                localCartItems = JSON.parse(localCartItems);
+                const parsedLocalCartItems = JSON.parse(localCartItems);
                 for (var i = 0; i < state.length; i++) {
                     let flag = false;
-                    for (var j = 0; j < localCartItems.length; j++) {
-                        if (localCartItems[j].pk === state[i].pk) {
-                            localCartItems[j].count += state[i].count;
+                    for (var j = 0; j < parsedLocalCartItems.length; j++) {
+                        if (
+                            parsedLocalCartItems[j].primaryKey ===
+                            state[i].primaryKey
+                        ) {
+                            parsedLocalCartItems[j].count += state[i].count;
                             flag = true;
                             break;
                         }
                     }
                     if (!flag) {
-                        localCartItems.push(state[i]);
+                        parsedLocalCartItems.push(state[i]);
                     }
                 }
-                localStorage.setItem('cart', JSON.stringify(localCartItems));
+                localStorage.setItem(
+                    'cart',
+                    JSON.stringify(parsedLocalCartItems)
+                );
             }
 
             return [];

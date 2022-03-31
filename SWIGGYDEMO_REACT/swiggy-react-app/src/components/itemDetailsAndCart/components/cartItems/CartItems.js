@@ -34,7 +34,12 @@ function CartItems({ cartItems }) {
                     </div>
                     <div className="cart_items">
                         {cartItems.map((data) => {
-                            return <CartItem cartItem={data} key={data.pk} />;
+                            return (
+                                <CartItem
+                                    cartItem={data}
+                                    key={data.primaryKey}
+                                />
+                            );
                         })}
                     </div>
                     <div className="subTotal">

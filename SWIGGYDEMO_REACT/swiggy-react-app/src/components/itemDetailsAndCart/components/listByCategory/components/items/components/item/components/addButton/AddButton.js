@@ -4,10 +4,11 @@ import React from 'react';
 
 import { addCartItem } from '../../../../../../../../../../actions/cartActionsCreators';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-function AddButton({ addItemsToCart, data, pk }) {
+function AddButton({ addItemsToCart, data, primaryKey }) {
     return (
-        <div className="add" onClick={() => addItemsToCart(pk)}>
+        <div className="add" onClick={() => addItemsToCart(primaryKey)}>
             {data}
         </div>
     );
@@ -15,9 +16,7 @@ function AddButton({ addItemsToCart, data, pk }) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addItemsToCart: (pk) => {
-            dispatch(addCartItem(pk));
-        },
+        addItemsToCart: bindActionCreators(addCartItem, dispatch),
     };
 };
 

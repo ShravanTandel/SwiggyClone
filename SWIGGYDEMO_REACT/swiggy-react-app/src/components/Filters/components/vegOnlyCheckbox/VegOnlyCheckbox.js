@@ -11,7 +11,7 @@ function VegOnlyCheckbox({ isVeg, onCheckboxClick }) {
                         type="checkbox"
                         className="checkbox"
                         value={isVeg}
-                        onClick={() => onCheckboxClick()}
+                        onClick={onCheckboxClick}
                     />
                 </label>
             </div>

@@ -10,7 +10,7 @@ function Item({ item, cartItems }) {
     let count = 0;
 
     for (var i = 0; i < cartItems.length; i++) {
-        if (cartItems[i].pk === item.pk) {
+        if (cartItems[i].primaryKey === item.primaryKey) {
             flag = true;
             count = cartItems[i].count;
             break;
@@ -18,7 +18,7 @@ function Item({ item, cartItems }) {
     }
     return (
         <>
-            <div className="singleItem" key={item.pk}>
+            <div className="singleItem" key={item.primaryKey}>
                 <div className="left">
                     {item.isVeg ? (
                         <div className="veg">Veg</div>
@@ -38,11 +38,14 @@ function Item({ item, cartItems }) {
                         <div className="button">
                             {flag ? (
                                 <ActionButtonForItems
-                                    pk={item.pk}
+                                    primaryKey={item.primaryKey}
                                     count={count}
                                 />
                             ) : (
-                                <AddButton data="ADD" pk={item.pk} />
+                                <AddButton
+                                    data="ADD"
+                                    primaryKey={item.primaryKey}
+                                />
                             )}
                         </div>
                     </div>

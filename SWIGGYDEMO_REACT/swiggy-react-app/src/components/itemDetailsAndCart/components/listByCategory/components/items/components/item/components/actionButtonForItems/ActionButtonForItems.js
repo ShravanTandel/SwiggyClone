@@ -4,11 +4,12 @@ import {
     decrementOnMinus,
     incrementOnPlus,
 } from '../../../../../../../../../../actions/cartActionsCreators';
+import { bindActionCreators } from 'redux';
 
 function ActionButtonForItems({
     decrementOnMinus,
     incrementOnPlus,
-    pk,
+    primaryKey,
     count,
 }) {
     return (
@@ -17,7 +18,7 @@ function ActionButtonForItems({
                 <span
                     className="minus"
                     onClick={() => {
-                        decrementOnMinus(pk);
+                        decrementOnMinus(primaryKey);
                     }}
                 >
                     -
@@ -26,7 +27,7 @@ function ActionButtonForItems({
                 <span
                     className="plus"
                     onClick={() => {
-                        incrementOnPlus(pk);
+                        incrementOnPlus(primaryKey);
                     }}
                 >
                     +
@@ -38,12 +39,8 @@ function ActionButtonForItems({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        incrementOnPlus: (pk) => {
-            dispatch(incrementOnPlus(pk));
-        },
-        decrementOnMinus: (pk) => {
-            dispatch(decrementOnMinus(pk));
-        },
+        incrementOnPlus: bindActionCreators(incrementOnPlus, dispatch),
+        decrementOnMinus: bindActionCreators(decrementOnMinus, dispatch),
     };
 };
 

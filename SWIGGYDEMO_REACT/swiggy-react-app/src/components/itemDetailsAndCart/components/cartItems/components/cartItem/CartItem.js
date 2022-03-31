@@ -6,7 +6,7 @@ import ActionButton from '../cartItem/components/actionButton/ActionButton';
 
 function CartItem({ cartItem }) {
     return (
-        <div className="cart_item" pk={cartItem.pk}>
+        <div className="cart_item" key={cartItem.primaryKey}>
             <div className="cart_vegORnonveg">
                 {cartItem.isVeg ? (
                     <div className="veg">Veg</div>
@@ -15,7 +15,10 @@ function CartItem({ cartItem }) {
                 )}
             </div>
             <div className="dishName">{cartItem.name}</div>
-            <ActionButton count={cartItem.count} pk={cartItem.pk} />
+            <ActionButton
+                count={cartItem.count}
+                primaryKey={cartItem.primaryKey}
+            />
             <div className="price">₹ {cartItem.price * cartItem.count}</div>
         </div>
     );

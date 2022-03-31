@@ -14,7 +14,7 @@ itemData.forEach((i) => {
             .setDescription(i.description)
             .setImage(IMAGES[i.image])
             .setCategory(i.category)
-            .setPk(i.pk)
+            .setPrimaryKey(i.primaryKey)
             .build()
     );
 });

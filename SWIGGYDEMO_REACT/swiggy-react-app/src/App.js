@@ -30,23 +30,21 @@ function App() {
         setColor(color === 'green' ? 'red' : 'green');
     }
     return (
-        <>
-            <ButtonColor.Provider value={color}>
-                <Header onClick={changeButtonColor} />
-                <BreadCrumb />
-                <RestaurantDetails />
-                <Filters
-                    isVeg={isVeg}
-                    searchInputText={searchInputText}
-                    onCheckboxClick={changeVegOnlyFilter}
-                    onChange={updateInputText}
-                />
-                <ItemDetailsAndCart
-                    isVeg={isVeg}
-                    searchInputText={searchInputText}
-                />
-            </ButtonColor.Provider>
-        </>
+        <ButtonColor.Provider value={color}>
+            <Header onClick={changeButtonColor} />
+            <BreadCrumb />
+            <RestaurantDetails />
+            <Filters
+                isVeg={isVeg}
+                searchInputText={searchInputText}
+                onCheckboxClick={changeVegOnlyFilter}
+                onChange={updateInputText}
+            />
+            <ItemDetailsAndCart
+                isVeg={isVeg}
+                searchInputText={searchInputText}
+            />
+        </ButtonColor.Provider>
     );
 }
 

@@ -6,7 +6,7 @@ function Item(
     description,
     image,
     category,
-    pk
+    primaryKey
 ) {
     this.name = name;
     this.isVeg = isVeg;
@@ -15,7 +15,7 @@ function Item(
     this.description = description;
     this.image = image;
     this.category = category;
-    this.pk = pk;
+    this.primaryKey = primaryKey;
 }
 
 var ItemBuilder = function() {
@@ -28,7 +28,7 @@ var ItemBuilder = function() {
             this.description = '';
             this.image = '';
             this.category = '';
-            this.pk = 0;
+            this.primaryKey = 0;
         },
         setName: function(name) {
             this.name = name;
@@ -58,8 +58,8 @@ var ItemBuilder = function() {
             this.category = category;
             return this;
         },
-        setPk: function(pk) {
-            this.pk = pk;
+        setPrimaryKey: function(primaryKey) {
+            this.primaryKey = primaryKey;
             return this;
         },
         build: function() {
@@ -71,7 +71,7 @@ var ItemBuilder = function() {
                 this.description,
                 this.image,
                 this.category,
-                this.pk
+                this.primaryKey
             );
         },
     };
