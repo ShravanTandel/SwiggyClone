@@ -119,10 +119,10 @@ function ListByCategory({
                 {categoryList.map((currentCategory, index) => {
                     return (
                         <div id={index + 1} key={index} className="item">
-                            <div className="name">
-                                <span className="n">{currentCategory}</span>
+                            <div className="name_and_length">
+                                <span className="name">{currentCategory}</span>
                                 <br />
-                                <span className="i">
+                                <span className="length">
                                     {items[categoryList[index]].length} items
                                 </span>
                             </div>
