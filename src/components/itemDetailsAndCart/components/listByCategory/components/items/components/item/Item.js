@@ -5,17 +5,9 @@ import AddButton from './components/addButton/AddButton';
 import ActionButtonForItems from './components/actionButtonForItems/ActionButtonForItems';
 
 function Item({ item, cartItems }) {
-    // checking if the particular item is inside cart or not if yes will get the count
-    let flag = false;
-    let count = 0;
-
-    for (var i = 0; i < cartItems.length; i++) {
-        if (cartItems[i].primaryKey === item.primaryKey) {
-            flag = true;
-            count = cartItems[i].count;
-            break;
-        }
-    }
+    const index = cartItems.findIndex((i) => i.primaryKey === item.primaryKey);
+    const flag = index > -1 ? true : false;
+    const count = index > -1 ? cartItems[index].count : 0;
     return (
         <>
             <div className="singleItem" key={item.primaryKey}>
