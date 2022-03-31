@@ -7,17 +7,7 @@ import updateSearchItemsWithCategoryList from '../../../../actions/searchItemsWi
 import updateItemsWithCategoryList from '../../../../actions/itemsWithCategoryActionCreator';
 import { menuItemList } from '../../../../models/itemList';
 import { sideMenu } from '../../../../models/menu';
-
-const groupBy = (items) =>
-    items.reduce((cache, item) => {
-        const property = item['category'];
-
-        if (property in cache) {
-            return { ...cache, [property]: cache[property].concat(item) };
-        } else {
-            return { ...cache, [property]: [item] };
-        }
-    }, {});
+import _ from 'lodash';
 
 function ListByCategory({
     itemsWithCategory,
@@ -31,8 +21,9 @@ function ListByCategory({
     const { searchItems, searchCategoryList } = searchItemsWithCategory;
 
     let itemsDetails = useMemo(() => {
-        return groupBy(menuItemList);
+        return _.groupBy(menuItemList, 'category');
     }, [menuItemList]);
+    console.log(itemsDetails);
     let categoryListForOriginalItems = sideMenu;
 
     function updateItemsAndCategoryList() {
