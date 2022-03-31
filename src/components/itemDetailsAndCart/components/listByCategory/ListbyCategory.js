@@ -6,7 +6,7 @@ import { menuItemList } from '../../../../models/itemList';
 import { sideMenu } from '../../../../models/menu';
 import _ from 'lodash';
 
-function ListByCategory({ isVeg, searchInputText }) {
+function ListByCategory({ isVeg, searchInputText, onFilter }) {
     const getFilteredAndSearchedItemsAndCategory = (
         isVeg,
         searchInputText,

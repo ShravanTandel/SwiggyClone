@@ -1,7 +1,6 @@
 import './category.style.css';
 
 import React from 'react';
-import { connect } from 'react-redux';
 
 function Category({ categoryList }) {
     return (
@@ -17,10 +16,4 @@ function Category({ categoryList }) {
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        categoryList: state.itemsWithCategory.categoryList,
-    };
-};
-
-export default connect(mapStateToProps)(Category);
+export default Category;
