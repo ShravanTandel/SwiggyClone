@@ -1,0 +1,41 @@
+.favourite {
+    float: right;
+    display: table;
+    table-layout: fixed;
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 10%);
+    border: 1rem solid rgba(0, 0, 0, 0.04);
+    height: 40rem;
+    background-color: #fff;
+    margin-right: 22rem;
+}
+
+.favourite .name {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 15rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    transition: color 0.2s ease-in-out;
+    will-change: color;
+}
+
+.favourite .name:hover {
+    color: red;
+}
+
+.favourite .checkbox-div {
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 11rem;
+    text-align: right;
+    width: 41rem;
+}
+
+.favourite .checkbox-div label {
+    margin-right: 10rem;
+    width: 16rem;
+    height: 16rem;
+    position: relative;
+    display: inline-block;
+    cursor: default;
+}

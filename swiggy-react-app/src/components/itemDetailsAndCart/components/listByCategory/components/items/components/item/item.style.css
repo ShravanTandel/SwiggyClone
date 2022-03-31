@@ -1,0 +1,126 @@
+.singleItem {
+    display: flex;
+    padding: 35rem 0 35rem 0;
+    font-size: 16rem;
+}
+
+.singleItem .left {
+    width: 480rem;
+    padding-right: 20rem;
+    justify-content: flex-start;
+}
+
+.singleItem .right {
+    justify-content: flex-end;
+}
+
+.singleItem .veg {
+    color: green;
+}
+
+.singleItem .nonVeg {
+    color: red;
+}
+
+.singleItem .foodName {
+    padding: 10rem 0 0 0;
+    color: #282c3f;
+}
+
+.singleItem .foodPrice {
+    padding: 10rem 0 0 0;
+    color: #282c3f;
+}
+
+.singleItem .combo {
+    padding: 10rem 0 0 0;
+    color: rgba(40, 44, 63, 0.45);
+}
+
+.singleItem .right {
+    justify-content: flex-end;
+}
+
+.singleItem .image img {
+    width: 120rem;
+    height: 100rem;
+    border-radius: 10rem;
+    float: right;
+}
+
+.listItems .singleItem .right .button {
+    color: #60b246;
+    width: 100rem;
+    height: 34rem;
+    transform: translate(10rem, 75rem);
+}
+
+.singleItem .right .buttonSearch {
+    color: #60b246;
+    width: 100rem;
+    height: 34rem;
+    transform: translate(10rem, 75rem);
+}
+
+.singleItem .right .button .addSub {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1rem solid #d4d5d9;
+    border-radius: 5rem;
+    background-color: white;
+    text-align: center;
+    line-height: 30rem;
+    font-size: 14rem;
+}
+
+.singleItem .right .buttonSearch .addSub {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1rem solid #d4d5d9;
+    border-radius: 5rem;
+    background-color: white;
+    text-align: center;
+    line-height: 30rem;
+    font-size: 14rem;
+}
+
+.singleItem .right .button .addSub .minus {
+    padding: 0rem 20rem 0rem 20rem;
+    cursor: pointer;
+}
+
+.singleItem .right .buttonSearch .addSub .minus {
+    padding: 0rem 20rem 0rem 20rem;
+    cursor: pointer;
+}
+
+.singleItem .right .button .addSub .plus {
+    padding: 0rem 20rem 0rem 20rem;
+    cursor: pointer;
+}
+
+.singleItem .right .buttonSearch .addSub .plus {
+    padding: 0rem 20rem 0rem 20rem;
+    cursor: pointer;
+}
+
+.line {
+    border-bottom: 0.5rem solid #d4d5d9;
+    height: 1rem;
+    padding: 0 12rem;
+    margin: 20rem 0;
+}
+
+.singleItem .right .buttonSearch .add:hover {
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
+}
+
+.singleItem .right .button .addSub:hover {
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
+}
+
+.singleItem .right .buttonSearch .addSub:hover {
+    box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
+}

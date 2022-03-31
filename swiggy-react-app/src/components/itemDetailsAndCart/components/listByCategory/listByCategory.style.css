@@ -1,0 +1,38 @@
+.menuAndCart .items {
+    padding: 0 50rem 0 50rem;
+    width: 600rem;
+}
+
+.items {
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.name .n {
+    color: #3d3c3c;
+    font-weight: bold;
+    font-size: 30rem;
+}
+
+.name .i {
+    color: #686b78;
+    clear: left;
+    padding: 10rem 0 0 0;
+    font-size: 16rem;
+}
+
+.searchResult-name {
+    color: orange;
+    font-weight: bold;
+    font-size: 30rem;
+    padding: 0rem 0rem 10rem 0rem;
+}
+
+.searchResultEmpty {
+    color: #7e808c;
+    font-size: 20rem;
+}
+
+.listItems hr {
+    background-color: #d4d5d9;
+}
