@@ -8,13 +8,13 @@
     overflow-y: scroll;
 }
 
-.name .n {
+.name_and_length .name {
     color: #3d3c3c;
     font-weight: bold;
     font-size: 30rem;
 }
 
-.name .i {
+.name_and_length .length {
     color: #686b78;
     clear: left;
     padding: 10rem 0 0 0;
