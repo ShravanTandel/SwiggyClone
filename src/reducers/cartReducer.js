@@ -41,23 +41,20 @@ function cartReducer(state = initialState, action) {
         }
 
         case 'cart/itemDecremented': {
-            const updatedCartItems = [];
-
-            for (let i = 0; i < state.length; i++) {
-                if (state[i].primaryKey === action.payload) {
-                    const count = state[i].count - 1;
-
-                    if (count > 0) {
-                        const item = state[i];
-                        item.count = count;
-                        updatedCartItems.push(item);
-                    }
+            const items = state.map((item) => {
+                if (item.primaryKey === action.payload) {
+                    const count = item.count - 1;
+                    return { ...item, count: count };
                 } else {
-                    updatedCartItems.push(state[i]);
+                    return item;
                 }
-            }
+            });
 
-            return updatedCartItems;
+            const filteredItems = items.filter((item) => {
+                return item.count !== 0;
+            });
+
+            return filteredItems;
         }
 
         case 'cart/checkedout': {
@@ -67,28 +64,21 @@ function cartReducer(state = initialState, action) {
                 localStorage.setItem('cart', JSON.stringify(state));
             } else {
                 const parsedLocalCartItems = JSON.parse(localCartItems);
-                for (var i = 0; i < state.length; i++) {
-                    let flag = false;
-                    for (var j = 0; j < parsedLocalCartItems.length; j++) {
-                        if (
-                            parsedLocalCartItems[j].primaryKey ===
-                            state[i].primaryKey
-                        ) {
-                            parsedLocalCartItems[j].count += state[i].count;
-                            flag = true;
-                            break;
-                        }
+                state.forEach((item) => {
+                    const index = parsedLocalCartItems.findIndex(
+                        (i) => i.primaryKey === item.primaryKey
+                    );
+                    if (index > -1) {
+                        parsedLocalCartItems[index].count += item.count;
+                    } else {
+                        parsedLocalCartItems.push(item);
                     }
-                    if (!flag) {
-                        parsedLocalCartItems.push(state[i]);
-                    }
-                }
+                });
                 localStorage.setItem(
                     'cart',
                     JSON.stringify(parsedLocalCartItems)
                 );
             }
-
             return [];
         }
 
