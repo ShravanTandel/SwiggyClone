@@ -13,27 +13,25 @@ function ActionButtonForItems({
     count,
 }) {
     return (
-        <>
-            <div className="addSub">
-                <span
-                    className="minus"
-                    onClick={() => {
-                        decrementOnMinus(primaryKey);
-                    }}
-                >
-                    -
-                </span>
-                <span className="count">{count}</span>
-                <span
-                    className="plus"
-                    onClick={() => {
-                        incrementOnPlus(primaryKey);
-                    }}
-                >
-                    +
-                </span>
-            </div>
-        </>
+        <div className="addSub">
+            <span
+                className="minus"
+                onClick={() => {
+                    decrementOnMinus(primaryKey);
+                }}
+            >
+                -
+            </span>
+            <span className="count">{count}</span>
+            <span
+                className="plus"
+                onClick={() => {
+                    incrementOnPlus(primaryKey);
+                }}
+            >
+                +
+            </span>
+        </div>
     );
 }
 

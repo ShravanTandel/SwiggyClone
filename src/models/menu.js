@@ -1,4 +1,3 @@
-//Contains list of side menu
 const sideMenu = [
     'Recommanded',
     'Whopper Friday (30% OFF)',
