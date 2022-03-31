@@ -94,12 +94,12 @@ function ListByCategory({
                         searchedCategory.map((currentCategory, index) => {
                             return (
                                 <div key={index} className="item">
-                                    <div className="name">
-                                        <span className="n">
+                                    <div className="name_and_length">
+                                        <span className="name">
                                             {currentCategory}
                                         </span>
                                         <br />
-                                        <span className="i">
+                                        <span className="length">
                                             {
                                                 searchedItems[currentCategory]
                                                     .length
