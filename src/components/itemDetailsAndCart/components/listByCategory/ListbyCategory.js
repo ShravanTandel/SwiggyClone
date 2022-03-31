@@ -23,7 +23,6 @@ function ListByCategory({
     let itemsDetails = useMemo(() => {
         return _.groupBy(menuItemList, 'category');
     }, [menuItemList]);
-    console.log(itemsDetails);
     let categoryListForOriginalItems = sideMenu;
 
     function updateItemsAndCategoryList() {
