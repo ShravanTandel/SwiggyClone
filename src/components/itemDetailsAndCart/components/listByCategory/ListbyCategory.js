@@ -1,11 +1,12 @@
 import './listByCategory.style.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Items from './components/items';
+import { menuItemList } from '../../../../models/itemList';
+import { sideMenu } from '../../../../models/menu';
+import _ from 'lodash';
 
 function ListByCategory({
-    data,
-    category,
     cartItems,
     onClickADD,
     onClickPlus,
@@ -14,145 +15,135 @@ function ListByCategory({
     searchInputText,
     onFilter,
 }) {
-    const [searchResultItems, setSearchResultItems] = useState([]);
-
-    const [categoryListForSearch, setCategoryListForSearch] = useState([
-        category,
-    ]);
-
-    const [categoryListForFilter, setCategoryListForFilter] = useState([
-        category,
-    ]);
-
-    let arrayOfItemsOrderedByCategory = [];
-
-    category.forEach((i, index) => {
-        let arrayOfItems = [];
-        arrayOfItems = data.filter((d) => {
-            return d.category === i;
-        });
-        arrayOfItemsOrderedByCategory[index] = arrayOfItems;
-    });
-
-    const [itemsOrderedByCategory, setItemsOrderedByCategory] = useState([
-        ...arrayOfItemsOrderedByCategory,
-    ]);
-
-    function updateItems() {
-        let arrayOfSearchedItems = [];
-        let arrayOfVegOnlyItems = [];
-
-        let searchCat = [];
-        let filterCat = [];
-
-        if (isVeg) {
-            category.forEach((i) => {
-                let arrayOfItems = [];
-                arrayOfItems = data.filter((d) => {
-                    return (
-                        d.category === i &&
-                        d.name
-                            .toUpperCase()
-                            .indexOf(searchInputText.toUpperCase()) > -1 &&
-                        d.isVeg === true
-                    );
+    const getFilteredAndSearchedItemsAndCategory = (
+        isVeg,
+        searchInputText,
+        menuItemList,
+        sideMenu
+    ) => {
+        const getFilteredItemsAndCategory = () => {
+            if (isVeg) {
+                const filteredItemsArray = menuItemList.filter((item) => {
+                    return item.isVeg === true;
                 });
-                if (arrayOfItems.length !== 0) {
-                    arrayOfSearchedItems.push(arrayOfItems);
-                    searchCat.push(i);
-                }
+
+                const filteredItems = _.groupBy(filteredItemsArray, 'category');
+                const filteredCategory = Object.keys(filteredItems);
+
+                return [filteredItems, filteredCategory, filteredItemsArray];
+            } else {
+                const filteredItems = _.groupBy(menuItemList, 'category');
+                const filteredCategory = sideMenu;
+
+                return [filteredItems, filteredCategory, menuItemList];
+            }
+        };
+
+        const [
+            filteredItems,
+            filteredCategory,
+            filteredItemsArray,
+        ] = getFilteredItemsAndCategory();
+
+        if (searchInputText.length !== 0) {
+            const searchedItemsArray = filteredItemsArray.filter((item) => {
+                return (
+                    item.name
+                        .toUpperCase()
+                        .indexOf(searchInputText.toUpperCase()) > -1
+                );
             });
 
-            category.forEach((i) => {
-                let arrayOfItems = [];
-                arrayOfItems = data.filter((d) => {
-                    return d.category === i && d.isVeg;
-                });
-                if (arrayOfItems.length !== 0) {
-                    arrayOfVegOnlyItems.push(arrayOfItems);
-                    filterCat.push(i);
-                }
-            });
-        } else {
-            category.forEach((i) => {
-                let arrayOfItems = [];
-                arrayOfItems = data.filter((d) => {
-                    return (
-                        d.category === i &&
-                        d.name
-                            .toUpperCase()
-                            .indexOf(searchInputText.toUpperCase()) > -1
-                    );
-                });
-                if (arrayOfItems.length !== 0) {
-                    arrayOfSearchedItems.push(arrayOfItems);
-                    searchCat.push(i);
-                }
-            });
+            const searchedItems = _.groupBy(searchedItemsArray, 'category');
+            const searchedCategory = Object.keys(searchedItems);
 
-            category.forEach((i) => {
-                let arrayOfItems = [];
-                arrayOfItems = data.filter((d) => {
-                    return d.category === i;
-                });
-                if (arrayOfItems.length !== 0) {
-                    arrayOfVegOnlyItems.push(arrayOfItems);
-                    filterCat.push(i);
-                }
-            });
+            return [
+                filteredItems,
+                filteredCategory,
+                searchedItems,
+                searchedCategory,
+            ];
         }
-        setSearchResultItems([...arrayOfSearchedItems]);
-        setItemsOrderedByCategory([...arrayOfVegOnlyItems]);
+        return [filteredItems, filteredCategory, {}, []];
+    };
 
-        setCategoryListForSearch([...searchCat]);
-        setCategoryListForFilter([...filterCat]);
-
-        onFilter(filterCat);
-    }
+    const [
+        filteredItems,
+        filteredCategory,
+        searchedItems,
+        searchedCategory,
+    ] = useMemo(() => {
+        return getFilteredAndSearchedItemsAndCategory(
+            isVeg,
+            searchInputText,
+            menuItemList,
+            sideMenu
+        );
+    }, [isVeg, searchInputText, menuItemList, sideMenu]);
 
     useEffect(() => {
-        updateItems();
-    }, [isVeg, searchInputText]);
+        onFilter(filteredCategory);
+    }, [isVeg, menuItemList, sideMenu]);
 
     return (
         <div className="items">
-            {searchInputText.length !== 0
-                ? categoryListForSearch.map((currentCategory, index) => {
-                      return (
-                          <div key={index} className="item">
-                              <div className="name">
-                                  <span className="n">{currentCategory}</span>
-                                  <br />
-                                  <span className="i">
-                                      {searchResultItems[index].length} items
-                                  </span>
-                              </div>
-                              <div className="listItems">
-                                  <Items
-                                      data={searchResultItems[index]}
-                                      cartItems={cartItems}
-                                      onClickADD={onClickADD}
-                                      onClickPlus={onClickPlus}
-                                      onClickMinus={onClickMinus}
-                                  />
-                              </div>
-                          </div>
-                      );
-                  })
-                : ''}
-            {categoryListForFilter.map((currentCategory, index) => {
+            {searchInputText.length !== 0 ? (
+                <>
+                    <div className="searchResult-name">Search Result</div>
+                    {searchedCategory.length !== 0 ? (
+                        searchedCategory.map((currentCategory, index) => {
+                            return (
+                                <div key={index} className="item">
+                                    <div className="name">
+                                        <span className="n">
+                                            {currentCategory}
+                                        </span>
+                                        <br />
+                                        <span className="i">
+                                            {
+                                                searchedItems[currentCategory]
+                                                    .length
+                                            }{' '}
+                                            items
+                                        </span>
+                                    </div>
+                                    <div className="listItems">
+                                        <Items
+                                            data={
+                                                searchedItems[currentCategory]
+                                            }
+                                            cartItems={cartItems}
+                                            onClickADD={onClickADD}
+                                            onClickPlus={onClickPlus}
+                                            onClickMinus={onClickMinus}
+                                        />
+                                    </div>
+                                </div>
+                            );
+                        })
+                    ) : (
+                        <>
+                            <div className="searchResultEmpty">
+                                Search Result Empty
+                            </div>
+                            <hr></hr>
+                        </>
+                    )}
+                </>
+            ) : null}
+            {filteredCategory.map((currentCategory, index) => {
                 return (
                     <div id={index + 1} key={index} className="item">
                         <div className="name">
                             <span className="n">{currentCategory}</span>
                             <br />
                             <span className="i">
-                                {itemsOrderedByCategory[index].length} items
+                                {filteredItems[currentCategory].length} items
                             </span>
                         </div>
                         <div className="listItems">
                             <Items
-                                data={itemsOrderedByCategory[index]}
+                                data={filteredItems[currentCategory]}
                                 cartItems={cartItems}
                                 onClickADD={onClickADD}
                                 onClickPlus={onClickPlus}
