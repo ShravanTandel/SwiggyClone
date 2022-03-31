@@ -83,7 +83,7 @@ function ListByCategory({
 
     useEffect(() => {
         onFilter(filteredCategory);
-    }, [filteredCategory, onFilter]);
+    }, [isVeg]);
 
     return (
         <div className="items">
