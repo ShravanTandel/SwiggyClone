@@ -79,11 +79,11 @@ function ListByCategory({
             menuItemList,
             sideMenu
         );
-    }, [isVeg, searchInputText, menuItemList, sideMenu]);
+    }, [isVeg, searchInputText]);
 
     useEffect(() => {
         onFilter(filteredCategory);
-    }, [isVeg, menuItemList, sideMenu]);
+    }, [filteredCategory, onFilter]);
 
     return (
         <div className="items">
@@ -134,10 +134,10 @@ function ListByCategory({
             {filteredCategory.map((currentCategory, index) => {
                 return (
                     <div id={index + 1} key={index} className="item">
-                        <div className="name">
-                            <span className="n">{currentCategory}</span>
+                        <div className="name_and_length">
+                            <span className="name">{currentCategory}</span>
                             <br />
-                            <span className="i">
+                            <span className="length">
                                 {filteredItems[currentCategory].length} items
                             </span>
                         </div>
