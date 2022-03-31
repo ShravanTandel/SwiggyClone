@@ -244,7 +244,7 @@ const itemData = [
         description:
             "Desiness Alert! Flame grilled Tandoori Chicken, mint sauce with fresh onion with our unique corn dust buns. An indulgent treat from our King's Collection!",
         image: 'Chicken Tandoor Grill Burger',
-        category: 'Meal Comboss',
+        category: 'Meal Combos',
         primaryKey: 22,
     },
 
@@ -256,7 +256,7 @@ const itemData = [
         description:
             "Cheese oozing spicy veg patty, veggies and creamy sauce. An indulgent treat from our King's Collection!",
         image: 'Cheese Melt Down Burger',
-        category: 'Meal Comboss',
+        category: 'Meal Combos',
         primaryKey: 23,
     },
 
@@ -268,7 +268,7 @@ const itemData = [
         description:
             "Too Hot to Handle. Our Spicy & Crunchy Chicken Patty topped with crispy lettuce, juicy tomatoes and creamy sauce with our unique corn dust buns. An indulgent treat from our King's Collection!",
         image: 'Fiery Chicken Burger',
-        category: 'Meal Comboss',
+        category: 'Meal Combos',
         primaryKey: 24,
     },
 
