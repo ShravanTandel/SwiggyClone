@@ -24,24 +24,22 @@
     display: flex;
     padding: 30rem 0 0 0;
     font-size: 16rem;
-    /* justify-content: center; */
 }
 
 .cart .subTotal .price {
     color: #3d4152;
-    /* padding-left: 150rem; */
     width: 45%;
     text-align: right;
     font-size: 16rem;
     font-weight: 600;
 }
 
-.cart .subTotal .sub .s1 {
+.cart .subTotal .subTotal_label .label {
     color: #3d4152;
     font-weight: 600;
 }
 
-.cart .subTotal .sub .s2 {
+.cart .subTotal .subTotal_label .sub_label {
     color: #7e808c;
     font-size: 13rem;
     font-weight: 300;
