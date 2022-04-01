@@ -15,35 +15,35 @@ function ListByCategory({
     searchInputText,
     onFilter,
 }) {
+    const getFilteredItemsAndCategory = (isVeg, menuItemList, sideMenu) => {
+        if (isVeg) {
+            const filteredItemsArray = menuItemList.filter((item) => {
+                return item.isVeg === true;
+            });
+
+            const filteredItems = _.groupBy(filteredItemsArray, 'category');
+            const filteredCategory = Object.keys(filteredItems);
+
+            return [filteredItems, filteredCategory, filteredItemsArray];
+        } else {
+            const filteredItems = _.groupBy(menuItemList, 'category');
+            const filteredCategory = sideMenu;
+
+            return [filteredItems, filteredCategory, menuItemList];
+        }
+    };
+
     const getFilteredAndSearchedItemsAndCategory = (
         isVeg,
         searchInputText,
         menuItemList,
         sideMenu
     ) => {
-        const getFilteredItemsAndCategory = () => {
-            if (isVeg) {
-                const filteredItemsArray = menuItemList.filter((item) => {
-                    return item.isVeg === true;
-                });
-
-                const filteredItems = _.groupBy(filteredItemsArray, 'category');
-                const filteredCategory = Object.keys(filteredItems);
-
-                return [filteredItems, filteredCategory, filteredItemsArray];
-            } else {
-                const filteredItems = _.groupBy(menuItemList, 'category');
-                const filteredCategory = sideMenu;
-
-                return [filteredItems, filteredCategory, menuItemList];
-            }
-        };
-
         const [
             filteredItems,
             filteredCategory,
             filteredItemsArray,
-        ] = getFilteredItemsAndCategory();
+        ] = getFilteredItemsAndCategory(isVeg, menuItemList, sideMenu);
 
         if (searchInputText.length !== 0) {
             const searchedItemsArray = filteredItemsArray.filter((item) => {
