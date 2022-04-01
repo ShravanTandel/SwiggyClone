@@ -44,10 +44,12 @@ function CartItems({ cartItems, onClickPlus, onClickMinus, onCheckout }) {
                         })}
                     </div>
                     <div className="subTotal">
-                        <div className="sub">
-                            <span className="s1">SubTotal</span>
+                        <div className="subTotal_label">
+                            <span className="label">SubTotal</span>
                             <br />
-                            <span className="s2">Extra charges may apply</span>
+                            <span className="sub_label">
+                                Extra charges may apply
+                            </span>
                         </div>
                         <div className="price">₹ {subTotal}</div>
                     </div>
