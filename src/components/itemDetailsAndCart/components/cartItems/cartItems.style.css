@@ -34,12 +34,12 @@
     font-weight: 600;
 }
 
-.cart .subTotal .sub .s1 {
+.cart .subTotal .subTotal_label .label {
     color: #3d4152;
     font-weight: 600;
 }
 
-.cart .subTotal .sub .s2 {
+.cart .subTotal .subTotal_label .sub_label {
     color: #7e808c;
     font-size: 13rem;
     font-weight: 300;
