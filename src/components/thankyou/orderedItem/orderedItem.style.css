@@ -1,0 +1,35 @@
+.orderedItem {
+    display: flex;
+    padding: 10rem 10rem;
+    font-size: 16rem;
+    padding: 0 20rem 0 20rem;
+}
+
+.orderedItem_image img {
+    width: 120rem;
+    height: 100rem;
+    border-radius: 10rem;
+}
+
+.orderedItem_name {
+    padding: 40rem 0 0 20rem;
+    color: #282c3f;
+    width: 400rem;
+}
+
+.orderedItem_count {
+    padding: 40rem 0 0 20rem;
+    width: 200rem;
+}
+
+.orderedItem_price {
+    padding: 40rem 20rem 0 20rem;
+    width: 150rem;
+}
+
+.orderedItem_line {
+    border-bottom: 0.5rem solid #d4d5d9;
+    height: 1rem;
+    padding: 0 12rem;
+    margin: 20rem 0;
+}

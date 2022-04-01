@@ -4,7 +4,6 @@ import React from 'react';
 import CartItem from './components/cartItem/CartItem';
 import CheckoutButton from './components/checkoutButton/index';
 import { connect } from 'react-redux';
-import { getCartItems } from '../../../../selectors/cartSelector';
 
 function CartItems({ cartItems }) {
     const subTotal = cartItems.reduce((prev, curr) => {
@@ -62,7 +61,7 @@ function CartItems({ cartItems }) {
 
 const mapStateToProps = (state) => {
     return {
-        cartItems: getCartItems(state),
+        cartItems: state.cartItems,
     };
 };
 

@@ -12,6 +12,7 @@ function getItem(items, id) {
         price: item.price,
         isVeg: item.isVeg,
         primaryKey: item.primaryKey,
+        image: item.image,
     };
 
     return cartItem;
