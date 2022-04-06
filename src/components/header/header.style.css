@@ -7,50 +7,50 @@ nav {
     min-height: 8vh;
 }
 
-.rightSide {
+.navbar__right-section {
     display: flex;
 }
 
-.logo {
+.navbar__right-section__logo {
     color: #ff8000;
     text-transform: uppercase;
     letter-spacing: 5rem;
     font-size: 20rem;
 }
 
-.location {
+.navbar__right-section__location {
     color: #3d4152;
     padding-left: 16rem;
     font-size: 16rem;
 }
 
-.nav-link {
+.navbar__nav-link {
     display: flex;
     justify-content: space-between;
     width: 50%;
 }
 
-.nav-link li a:hover {
+.navbar__nav-link li a:hover {
     color: orange;
 }
 
-.nav-link li {
+.navbar__nav-link li {
     list-style: none;
 }
 
-.nav-link li a {
+.navbar__nav-link li a {
     color: #3d4152;
     text-decoration: none;
     letter-spacing: 2rem;
     font-size: 16rem;
 }
 
-.nav-link li a .cartCount {
+.navbar__nav-link__cartCount {
     color: orange;
     text-align: center;
 }
 
-.toggleButton {
+.navbar__nav-link__toggleButton {
     position: relative;
     width: 50rem;
     height: 25rem;

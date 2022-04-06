@@ -14,7 +14,7 @@ function ItemDetailsAndCart({ isVeg, searchInputText }) {
         setCategoryList(arr);
     }
     return (
-        <div className="menuAndCart">
+        <div className="menu-item-and-cart">
             <Category categoryList={categoryList} />
             <ListByCategory
                 isVeg={isVeg}

@@ -5,7 +5,7 @@ import React from 'react';
 function VegOnlyCheckbox({ isVeg, onCheckboxClick }) {
     return (
         <div className="veg-or-nonveg">
-            <div className="checkbox-div">
+            <div className="veg-or-nonveg__checkbox-div">
                 <label>
                     <input
                         type="checkbox"
@@ -15,7 +15,7 @@ function VegOnlyCheckbox({ isVeg, onCheckboxClick }) {
                     />
                 </label>
             </div>
-            <span className="name">Veg Only</span>
+            <span className="veg-or-nonveg__name">Veg Only</span>
         </div>
     );
 }

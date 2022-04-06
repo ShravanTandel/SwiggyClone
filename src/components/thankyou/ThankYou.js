@@ -1,11 +1,13 @@
 import './thankyou.style.css';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import OrderedItem from './orderedItem/OrderedItem';
 
 import burgerImage from '../../images/burgerImage.jpeg';
+import { ButtonColor } from '../../App';
 
 export default function ThankYou() {
+    const color = useContext(ButtonColor);
     function getOrderedItems() {
         const orderedItems = localStorage.getItem('cart');
         const parsedOrderedItems = JSON.parse(orderedItems);
@@ -19,36 +21,52 @@ export default function ThankYou() {
     }, 0);
     return (
         <div className="thankyou">
-            <div className="thankyou_message">
+            <div className={`thankyou_message ${color}-message`}>
                 Dear Customer, your order is being placed successfully !!
             </div>
-            <div className="order_detail_and_subTotal">
-                <div className="ordertable_heading">Ordered Item</div>
-                <div className="ordertable">
+            <div className="thankyou__order-details">
+                <div
+                    className={`thankyou__order-details__heading ${color}-message`}
+                >
+                    Ordered Item
+                </div>
+                <div className="thankyou__order-details__table">
                     {orderedItems.map((item) => {
                         return (
                             <OrderedItem item={item} key={item.primaryKey} />
                         );
                     })}
                 </div>
-                <div className="order_subTotal">
-                    <div className="restro_detail">
-                        <span className="image">
+                <div className="thankyou__subtotal">
+                    <div className="thankyou__subtotal__restro-detail">
+                        <span className="thankyou__subtotal__restro-detail__image">
                             <img src={burgerImage} alt={burgerImage} />
                         </span>
-                        <span className="restro_name_location">
-                            <div className="restro_name">Burger King</div>
-                            <div className="restro_location">Shivaji Nagar</div>
+                        <span className="thankyou__subtotal__restro-detail__location-and-name">
+                            <div className="thankyou__subtotal__restro-detail__restro-name">
+                                Burger King
+                            </div>
+                            <div className="thankyou__subtotal__restro-detail__restro-location">
+                                Shivaji Nagar
+                            </div>
                         </span>
                     </div>
-                    <div className="bill">
-                        <div className="heading">Bill details</div>
-                        <div className="total_amount">
+                    <div className="thankyou__subtotal__bill">
+                        <div className="thankyou__subtotal__bill__heading">
+                            Bill details
+                        </div>
+                        <div className="thankyou__subtotal__bill__total-amount">
                             <span>Total Amount : </span>
-                            <span className="amount">₹ {subTotal}</span>
+                            <span className="thankyou__subtotal__bill__amount">
+                                ₹ {subTotal}
+                            </span>
                         </div>
                     </div>
-                    <div className="thankyou_text">Thank You</div>
+                    <div
+                        className={`thankyou__subtotal__thankyou-text ${color}`}
+                    >
+                        Thank You
+                    </div>
                 </div>
             </div>
         </div>

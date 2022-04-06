@@ -5,17 +5,17 @@ import React from 'react';
 function OrderedItem({ item }) {
     return (
         <>
-            <div className="orderedItem">
-                <div className="orderedItem_image">
+            <div className="ordered-item">
+                <div className="ordered-item__image">
                     <img src={item.image} alt={item.image} />
                 </div>
-                <div className="orderedItem_name">{item.name}</div>
-                <div className="orderedItem_count">{item.count} item</div>
-                <div className="orderedItem_price">
+                <div className="ordered-item__name">{item.name}</div>
+                <div className="ordered-item__count">{item.count} item</div>
+                <div className="ordered-item__price">
                     ₹ {item.price * item.count}
                 </div>
             </div>
-            <div className="orderedItem_line"></div>
+            <div className="ordered-item__line"></div>
         </>
     );
 }

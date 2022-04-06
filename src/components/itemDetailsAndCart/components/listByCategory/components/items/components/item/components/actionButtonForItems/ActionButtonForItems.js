@@ -13,7 +13,7 @@ function ActionButtonForItems({
     count,
 }) {
     return (
-        <div className="addSub">
+        <div className="add-and-sub-button">
             <span
                 className="minus"
                 onClick={() => {

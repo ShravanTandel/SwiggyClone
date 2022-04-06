@@ -5,7 +5,7 @@
     margin: 0 auto;
 }
 
-.searchbar-and-checkboxes-1 {
+.searchbar-and-checkboxes__group {
     display: table;
     color: #3d4152;
     font-weight: 500;

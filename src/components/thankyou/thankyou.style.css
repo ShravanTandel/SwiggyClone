@@ -16,12 +16,24 @@
     text-transform: uppercase;
 }
 
-.order_detail_and_subTotal {
+.green-message {
+    background-color: #dbe5dc;
+    border: 1px solid #60b246;
+    color: #60b246;
+}
+
+.red-message {
+    background-color: #e5dbdb;
+    border: 1px solid #f5424e;
+    color: #f5424e;
+}
+
+.thankyou__order-details {
     margin-top: 50rem;
     display: flex;
 }
 
-.ordertable {
+.thankyou__order-details__table {
     padding: 20rem 0rem 20rem 0rem;
     max-height: 40vh;
     overflow-y: scroll;
@@ -31,39 +43,35 @@
     margin-right: 200rem;
 }
 
-.ordertable_heading {
+.thankyou__order-details__heading {
     display: flex;
-    color: #60b246;
     font-size: 20rem;
     font-weight: bold;
-    background-color: #fff;
     align-items: center;
     justify-content: center;
     padding: 0 20rem 0 20rem;
-    background-color: #dbe5dc;
-    border: 1px solid #60b246;
 }
 
-.order_subTotal {
+.thankyou__subtotal {
     justify-content: flex-end;
     width: 350rem;
     background-color: #fff;
     height: 250rem;
 }
 
-.restro_detail {
+.thankyou__subtotal__restro-detail {
     padding: 20px 30px;
     background: #fff;
     display: -ms-flexbox;
     display: flex;
 }
 
-.restro_detail .image img {
+.thankyou__subtotal__restro-detail__image img {
     width: 75rem;
     height: 50rem;
 }
 
-.restro_name_location {
+.thankyou__subtotal__restro-detail__location-and-name {
     margin-left: 14px;
     -ms-flex: 1;
     flex: 1;
@@ -72,7 +80,7 @@
     min-height: 50px;
 }
 
-.restro_name {
+.thankyou__subtotal__restro-detail__restro-name {
     font-size: 17rem;
     color: #282c3f;
     font-weight: 500;
@@ -81,31 +89,31 @@
     white-space: nowrap;
 }
 
-.restro_location {
+.thankyou__subtotal__restro-detail__restro-location {
     font-size: 13rem;
     color: #686b78;
 }
 
-.bill {
+.thankyou__subtotal__bill {
     padding: 20px 30px;
     font-size: 15px;
 }
 
-.bill .heading {
+.thankyou__subtotal__bill__heading {
     font-weight: 500;
     margin-bottom: 10px;
     color: #282c3f;
 }
 
-.bill .total_amount {
+.thankyou__subtotal__bill__total-amount {
     color: #686b78;
 }
 
-.bill .total_amount .amount {
+.thankyou__subtotal__bill__amount {
     text-align: right;
 }
 
-.thankyou_text {
+.thankyou__subtotal__thankyou-text {
     display: flex;
     width: 100%;
     background-color: #60b246;

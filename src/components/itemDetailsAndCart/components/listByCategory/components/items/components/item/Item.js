@@ -10,24 +10,24 @@ function Item({ item, cartItems }) {
     const count = index > -1 ? cartItems[index].count : 0;
     return (
         <>
-            <div className="singleItem" key={item.primaryKey}>
-                <div className="left">
+            <div className="single-item" key={item.primaryKey}>
+                <div className="single-item__details">
                     {item.isVeg ? (
-                        <div className="veg">Veg</div>
+                        <div className="single-item__veg">Veg</div>
                     ) : (
-                        <div className="nonVeg">Non Veg</div>
+                        <div className="single-item__nonveg">Non Veg</div>
                     )}
-                    <div className="foodName">{item.name}</div>
-                    <div className="foodPrice">
+                    <div className="single-item__food-name">{item.name}</div>
+                    <div className="single-item__food-price">
                         <span>₹</span>{' '}
-                        <span className="price">{item.price}</span>
+                        <span className="single-item__price">{item.price}</span>
                     </div>
-                    <div className="combo">{item.description}</div>
+                    <div className="single-item__combo">{item.description}</div>
                 </div>
-                <div className="right">
-                    <div className="image">
+                <div className="single-item__image-and-button">
+                    <div className="single-item__image">
                         <img src={item.image} alt="" />
-                        <div className="button">
+                        <div className="single-item__button">
                             {flag ? (
                                 <ActionButtonForItems
                                     primaryKey={item.primaryKey}
