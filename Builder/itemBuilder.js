@@ -1,22 +1,31 @@
-function Item(name, isVeg, isBestseller, price, description, image, category, pk) {
-        this.name = name;
-        this.isVeg = isVeg;
-        this.isBestseller = isBestseller;
-        this.price = price;
-        this.description = description;
-        this.image = image;
-        this.category = category;
-        this.pk = pk
+function Item(
+    name,
+    isVeg,
+    isBestseller,
+    price,
+    description,
+    image,
+    category,
+    pk
+) {
+    this.name = name;
+    this.isVeg = isVeg;
+    this.isBestseller = isBestseller;
+    this.price = price;
+    this.description = description;
+    this.image = image;
+    this.category = category;
+    this.pk = pk;
 }
 
 var ItemBuilder = function () {
-    let name = "";
+    let name = '';
     let isVeg = false;
     let isBestseller = false;
     let price = 0;
-    let description = "";
-    let image = "";
-    let category = "";
+    let description = '';
+    let image = '';
+    let category = '';
     let pk = 0;
 
     return {
@@ -27,7 +36,7 @@ var ItemBuilder = function () {
         setIsVeg: function (isVeg) {
             this.isVeg = isVeg;
             return this;
-        }, 
+        },
         setIsBestseller: function (isBestseller) {
             this.isBestseller = isBestseller;
             return this;
@@ -53,12 +62,18 @@ var ItemBuilder = function () {
             return this;
         },
         build: function () {
-            return new Item(this.name, this.isVeg, this.isBestseller, this.price, this.description, this.image, this.category, this.pk);
-        }
+            return new Item(
+                this.name,
+                this.isVeg,
+                this.isBestseller,
+                this.price,
+                this.description,
+                this.image,
+                this.category,
+                this.pk
+            );
+        },
     };
-}
+};
 
 export { ItemBuilder };
-
-// let item = new ItemBuilder().setName("Wrapper").setIsVeg(true).setIsBestseller(true).setPrice(200).setDescription('2 Wrapper + 1 pepsi').setImage("Image").setCategory("Recommanded");
-// console.log(item);
