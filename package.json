@@ -42,7 +42,10 @@
         ]
     },
     "devDependencies": {
+<<<<<<< HEAD
         "eslint": "^5.6.0",
+=======
+>>>>>>> c43f1f5b6ce2e6b96d8799fbe491749cab12fb9f
         "immer": "^9.0.12"
     }
 }
