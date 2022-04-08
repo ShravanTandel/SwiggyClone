@@ -1,26 +1,25 @@
-.cart-item {
+.cart_item {
     display: flex;
     padding: 35rem 0 0 0;
 }
 
-.cart-item__veg {
+.cart_item .veg {
     color: green;
     width: 25rem;
 }
 
-.cart-item__nonveg {
+.cart_item .nonVeg {
     color: red;
     width: 25rem;
 }
 
-.cart-item__dishName {
+.cart_item .dishName {
     padding: 0 20rem 0 5rem;
     max-width: 150rem;
 }
 
-.cart-item__price {
+.cart_item .price {
     float: right;
     padding: 0 0 0 5rem;
     align-items: center;
-    width: 35rem;
 }

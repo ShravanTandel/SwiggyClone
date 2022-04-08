@@ -5,15 +5,12 @@ import React from 'react';
 function FavouriteCheckbox() {
     return (
         <div className="favourite">
-            <div className="favourite__checkbox-div">
+            <div className="checkbox-div">
                 <label>
-                    <input
-                        type="checkbox"
-                        className="favourite__checkbox-div__checkbox"
-                    />
+                    <input type="checkbox" className="checkbox" />
                 </label>
             </div>
-            <span className="favourite__name">Favourite</span>
+            <span className="name">Favourite</span>
         </div>
     );
 }

@@ -1,3 +1,3 @@
-import AddButton from './AddButton';
+import AddButtonControlled from './AddButtonContainer';
 
-export default AddButton;
+export default AddButtonControlled;

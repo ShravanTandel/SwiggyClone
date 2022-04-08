@@ -6,7 +6,15 @@ import { menuItemList } from '../../../../models/itemList';
 import { sideMenu } from '../../../../models/menu';
 import _ from 'lodash';
 
-function ListByCategory({ isVeg, searchInputText, onFilter }) {
+function ListByCategory({
+    cartItems,
+    onClickADD,
+    onClickPlus,
+    onClickMinus,
+    isVeg,
+    searchInputText,
+    onFilter,
+}) {
     const getFilteredItemsAndCategory = (isVeg, menuItemList, sideMenu) => {
         if (isVeg) {
             const filteredItemsArray = menuItemList.filter((item) => {
@@ -31,8 +39,11 @@ function ListByCategory({ isVeg, searchInputText, onFilter }) {
         menuItemList,
         sideMenu
     ) => {
-        const [filteredItems, filteredCategory, filteredItemsArray] =
-            getFilteredItemsAndCategory(isVeg, menuItemList, sideMenu);
+        const [
+            filteredItems,
+            filteredCategory,
+            filteredItemsArray,
+        ] = getFilteredItemsAndCategory(isVeg, menuItemList, sideMenu);
 
         if (searchInputText.length !== 0) {
             const searchedItemsArray = filteredItemsArray.filter((item) => {
@@ -56,15 +67,19 @@ function ListByCategory({ isVeg, searchInputText, onFilter }) {
         return [filteredItems, filteredCategory, {}, []];
     };
 
-    const [filteredItems, filteredCategory, searchedItems, searchedCategory] =
-        useMemo(() => {
-            return getFilteredAndSearchedItemsAndCategory(
-                isVeg,
-                searchInputText,
-                menuItemList,
-                sideMenu
-            );
-        }, [isVeg, searchInputText]);
+    const [
+        filteredItems,
+        filteredCategory,
+        searchedItems,
+        searchedCategory,
+    ] = useMemo(() => {
+        return getFilteredAndSearchedItemsAndCategory(
+            isVeg,
+            searchInputText,
+            menuItemList,
+            sideMenu
+        );
+    }, [isVeg, searchInputText]);
 
     useEffect(() => {
         onFilter(filteredCategory);
@@ -74,19 +89,17 @@ function ListByCategory({ isVeg, searchInputText, onFilter }) {
         <div className="items">
             {searchInputText.length !== 0 ? (
                 <>
-                    <div className="items__search-result__name">
-                        Search Result
-                    </div>
+                    <div className="searchResult-name">Search Result</div>
                     {searchedCategory.length !== 0 ? (
                         searchedCategory.map((currentCategory, index) => {
                             return (
                                 <div key={index} className="item">
-                                    <div className="item__name-and-length">
-                                        <span className="item__name">
+                                    <div className="name_and_length">
+                                        <span className="name">
                                             {currentCategory}
                                         </span>
                                         <br />
-                                        <span className="item__length">
+                                        <span className="length">
                                             {
                                                 searchedItems[currentCategory]
                                                     .length
@@ -94,11 +107,15 @@ function ListByCategory({ isVeg, searchInputText, onFilter }) {
                                             items
                                         </span>
                                     </div>
-                                    <div className="item__list">
+                                    <div className="listItems">
                                         <Items
                                             data={
                                                 searchedItems[currentCategory]
                                             }
+                                            cartItems={cartItems}
+                                            onClickADD={onClickADD}
+                                            onClickPlus={onClickPlus}
+                                            onClickMinus={onClickMinus}
                                         />
                                     </div>
                                 </div>
@@ -106,7 +123,7 @@ function ListByCategory({ isVeg, searchInputText, onFilter }) {
                         })
                     ) : (
                         <>
-                            <div className="search-result-empty">
+                            <div className="searchResultEmpty">
                                 Search Result Empty
                             </div>
                             <hr></hr>
@@ -117,17 +134,21 @@ function ListByCategory({ isVeg, searchInputText, onFilter }) {
             {filteredCategory.map((currentCategory, index) => {
                 return (
                     <div id={index + 1} key={index} className="item">
-                        <div className="item__name-and-length">
-                            <span className="item__name">
-                                {currentCategory}
-                            </span>
+                        <div className="name_and_length">
+                            <span className="name">{currentCategory}</span>
                             <br />
-                            <span className="item__length">
+                            <span className="length">
                                 {filteredItems[currentCategory].length} items
                             </span>
                         </div>
-                        <div className="item__list">
-                            <Items data={filteredItems[currentCategory]} />
+                        <div className="listItems">
+                            <Items
+                                data={filteredItems[currentCategory]}
+                                cartItems={cartItems}
+                                onClickADD={onClickADD}
+                                onClickPlus={onClickPlus}
+                                onClickMinus={onClickMinus}
+                            />
                         </div>
                     </div>
                 );

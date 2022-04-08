@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.breadCrumbs--dark {
+.breadCrumbs .dark {
     color: #3d4152;
     padding-left: 5rem;
 }

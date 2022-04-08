@@ -1,14 +1,14 @@
-import './filters.style.css';
+import './inputs.style.css';
 
 import React from 'react';
+import FavouriteCheckbox from './components/favouriteCheckbox/FavouriteCheckbox';
 import VegOnlyCheckbox from './components/vegOnlyCheckbox/VegOnlyCheckbox';
 import SearchBar from './components/searchBar/SearchBar';
-import FavouriteCheckbox from './components/favouriteCheckbox/FavouriteCheckbox';
 
 function Filters({ isVeg, searchInputText, onCheckboxClick, onChange }) {
     return (
         <div className="searchbar-and-checkboxes">
-            <div className="searchbar-and-checkboxes__group">
+            <div className="searchbar-and-checkboxes-1">
                 <FavouriteCheckbox />
                 <VegOnlyCheckbox
                     isVeg={isVeg}

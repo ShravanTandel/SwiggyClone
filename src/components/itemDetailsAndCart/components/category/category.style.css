@@ -1,19 +1,20 @@
-.menu-item-and-cart .category {
+.menuAndCart .category {
     min-width: 250rem;
     max-width: 250rem;
 }
 
-.menu-item-and-cart .category li {
+.menuAndCart .category li {
     list-style: none;
     text-align: right;
     padding: 3rem 10rem 3rem 0rem;
 }
 
-.menu-item-and-cart .category li a:hover {
+.menuAndCart .category li a:hover,
+.menuAndCart .category li a:focus {
     color: orange;
 }
 
-.menu-item-and-cart .category li a {
+.menuAndCart .category li a {
     text-decoration: none;
     color: #808080;
     font-size: 15rem;

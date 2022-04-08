@@ -1,22 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { getCartItems } from '../../../../../../selectors/cartSelector';
 import Item from './components/item';
 
-function Items({ cartItems, data }) {
+function Items({ data, cartItems, onClickADD, onClickPlus, onClickMinus }) {
     return (
         <>
-            {data.map((d) => (
-                <Item key={d.primaryKey} item={d} cartItems={cartItems} />
-            ))}
+            {data.map((d) => {
+                return (
+                    <Item
+                        key={d.primaryKey}
+                        item={d}
+                        cartItems={cartItems}
+                        onClickADD={onClickADD}
+                        onClickPlus={onClickPlus}
+                        onClickMinus={onClickMinus}
+                    />
+                );
+            })}
         </>
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        cartItems: getCartItems(state),
-    };
-};
-
-export default connect(mapStateToProps)(Items);
+export default Items;

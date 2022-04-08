@@ -9,14 +9,14 @@
     margin-right: 22rem;
 }
 
-.veg-or-nonveg__checkbox-div {
+.veg-or-nonveg .checkbox-div {
     display: table-cell;
     vertical-align: top;
     padding-top: 11rem;
     text-align: right;
     width: 41rem;
 }
-.veg-or-nonveg__checkbox-div label {
+.veg-or-nonveg .checkbox-div label {
     margin-right: 10rem;
     width: 16rem;
     height: 16rem;
@@ -25,7 +25,7 @@
     cursor: default;
 }
 
-.veg-or-nonveg__name {
+.veg-or-nonveg .name {
     display: table-cell;
     vertical-align: middle;
     padding-right: 15rem;
@@ -35,6 +35,6 @@
     will-change: color;
 }
 
-.veg-or-nonveg__name:hover {
+.veg-or-nonveg .name:hover {
     color: green;
 }

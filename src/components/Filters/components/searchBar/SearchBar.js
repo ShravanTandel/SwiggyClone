@@ -5,7 +5,7 @@ import React from 'react';
 function SearchBar({ searchInputText, onChange }) {
     return (
         <div className="searchbar">
-            <div className="searchbar__input">
+            <div className="searchbar-1">
                 <label>
                     <input
                         type="text"

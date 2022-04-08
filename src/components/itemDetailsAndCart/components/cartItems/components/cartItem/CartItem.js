@@ -1,27 +1,26 @@
 import './cartItem.style.css';
 
 import React from 'react';
+import ActionButton from './components/actionButton/ActionButton';
 
-import ActionButton from '../cartItem/components/actionButton/ActionButton';
-
-function CartItem({ cartItem }) {
+function CartItem({ cartItem, onClickPlus, onClickMinus }) {
     return (
-        <div className="cart-item" key={cartItem.primaryKey}>
-            <div className="cart-item__veg-or-nonveg">
+        <div className="cart_item" key={cartItem.primaryKey}>
+            <div className="cart_vegORnonveg">
                 {cartItem.isVeg ? (
-                    <div className="cart-item__veg">Veg</div>
+                    <div className="veg">Veg</div>
                 ) : (
-                    <div className="cart-item__nonveg">Non Veg</div>
+                    <div className="nonVeg">Non Veg</div>
                 )}
             </div>
-            <div className="cart-item__dishName">{cartItem.name}</div>
+            <div className="dishName">{cartItem.name}</div>
             <ActionButton
                 count={cartItem.count}
+                onClickPlus={onClickPlus}
                 primaryKey={cartItem.primaryKey}
+                onClickMinus={onClickMinus}
             />
-            <div className="cart-item__price">
-                ₹ {cartItem.price * cartItem.count}
-            </div>
+            <div className="price">₹ {cartItem.price * cartItem.count}</div>
         </div>
     );
 }

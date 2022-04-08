@@ -1,4 +1,4 @@
-.add{
+.add {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -11,6 +11,6 @@
     font-size: 14rem;
 }
 
-.add:hover{
+.add:hover {
     box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
 }

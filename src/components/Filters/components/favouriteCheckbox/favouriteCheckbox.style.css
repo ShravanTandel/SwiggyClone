@@ -9,7 +9,7 @@
     margin-right: 22rem;
 }
 
-.favourite__name {
+.favourite .name {
     display: table-cell;
     vertical-align: middle;
     padding-right: 15rem;
@@ -19,11 +19,11 @@
     will-change: color;
 }
 
-.favourite__name:hover {
+.favourite .name:hover {
     color: red;
 }
 
-.favourite__checkbox-div {
+.favourite .checkbox-div {
     display: table-cell;
     vertical-align: top;
     padding-top: 11rem;
@@ -31,7 +31,7 @@
     width: 41rem;
 }
 
-.favourite__checkbox-div label {
+.favourite .checkbox-div label {
     margin-right: 10rem;
     width: 16rem;
     height: 16rem;

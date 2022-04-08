@@ -2,22 +2,12 @@ import './addButton.style.css';
 
 import React from 'react';
 
-import { addCartItem } from '../../../../../../../../../../actions/cartActionsCreators';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
-function AddButton({ addItemsToCart, data, primaryKey }) {
+function AddButton({ data, onClickADD, primaryKey }) {
     return (
-        <div className="add" onClick={() => addItemsToCart(primaryKey)}>
+        <div className="add" onClick={() => onClickADD(primaryKey)}>
             {data}
         </div>
     );
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addItemsToCart: bindActionCreators(addCartItem, dispatch),
-    };
-};
-
-export default connect(null, mapDispatchToProps)(AddButton);
+export default AddButton;

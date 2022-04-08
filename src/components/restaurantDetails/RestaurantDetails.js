@@ -6,49 +6,35 @@ import burgerImage from '../../images/burgerImage.jpeg';
 
 function RestaurantDetails() {
     return (
-        <div className="restaurant-details">
-            <div className="restaurant-details__image">
+        <div className="details">
+            <div className="image">
                 <img src={burgerImage} alt="" />
             </div>
-            <div className="restaurant-details__dashboard">
-                <div className="restaurant-details__name">Burger King</div>
-                <div className="restaurant-details__type-of-food">
-                    American, Fast Food
-                </div>
-                <div className="restaurant-details__landmark">
+            <div className="dashbroad">
+                <div className="name">Burger King</div>
+                <div className="typeOfFood">American, Fast Food</div>
+                <div className="landmark">
                     Opposite To West Side, Shivaji Nagar | Change Outlet
                 </div>
-                <div className="restaurant-details__other-details">
-                    <div className="restaurant-details__rating">
-                        <span className="restaurant-details__rating__average">
-                            4.2
-                        </span>
-                        <span className="restaurant-details__rating__no-of-rating">
-                            1000+ Rating
-                        </span>
+                <div className="otherDetails">
+                    <div className="rating">
+                        <span className="r1">4.2</span>
+                        <span className="r2">1000+ Rating</span>
                     </div>
-                    <div className="restaurant-details__time">
-                        <span className="restaurant-details__time__minute">
-                            37 mins
-                        </span>
-                        <span className="restaurant-details__time__text">
-                            Delivery Time
-                        </span>
+                    <div className="time">
+                        <span className="r1">37 mins</span>
+                        <span className="r2">Delivery Time</span>
                     </div>
-                    <div className="restaurant-details__cost">
-                        <span className="restaurant-details__cost__rupees">
-                            $ 350
-                        </span>
-                        <span className="restaurant-details__cost__count">
-                            Cost for two
-                        </span>
+                    <div className="cost">
+                        <span className="r1">$ 350</span>
+                        <span className="r2">Cost for two</span>
                     </div>
                 </div>
             </div>
-            <div className="restaurant-details__offer-padding">
-                <div className="restaurant-details__offer">
-                    <div className="restaurant-details__offer__name">OFFER</div>
-                    <div className="restaurant-details__offer__list">
+            <div className="offer-padding">
+                <div className="offer">
+                    <div className="name">OFFER</div>
+                    <div className="list">
                         <ul>
                             <li>
                                 40% off up to ₹80 on select items | Use code
