@@ -1,4 +1,4 @@
-.details {
+.restaurant-details {
     display: flex;
     background-color: #000000;
     min-height: 250rem;
@@ -6,84 +6,112 @@
     padding-right: 200rem;
 }
 
-.details .image {
+.restaurant-details__image {
     padding-top: 40rem;
     padding-bottom: 40rem;
 }
 
-.image img {
+.restaurant-details__image img {
     width: 250rem;
     height: 165rem;
 }
 
-.details .name {
+.restaurant-details__name {
     color: #ffffff;
     font-size: 32rem;
     font-weight: lighter;
 }
 
-.dashbroad {
+.restaurant-details__dashboard {
     padding: 40rem 50rem 40rem 50rem;
     min-width: 600rem;
 }
 
-.dashbroad .typeOfFood {
+.restaurant-details__type-of-food {
     color: #a0a0a0;
     padding: 13rem 0 0 0;
     font-size: 16rem;
 }
 
-.dashbroad .landmark {
+.restaurant-details__landmark {
     color: #a0a0a0;
     padding: 13rem 0 0 0;
     font-size: 13rem;
 }
 
-.otherDetails {
+.restaurant-details__other-details {
     padding: 16rem 0 0 0;
     display: flex;
 }
 
-.r1 {
+.restaurant-details__rating__average {
     color: #ffffff;
     padding: 5rem 0 8rem 0;
     float: left;
     font-size: 16rem;
 }
 
-.r2 {
+.restaurant-details__rating__no-of-rating {
     color: #a0a0a0;
     float: left;
     clear: left;
     font-size: 13rem;
 }
 
-.rating {
+.restaurant-details__rating {
     padding-right: 15rem;
 }
 
-.time {
+.restaurant-details__time {
     padding: 0 15rem 0 15rem;
 }
 
-.cost {
+.restaurant-details__time__minute {
+    color: #ffffff;
+    padding: 5rem 0 8rem 0;
+    float: left;
+    font-size: 16rem;
+}
+
+.restaurant-details__time__text {
+    color: #a0a0a0;
+    float: left;
+    clear: left;
+    font-size: 13rem;
+}
+
+.restaurant-details__cost {
     padding: 0 15rem 0 15rem;
 }
 
-.offer-padding {
+.restaurant-details__cost__rupees {
+    color: #ffffff;
+    padding: 5rem 0 8rem 0;
+    float: left;
+    font-size: 16rem;
+}
+
+.restaurant-details__cost__count {
+    color: #a0a0a0;
+    float: left;
+    clear: left;
+    font-size: 13rem;
+}
+
+.restaurant-details__offer-padding {
     width: 298rem;
     padding: 74rem 0 48rem;
     height: 100%;
 }
 
-.offer {
+.restaurant-details__offer {
     border: 1rem solid rgba(255, 255, 255, 0.3);
     transform: translateZ(0);
     transition: transform 0.2s ease-in-out;
     position: relative;
 }
 
-.offer .name {
+.restaurant-details__offer__name {
     background-color: #000000;
     color: white;
     font-size: 20rem;
@@ -97,12 +125,12 @@
     left: -6rem;
 }
 
-.list {
+.restaurant-details__offer__list {
     color: #dedede;
     padding: 30rem 30rem 30rem 30rem;
 }
 
-.list li {
+.restaurant-details__offer__list li {
     list-style: none;
     font-size: 14rem;
     padding: 5rem 0 0 5rem;

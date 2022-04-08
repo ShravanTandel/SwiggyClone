@@ -1,4 +1,4 @@
-.searchbar-and-checkboxes-1 .searchbar {
+.searchbar-and-checkboxes__group .searchbar {
     width: 240rem;
     display: table;
     table-layout: fixed;
@@ -8,14 +8,14 @@
     background-color: #fff;
 }
 
-.searchbar-and-checkboxes-1 .searchbar .searchbar-1 {
+.searchbar-and-checkboxes__group .searchbar .searchbar__input {
     vertical-align: middle;
     display: table-cell;
     width: 100%;
     height: 100%;
 }
 
-.searchbar-and-checkboxes-1 .searchbar .searchbar-1 input {
+.searchbar-and-checkboxes__group .searchbar .searchbar__input input {
     display: inherit;
     padding-left: 20rem;
     border: none;
@@ -33,6 +33,6 @@
     background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
 }
 
-.searchbar-and-checkboxes-1 .searchbar .searchbar-1 input:focus {
+.searchbar-and-checkboxes__group .searchbar .searchbar__input input:focus {
     outline: none;
 }
