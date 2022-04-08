@@ -1,0 +1,127 @@
+.thankyou {
+    padding: 50rem 200rem 100rem 200rem;
+    background-color: #e9ecee;
+    height: 80vh;
+}
+
+.thankyou_message {
+    background-color: #dbe5dc;
+    border: 1px solid #60b246;
+    font-size: 20rem;
+    text-align: center;
+    width: 650rem;
+    height: 50rem;
+    padding: 10rem 0 0 0;
+    color: #60b246;
+    text-transform: uppercase;
+}
+
+.green-message {
+    background-color: #dbe5dc;
+    border: 1px solid #60b246;
+    color: #60b246;
+}
+
+.red-message {
+    background-color: #e5dbdb;
+    border: 1px solid #f5424e;
+    color: #f5424e;
+}
+
+.thankyou__order-details {
+    margin-top: 50rem;
+    display: flex;
+}
+
+.thankyou__order-details__table {
+    padding: 20rem 0rem 20rem 0rem;
+    max-height: 40vh;
+    overflow-y: scroll;
+    width: 650rem;
+    background-color: #fff;
+    justify-content: flex-start;
+    margin-right: 200rem;
+}
+
+.thankyou__order-details__heading {
+    display: flex;
+    font-size: 20rem;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20rem 0 20rem;
+}
+
+.thankyou__subtotal {
+    justify-content: flex-end;
+    width: 350rem;
+    background-color: #fff;
+    height: 250rem;
+}
+
+.thankyou__subtotal__restro-detail {
+    padding: 20px 30px;
+    background: #fff;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.thankyou__subtotal__restro-detail__image img {
+    width: 75rem;
+    height: 50rem;
+}
+
+.thankyou__subtotal__restro-detail__location-and-name {
+    margin-left: 14px;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-height: 50px;
+}
+
+.thankyou__subtotal__restro-detail__restro-name {
+    font-size: 17rem;
+    color: #282c3f;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.thankyou__subtotal__restro-detail__restro-location {
+    font-size: 13rem;
+    color: #686b78;
+}
+
+.thankyou__subtotal__bill {
+    padding: 20px 30px;
+    font-size: 15px;
+}
+
+.thankyou__subtotal__bill__heading {
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #282c3f;
+}
+
+.thankyou__subtotal__bill__total-amount {
+    color: #686b78;
+}
+
+.thankyou__subtotal__bill__amount {
+    text-align: right;
+}
+
+.thankyou__subtotal__thankyou-text {
+    display: flex;
+    width: 100%;
+    background-color: #60b246;
+    color: #fff;
+    height: 100rem;
+    font-size: 16rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+}

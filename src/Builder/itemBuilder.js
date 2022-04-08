@@ -18,7 +18,7 @@ function Item(
     this.primaryKey = primaryKey;
 }
 
-var ItemBuilder = function () {
+var ItemBuilder = function() {
     return {
         constructor() {
             this.name = '';
@@ -30,39 +30,39 @@ var ItemBuilder = function () {
             this.category = '';
             this.primaryKey = 0;
         },
-        setName: function (name) {
+        setName: function(name) {
             this.name = name;
             return this;
         },
-        setIsVeg: function (isVeg) {
+        setIsVeg: function(isVeg) {
             this.isVeg = isVeg;
             return this;
         },
-        setIsBestseller: function (isBestseller) {
+        setIsBestseller: function(isBestseller) {
             this.isBestseller = isBestseller;
             return this;
         },
-        setPrice: function (price) {
+        setPrice: function(price) {
             this.price = price;
             return this;
         },
-        setDescription: function (description) {
+        setDescription: function(description) {
             this.description = description;
             return this;
         },
-        setImage: function (image) {
+        setImage: function(image) {
             this.image = image;
             return this;
         },
-        setCategory: function (category) {
+        setCategory: function(category) {
             this.category = category;
             return this;
         },
-        setPrimaryKey: function (primaryKey) {
+        setPrimaryKey: function(primaryKey) {
             this.primaryKey = primaryKey;
             return this;
         },
-        build: function () {
+        build: function() {
             return new Item(
                 this.name,
                 this.isVeg,

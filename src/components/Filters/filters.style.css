@@ -1,0 +1,28 @@
+.searchbar-and-checkboxes {
+    max-width: 1200rem;
+    min-width: 1200rem;
+    position: relative;
+    margin: 0 auto;
+}
+
+.searchbar-and-checkboxes__group {
+    display: table;
+    color: #3d4152;
+    font-weight: 500;
+    height: 40rem;
+    font-size: 14rem;
+    position: absolute;
+    bottom: 50rem;
+    width: 538rem;
+    transform: translate3d(0, 72rem, 0);
+    transition: transform 0.2s ease-in-out;
+    pointer-events: auto;
+    left: 250rem;
+}
+
+.searchResult-name {
+    color: orange;
+    font-weight: bold;
+    font-size: 30rem;
+    padding: 0rem 0rem 10rem 0rem;
+}

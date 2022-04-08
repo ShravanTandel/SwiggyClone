@@ -1,68 +1,68 @@
-.singleItem {
+.single-item {
     display: flex;
     padding: 35rem 0 35rem 0;
     font-size: 16rem;
 }
 
-.singleItem .left {
+.single-item__details {
     width: 480rem;
     padding-right: 20rem;
     justify-content: flex-start;
 }
 
-.singleItem .right {
+.single-item .right {
     justify-content: flex-end;
 }
 
-.singleItem .veg {
+.single-item__veg {
     color: green;
 }
 
-.singleItem .nonVeg {
+.single-item__nonveg {
     color: red;
 }
 
-.singleItem .foodName {
+.single-item__food-name {
     padding: 10rem 0 0 0;
     color: #282c3f;
 }
 
-.singleItem .foodPrice {
+.single-item__food-price {
     padding: 10rem 0 0 0;
     color: #282c3f;
 }
 
-.singleItem .combo {
+.single-item__combo {
     padding: 10rem 0 0 0;
     color: rgba(40, 44, 63, 0.45);
 }
 
-.singleItem .right {
+.single-item__image-and-button {
     justify-content: flex-end;
 }
 
-.singleItem .image img {
+.single-item__image img {
     width: 120rem;
     height: 100rem;
     border-radius: 10rem;
     float: right;
 }
 
-.listItems .singleItem .right .button {
+.single-item__button {
     color: #60b246;
     width: 100rem;
     height: 34rem;
     transform: translate(10rem, 75rem);
 }
 
-.singleItem .right .buttonSearch {
+.single-item__button .buttonSearch {
     color: #60b246;
     width: 100rem;
     height: 34rem;
     transform: translate(10rem, 75rem);
 }
 
-.singleItem .right .button .addSub {
+.single-item__button .add-and-sub-button {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -74,7 +74,7 @@
     font-size: 14rem;
 }
 
-.singleItem .right .buttonSearch .addSub {
+.single-item__button .buttonSearch .add-and-sub-button {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -86,22 +86,21 @@
     font-size: 14rem;
 }
 
-.singleItem .right .button .addSub .minus {
+.single-item__button .add-and-sub-button .minus {
     padding: 0rem 20rem 0rem 20rem;
     cursor: pointer;
 }
 
-.singleItem .right .buttonSearch .addSub .minus {
+.single-item__button .buttonSearch .add-and-sub-button .minus {
     padding: 0rem 20rem 0rem 20rem;
     cursor: pointer;
 }
 
-.singleItem .right .button .addSub .plus {
+.single-item__button .add-and-sub-button .plus {
     padding: 0rem 20rem 0rem 20rem;
     cursor: pointer;
 }
-
-.singleItem .right .buttonSearch .addSub .plus {
+.single-item__button .buttonSearch .add-and-sub-button .plus {
     padding: 0rem 20rem 0rem 20rem;
     cursor: pointer;
 }
@@ -113,14 +112,14 @@
     margin: 20rem 0;
 }
 
-.singleItem .right .buttonSearch .add:hover {
+.single-item__button .buttonSearch .add:hover {
     box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
 }
 
-.singleItem .right .button .addSub:hover {
+.single-item__button .add-and-sub-button:hover {
     box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
 }
 
-.singleItem .right .buttonSearch .addSub:hover {
+.single-item__button .buttonSearch .add-and-sub-button:hover {
     box-shadow: 0 3rem 15rem 0 rgb(40 44 63 / 20%);
 }
